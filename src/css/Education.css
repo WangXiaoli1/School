@@ -1,0 +1,33 @@
+.wrapC{
+    width: 100%;
+    height: 2930px;
+    background: transparent;
+}
+/*bannerC*/
+.bannerC{
+    width: 100%;
+    height: 450px;
+}
+.super-class{
+    width:100%;
+    height: 1050px;
+    background-image: url("../img/C-bg.png");
+    background-size:233px;
+    background-repeat: repeat-x;
+    background-position: left top;
+}
+.class{
+    width: 1000px;
+    height: 1050px;
+    margin: 0 auto;
+}
+.class h2{
+    width: 100%;
+    margin-top: 140px;
+    color: rgb(84, 194, 68);
+    font-size: 35px;
+    line-height: 25px;
+    font-family: "微软雅黑";
+    cursor: move;
+    text-align: center;
+}
