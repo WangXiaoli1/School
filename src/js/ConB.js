@@ -2,6 +2,7 @@
  * Created by Administrator on 2017/7/17.
  */
 import React, { Component } from 'react';
+import {BrowserRouter as Router,Route,Link} from 'react-router-dom';
 class ConB extends Component {
     constructor () {
         super();
@@ -83,7 +84,7 @@ class ConB extends Component {
                         <p>{this.data.introduce.conA}</p>
                         <p>{this.data.introduce.conB}</p>
                         <p>{this.data.introduce.conC}</p>
-                        <button>{this.data.introduce.btn}</button>
+                        <Link to="/forward"><button>{this.data.introduce.btn}</button></Link>
                     </div>
                 </div>
             </div>

@@ -2,6 +2,7 @@
  * Created by Administrator on 2017/7/19 0019.
  */
 import React,{Component} from 'react';
+import {BrowserRouter as Router,Route,Link} from 'react-router-dom';
 class Baby extends Component{
     constructor(){
         super();
@@ -49,7 +50,7 @@ class Baby extends Component{
                             {this.data.model.map(function (con) {
                                 return <p>{con.txt}</p>
                             })}
-                            <input type="button" value={this.data.btn.btn}/>
+                            <Link to="/forward"><input type="button" value={this.data.btn.btn}/></Link>
                         </div>
                     </div>
                 </div>
@@ -61,7 +62,7 @@ class Baby extends Component{
                             {this.data.park.map(function (con) {
                                 return <p>{con.txt}</p>
                             })}
-                            <input type="button" value={this.data.btn.btn}/>
+                            <Link to="/forward"><input type="button" value={this.data.btn.btn}/></Link>
                         </div>
                     </div>
                 </div>

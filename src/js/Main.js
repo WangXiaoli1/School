@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {BrowserRouter as Router,Route,Link} from 'react-router-dom';
 // import phone from 'img/phone.png';
 class Main extends Component {
   constructor(){
@@ -11,7 +12,6 @@ class Main extends Component {
           "content":{
                "bg":"img/bgA.jpg"
           },
-
           "con":[
               {"img":"img/circle-a.png","txt":"特色活动","txt1":"SPECIAL EVENTS"},
               {"img":"img/circle-b.png","txt":"描绘世界","txt1":"SPECIAL EVENTS"},
@@ -85,6 +85,7 @@ class Main extends Component {
   }
   render() {
     return (
+
         <div className="wrap">
             {/*轮播  start*/}
             <div className="banner">
@@ -124,7 +125,7 @@ class Main extends Component {
                                   {this.data.special.con}
                               </p>
                           </div>
-                          <input type="button" value={this.data.btn.btn} className="btn"/>
+                          <Link to="/forward"><input type="button" value={this.data.btn.btn} className="btn"/></Link>
                       </div>
                     {/*特色课程  end*/}
                     {/*彩绘课程  start*/}

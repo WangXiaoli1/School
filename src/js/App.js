@@ -8,6 +8,7 @@ import '../css/ConB.css';
 import '../css/Education.css';
 import '../css/Baby.css';
 import '../css/Teach.css';
+import '../css/Forward.css';
 
 
 
@@ -18,6 +19,7 @@ import ConB from './ConB';
 import Education from './Education';
 import Baby from './Baby';
 import Teach from './Teach';
+import Forward from './Forward';
 
 
 class App extends Component {
@@ -121,14 +123,15 @@ class App extends Component {
                     </div>
                 </div>
                 {/*导航 end*/}
-
+                {/*<Forward/>*/}
                 {/*change start*/}
                 <div className="center">
                     <Route exact path="/" component={Main}/>
-                    <Route  path="/ConB" component={ConB}/>
-                    <Route  path="/Education" component={Education}/>
-                    <Route  path="/Baby" component={Baby}/>
-                    <Route  path="/Teach" component={Teach}/>
+                    <Route path="/ConB" component={ConB}/>
+                    <Route path="/Education" component={Education}/>
+                    <Route path="/Baby" component={Baby}/>
+                    <Route path="/Teach" component={Teach}/>
+                    <Route path="/forward" component={Forward}/>
                 </div>
                 {/*change end*/}
                 {/*footer*/}
