@@ -115,6 +115,20 @@ a{-webkit-transition:all 0.2s linear 0s;-moz-transition: all 0.2s linear 0s;
     /*background-image: url("../img/footer-bg.jpg");*/
     background-size: 100% 100%;
 }
+@keyframes footerMove {
+    0%{
+        transform: translateX(100%);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
+.App-footer:hover .footerIn{
+    animation: 0.8s linear footerMove 1;
+}
+.footerIn{
+    width: 100%;
+}
 .footer{
     width: 1000px;
     height: 734px;

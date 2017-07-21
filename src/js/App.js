@@ -53,6 +53,7 @@ class App extends Component {
         };
     }
     componentDidMount=function () {
+        // 导航效果
         var nav=document.getElementById('nav');
         var navLi=nav.getElementsByTagName('li');
         for(var i=0;i<navLi.length;i++){
@@ -78,8 +79,11 @@ class App extends Component {
                 this.style.color='#fff';
             }
         }
+        // footer背景
         var footer = document.getElementById("App-footer");
         footer.style.backgroundImage = `url("${this.data.foot.bg}")`;
+        // footer动画效果
+
     };
 
     render(){
@@ -139,26 +143,28 @@ class App extends Component {
                 <div className="App-footer" id="App-footer">
                     <div className="footer">
                         {/*appfooterLeft*/}
-                        <div className="footer-left">
-                            <p>{this.data.foot.con1}</p>
-                            <div className="footerContact">
-                                <img src={this.data.foot.img} alt="地点"/>
-                                <div>
-                                    {this.data.contact.map(function(con){
-                                        return <p>{con.link}
-                                        </p>
-                                    })}
+                        <div className="footerIn">
+                            <div className="footer-left">
+                                <p>{this.data.foot.con1}</p>
+                                <div className="footerContact">
+                                    <img src={this.data.foot.img} alt="地点"/>
+                                    <div>
+                                        {this.data.contact.map(function(con){
+                                            return <p>{con.link}
+                                            </p>
+                                        })}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        {/*footer-right*/}
-                        <div className="footer-right">
-                            <p>姓名</p>
-                            <input type="text"/>
-                            <p>描述</p>
-                            <textarea>
+                            {/*footer-right*/}
+                            <div className="footer-right">
+                                <p>姓名</p>
+                                <input type="text"/>
+                                <p>描述</p>
+                                <textarea>
                         </textarea>
-                            <button>提交</button>
+                                <button>提交</button>
+                            </div>
                         </div>
                         {/*底部*/}
                         <p className="footer-pA">{this.data.bottom.copy}</p>
