@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {BrowserRouter as Router,Route,Link} from 'react-router-dom';
+import $ from 'jquery';
 
 
 import '../css/App.css';
@@ -9,6 +10,9 @@ import '../css/Education.css';
 import '../css/Baby.css';
 import '../css/Teach.css';
 import '../css/Forward.css';
+import 'antd/dist/antd.css';
+
+
 
 
 
@@ -53,6 +57,17 @@ class App extends Component {
         };
     }
     componentDidMount=function () {
+
+        $.ajax({
+            url:'http://localhost:8005/text/texts',
+            type:'get',
+            success:function(a){
+                console.log(a)
+                this.setState({arr:a});
+            }.bind(this)
+        }) ;
+
+
         var nav=document.getElementById('nav');
         var navLi=nav.getElementsByTagName('li');
         for(var i=0;i<navLi.length;i++){
