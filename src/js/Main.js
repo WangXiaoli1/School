@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import {BrowserRouter as Router,Route,Link} from 'react-router-dom';
+import { Carousel } from 'antd';
+
 // import phone from 'img/phone.png';
 class Main extends Component {
   constructor(){
@@ -52,59 +54,55 @@ class Main extends Component {
 
       }
   }
-  componentDidMount(){
-      var girl=document.getElementById("girl");
-      girl.style.backgroundImage=`url("${this.data.special.img}")`;
+  componentDidMount() {
+          var girl = document.getElementById("girl");
+          girl.style.backgroundImage = `url("${this.data.special.img}")`;
 
-      var one=document.getElementById("one");
-      one.style.backgroundImage=`url("${this.data.side_l.img}")`;
+          var one = document.getElementById("one");
+          one.style.backgroundImage = `url("${this.data.side_l.img}")`;
 
-      var two=document.getElementById("two");
-      two.style.backgroundImage=`url("${this.data.side_l.img1}")`;
+          var two = document.getElementById("two");
+          two.style.backgroundImage = `url("${this.data.side_l.img1}")`;
 
-      var img_a=document.getElementById("img_a");
-      img_a.style.backgroundImage=`url("${this.data.side_r.img1}")`;
+          var img_a = document.getElementById("img_a");
+          img_a.style.backgroundImage = `url("${this.data.side_r.img1}")`;
 
-      var img_b=document.getElementById("img_b");
-      img_b.style.backgroundImage=`url("${this.data.side_r.img2}")`;
+          var img_b = document.getElementById("img_b");
+          img_b.style.backgroundImage = `url("${this.data.side_r.img2}")`;
 
-      var img_c=document.getElementById("img_c");
-      img_c.style.backgroundImage=`url("${this.data.side_r.img3}")`;
+          var img_c = document.getElementById("img_c");
+          img_c.style.backgroundImage = `url("${this.data.side_r.img3}")`;
 
-      var xhr=document.getElementById("xhr");
-      xhr.style.backgroundImage=`url("${this.data.side_r.img4}")`;
+          var xhr = document.getElementById("xhr");
+          xhr.style.backgroundImage = `url("${this.data.side_r.img4}")`;
 
-      var xhr_a=document.getElementById("xhr_a");
-      xhr_a.style.backgroundImage=`url("${this.data.school.img}")`;
+          var xhr_a = document.getElementById("xhr_a");
+          xhr_a.style.backgroundImage = `url("${this.data.school.img}")`;
 
-      var school=document.getElementById("school");
-      school.style.backgroundImage=`url("${this.data.school.img1}")`;
+          var school = document.getElementById("school");
+          school.style.backgroundImage = `url("${this.data.school.img1}")`;
 
-      var content=document.getElementById("content");
-      content.style.backgroundImage=`url("${this.data.content.bg}")`;
-  }
+          var content = document.getElementById("content");
+          content.style.backgroundImage = `url("${this.data.content.bg}")`;
+      }
   render() {
     return (
 
         <div className="wrap">
             {/*轮播  start*/}
-            <div className="banner">
-               <div className="lunbo">
-                 <img src={this.data.banner.banner_a} alt=""/>
-                 <img src={this.data.banner.banner_b} alt=""/>
-               </div>
-                <div className="arrow">
-                    <div className="arrow-l"><img src="img/left.png" alt=""/></div>
-                    <div className="arrow-r"><img src="img/right.png" alt=""/></div>
+                <div className="banner">
+                    <Carousel autoplay dots="false" arrows="true">
+                        <div><img src="img/bC.jpg" alt=""/></div>
+                        <div><img src="img/bD.jpg" alt=""/></div>
+                    </Carousel>
                 </div>
-            </div>
             {/*轮播 end*/}
             <div className="content" id="content">
                 <div className="box">
                     {/*课程列表 start*/}
                     <ul className="con">
-                        {this.data.con.map(function(con){
-                            return <li>
+                        {this.data.con.map(function(con,i){
+                            return <li key={i}>
                                 <img src={con.img} alt=""/>
                                 <div className="txt">
                                     <h2> {con.txt}</h2>

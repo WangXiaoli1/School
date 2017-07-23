@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {BrowserRouter as Router,Route,Link} from 'react-router-dom';
+import $ from 'jquery';
 
 
 import '../css/App.css';
@@ -9,6 +10,9 @@ import '../css/Education.css';
 import '../css/Baby.css';
 import '../css/Teach.css';
 import '../css/Forward.css';
+import 'antd/dist/antd.css';
+
+
 
 
 
@@ -53,7 +57,18 @@ class App extends Component {
         };
     }
     componentDidMount=function () {
-        // 导航效果
+
+        $.ajax({
+            url:'http://localhost:8005/text/texts',
+            type:'get',
+            success:function(a){
+                console.log(a)
+                this.setState({arr:a});
+            }.bind(this)
+        }) ;
+
+
+
         var nav=document.getElementById('nav');
         var navLi=nav.getElementsByTagName('li');
         for(var i=0;i<navLi.length;i++){
@@ -83,6 +98,20 @@ class App extends Component {
         var footer = document.getElementById("App-footer");
         footer.style.backgroundImage = `url("${this.data.foot.bg}")`;
         // footer动画效果
+        function moveX(id,t) {
+            var obj=document.getElementById(id);
+            var timer='';
+            var screenW=document.documentElement.offsetWidth;
+            obj.parentNode.style.overflow='hidden';
+            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            if(scrollTop=obj.offsetTop){
+                timer=setInterval(function () {
+                    obj.style.transition=t+"s";
+                    obj.style.transform="translateX("+0+")";
+                },500)
+            }
+        }
+        moveX('footerIn',0.6);
 
     };
 
@@ -143,7 +172,7 @@ class App extends Component {
                 <div className="App-footer" id="App-footer">
                     <div className="footer">
                         {/*appfooterLeft*/}
-                        <div className="footerIn">
+                        <div className="footerIn" id="footerIn">
                             <div className="footer-left">
                                 <p>{this.data.foot.con1}</p>
                                 <div className="footerContact">

@@ -36,6 +36,7 @@ class ConB extends Component {
         }
     }
     componentDidMount=function () {
+        // picture部分的悬浮黑条出现效果
         var picture=document.getElementById('picture');
         var picDiv=picture.getElementsByTagName('div');
         var picSpan=picture.getElementsByTagName('span');
@@ -49,7 +50,104 @@ class ConB extends Component {
                 this.children[0].style.bottom='-5px'
             }
         }
-    }
+        // picture部分效果完
+        // 动画效果
+
+        // Y轴动画
+        // function moveY(id,num) {
+        //     var obj=document.getElementById(id);
+        //     var timer='';
+        //     obj.parentNode.style.position='relative';
+        //     obj.style.position='absolute';
+        //     obj.style.overflow="hidden";
+        //     obj.style.marginTop=num+"px";
+        //     var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        //     if(scrollTop=obj.offsetTop){
+        //         timer=setInterval(function () {
+        //             obj.style.transition="1s";
+        //             obj.style.marginTop='';
+        //         },900)
+        //     }
+        // }
+        // moveY('environment',900);
+
+        // X轴动画
+        // function moveX(id,animationEffect,t) {
+        //     var obj=document.getElementById(id);
+        //     var timer='';
+        //     var screenW=document.documentElement.offsetWidth;
+        //     // var marginL=(screenW-1000)/2;
+        //     obj.parentNode.style.position='relative';
+        //     obj.parentNode.style.overflow='hidden';
+        //     obj.style[animationEffect]=screenW+"px";
+        //     var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        //     if(scrollTop=obj.offsetTop){
+        //         timer=setInterval(function () {
+        //             obj.style.transition=t+"s";
+        //             obj.style[animationEffect]=0+"px";
+        //         },900)
+        //     }
+        // }
+        // moveX('environment','marginLeft',1)
+
+
+        function moveX(id,t) {
+            var obj=document.getElementById(id);
+            var timer='';
+            var screenW=document.documentElement.offsetWidth;
+            obj.parentNode.style.overflow='hidden';
+            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            // if(scrollTop>=obj.offsetTop&&scrollTop<=obj.offsetTop+obj.offsetHeight){
+            // if(scrollTop>=obj.offsetTop&&scrollTop<=obj.offsetTop+obj.offsetHeight){
+                timer=setInterval(function () {
+                    obj.style.transition=t+"s";
+                    obj.style.transform="translateX("+0+")";
+                },500)
+            // }
+        }
+        // environment部分动画
+        var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        moveX('environment',0.5);
+
+        // picture部分动画
+        function pictureMoveX(id,t) {
+            var obj=document.getElementById(id);
+            var timer='';
+            var screenW=document.documentElement.offsetWidth;
+            obj.parentNode.style.overflow='hidden';
+            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            // if(scrollTop>=obj.offsetTop&&scrollTop<=obj.offsetTop+obj.offsetHeight){
+            timer=setInterval(function () {
+                obj.style.transition=t+"s";
+                obj.style.transform="translateX("+0+")";
+            },500)
+            // }
+        }
+        pictureMoveX('pictureA',0.5);
+        pictureMoveX('pictureB',0.6);
+        pictureMoveX('pictureC',0.5);
+        pictureMoveX('pictureD',0.8);
+        // if(scrollTop>=picture.offsetTop&&scrollTop<=picture.offsetTop+picture.offsetHeight){
+        //     alert(1);
+        //     // pictureMoveX('pictureA',0.5);
+        //     // pictureMoveX('pictureB',0.6);
+        //     // pictureMoveX('pictureC',0.5);
+        //     // pictureMoveX('pictureD',0.8);
+        // }
+        // if(scrollTop>=introduce.offsetTop&&scrollTop<=introduce.offsetTop+introduce.offsetHeight){
+        //     alert(2);
+        // }
+        // introduce部分动画
+        moveX('introduceA',0.5);
+        moveX('introduceB',0.4);
+        moveX('introduceC',0.4);
+        moveX('introduceD',0.4);
+        moveX('introduceE',0.5);
+        moveX('introduceF',0.4);
+        moveX('introduceG',0.4);
+        moveX('introduceI',0.5);
+
+    };
     render() {
         return (
             // 园所概况
@@ -57,35 +155,41 @@ class ConB extends Component {
                 <img src={this.data.banner.img} alt="" className="bannerB"/>
                 <div className="super-conB">
                     {/*environment*/}
-                    <div className="environment">
-                        <h2>{this.data.environment.title}</h2>
-                        <h3>{this.data.environment.enTitle}</h3>
-                        <div className="environment-left">
-                            <p>{this.data.environment.leftA}</p>
-                            <p>{this.data.environment.leftB}</p>
-                            <p>{this.data.environment.leftC}</p>
+                    <div className="environmentWrap">
+                        <div className="environment" id="environment">
+                            <h2>{this.data.environment.title}</h2>
+                            <h3>{this.data.environment.enTitle}</h3>
+                            <div className="environment-left">
+                                <p>{this.data.environment.leftA}</p>
+                                <p>{this.data.environment.leftB}</p>
+                                <p>{this.data.environment.leftC}</p>
+                            </div>
+                            <p>{this.data.environment.rightA}</p>
                         </div>
-                        <p>{this.data.environment.rightA}</p>
                     </div>
                     {/*picture*/}
-                    <div className="picture" id="picture">
-                        <div><span></span></div>
-                        <div><span></span></div>
-                        <div><span></span></div>
-                        <div><span></span></div>
-                    </div>
+                    {/*<div className="pictureWrap">*/}
+                        <div className="picture" id="picture">
+                            <div id="pictureA"><span></span></div>
+                            <div id="pictureB"><span></span></div>
+                            <div id="pictureC"><span></span></div>
+                            <div id="pictureD"><span></span></div>
+                        </div>
+                    {/*</div>*/}
                     {/*introduce*/}
-                    <div className="introduce">
-                        <img src={this.data.introduce.img} alt=""/>
-                        <h2>{this.data.introduce.title}</h2>
-                        <h3>{this.data.introduce.enTitleA}</h3>
-                        <h3>{this.data.introduce.enTitleB}</h3>
-                        <b></b>
-                        <p>{this.data.introduce.conA}</p>
-                        <p>{this.data.introduce.conB}</p>
-                        <p>{this.data.introduce.conC}</p>
-                        <Link to="/forward"><button>{this.data.introduce.btn}</button></Link>
-                    </div>
+                    {/*<div className="introduceWrap">*/}
+                        <div className="introduce" id="introduce">
+                            <img src={this.data.introduce.img} alt="" id="introduceA"/>
+                            <h2 id="introduceB">{this.data.introduce.title}</h2>
+                            <h3 id="introduceC">{this.data.introduce.enTitleA}</h3>
+                            <h3 id="introduceD">{this.data.introduce.enTitleB}</h3>
+                            <b id="introduceE"></b>
+                            <p id="introduceF">{this.data.introduce.conA}</p>
+                            <p id="introduceG">{this.data.introduce.conB}</p>
+                            <p id="introduceH">{this.data.introduce.conC}</p>
+                            <Link to="/forward"><button id="introduceI">{this.data.introduce.btn}</button></Link>
+                        </div>
+                    {/*</div>*/}
                 </div>
             </div>
         );

@@ -1,18 +1,52 @@
-
 /*轮播  start*/
+
+/*.ant-carousel .slick-slide {*/
+    /*text-align: center;*/
+    /*height: 160px;*/
+    /*line-height: 160px;*/
+    /*overflow: hidden;*/
+/*}*/
+/*slick-next*/
+@import "~antd/dist/antd.css";
+.ant-carousel .slick-prev:hover {
+    background: rgba(0,0,0,.2);
+}
+ .ant-carousel .slick-next:hover{
+    background: rgba(0,0,0,.2);
+}
+.ant-carousel .slick-prev{
+    left: 0;
+    background-image: url("../img/right.png");
+}
+.ant-carousel .slick-prev, .ant-carousel .slick-next {
+    position: absolute;
+    display: block;
+    height:71px;
+    width:71px;
+    line-height: 0;
+    font-size: 0;
+    cursor: pointer;
+    background: rgba(0,0,0,.1);
+    color: transparent;
+    top: 50%;
+    margin-top: -10px;
+    padding: 0;
+    border: 0;
+    outline: none;
+    z-index: 9999;
+    border-radius: 6px;
+}
+.ant-carousel .slick-next {
+    right: 0;
+}
 .banner{
-    width: 100%;
+    width:100%;
     height: 750px;
     overflow: hidden;
     position:relative;
 }
-.lunbo{
-    width: 200%;
-    height: 750px;
-
-}
 .banner img{
-    width: 50%;
+    width:100%;
     height: 750px;
 }
 .arrow{
@@ -21,42 +55,7 @@
     cursor: pointer;
 
 }
-.arrow-l{
-    width: 71px;
-    height: 71px;
-    background: rgba(0,0,0,.1);
-    position:absolute;
-    left: 0;
-    top: 50%;
-    -webkit-border-radius: 6px;
-}
-.arrow-l img{
-    width: 31px;
-    height: 31px;
-    margin:20px;
-}
-.arrow-l:hover{
-    color: #222222;
-    background: rgba(0,0,0,.2);
-}
-.arrow-r{
-    width: 71px;
-    height: 71px;
-    background: rgba(0,0,0,.1);
-    position:absolute;
-    right: 0;
-    top: 50%;
-    -webkit-border-radius: 6px;
-}
-.arrow-r img{
-    width: 31px;
-    height: 31px;
-    margin:20px;
-}
-.arrow-r:hover{
-    color: #222222;
-    background: rgba(0,0,0,.2);
-}
+
 /*轮播 end*/
 /*课程列表  start*/
 .content{
