@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-1.11.3.js">
+    </script>
+</head>
+<body>
+<script>
+    $.ajax({
+        'url':'http://localhost:8005/main',
+        'type':'get',
+        'success':function(opt){
+            console.log(opt)
+        }
+    })
+</script>
+</body>
+</html>

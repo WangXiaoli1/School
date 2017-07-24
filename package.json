@@ -1,23 +1,19 @@
 {
-  "name": "myapp",
-  "version": "0.1.0",
+  "name": "schooldata",
+  "version": "0.0.0",
   "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
   "dependencies": {
-    "antd": "^2.12.1",
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1",
-    "react-scripts": "1.0.10",
+    "body-parser": "~1.17.1",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.3",
+    "express": "~4.15.2",
+    "jade": "~1.11.0",
+    "morgan": "~1.8.1",
+    "serve-favicon": "~2.4.2",
     "formidable":"latest",
     "fs":"latest"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  },
-  "devDependencies": {
-    "react-router": "^4.1.1",
-    "react-router-dom": "^4.1.1"
   }
 }
