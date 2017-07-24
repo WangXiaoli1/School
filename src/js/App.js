@@ -29,14 +29,8 @@ import Forward from './Forward';
 class App extends Component {
     constructor () {
         super();
-        this.data = {
-            "nav": [
-                {"title": "首页","r":"/"},
-                {"title": "园所概况","r":"/ConB"},
-                {"title": "教育天地","r":"/Education"},
-                {"title": "宝宝乐园","r":"/Baby"},
-                {"title": "教师风采","r":"/Teach"}
-              ],
+        this.state = {
+               nav:[],
             "tel":{"tel":"020-00000000"},
             "foot":{
                 "con":" 儿童教育，其实不只是大人如何教育孩子，也是孩子如何教育大人，让大人成为更加完善的人，更加领悟生活真谛的人。",
@@ -57,18 +51,14 @@ class App extends Component {
         };
     }
     componentDidMount=function () {
-
         $.ajax({
-            url:'http://localhost:8005/text/texts',
+            url:'http://localhost:8005/text',
             type:'get',
             success:function(a){
-                console.log(a)
-                this.setState({arr:a});
+                console.log(a);
+                this.setState({nav:a});
             }.bind(this)
-        }) ;
-
-
-
+        });
         var nav=document.getElementById('nav');
         var navLi=nav.getElementsByTagName('li');
         for(var i=0;i<navLi.length;i++){
@@ -96,7 +86,7 @@ class App extends Component {
         }
         // footer背景
         var footer = document.getElementById("App-footer");
-        footer.style.backgroundImage = `url("${this.data.foot.bg}")`;
+        footer.style.backgroundImage = `url("${this.state.foot.bg}")`;
         // footer动画效果
         function moveX(id,t) {
             var obj=document.getElementById(id);
@@ -133,7 +123,7 @@ class App extends Component {
                         {/*报名 start*/}
                         <div className="phone">
                             <p>报名热线</p>
-                            <p>{this.data.tel.tel}</p>
+                            <p>{this.state.tel.tel}</p>
                         </div>
                         <div className="tel">
                             <img src="img/phone.png"/>
@@ -147,10 +137,15 @@ class App extends Component {
                 <div className="nav">
                     <div className="box">
                         <ul className="list" id="nav">
-                            {this.data.nav.map(function(con,i){
-                                return <Link to={con.r}><li>{con.title}
-                                </li></Link>
-                            })}
+                            {/*{this.data.nav.map(function(con,i){*/}
+                                {/*return <Link to={con.r}><li>{con.title}*/}
+                                {/*</li></Link>*/}
+                            {/*})}*/}
+                                {this.state.nav.map(function(e){
+                                    return <Link to={e.r}>
+                                        <li key={e.id}>{e.title}</li>
+                                        </Link>
+                                })}
                             <div className="clear"></div>
                         </ul>
                     </div>
@@ -174,11 +169,11 @@ class App extends Component {
                         {/*appfooterLeft*/}
                         <div className="footerIn" id="footerIn">
                             <div className="footer-left">
-                                <p>{this.data.foot.con1}</p>
+                                <p>{this.state.foot.con1}</p>
                                 <div className="footerContact">
-                                    <img src={this.data.foot.img} alt="地点"/>
+                                    <img src={this.state.foot.img} alt="地点"/>
                                     <div>
-                                        {this.data.contact.map(function(con){
+                                        {this.state.contact.map(function(con){
                                             return <p>{con.link}
                                             </p>
                                         })}
@@ -196,8 +191,8 @@ class App extends Component {
                             </div>
                         </div>
                         {/*底部*/}
-                        <p className="footer-pA">{this.data.bottom.copy}</p>
-                        <p className="footer-pB">{this.data.bottom.phone}</p>
+                        <p className="footer-pA">{this.state.bottom.copy}</p>
+                        <p className="footer-pB">{this.state.bottom.phone}</p>
                     </div>
                 </div>
                 {/*// Appfooter  END*/}
