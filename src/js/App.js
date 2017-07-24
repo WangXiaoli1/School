@@ -30,7 +30,7 @@ class App extends Component {
     constructor () {
         super();
         this.state = {
-               nav:[],
+            nav:[],
             "tel":{"tel":"020-00000000"},
             "foot":{
                 "con":" 儿童教育，其实不只是大人如何教育孩子，也是孩子如何教育大人，让大人成为更加完善的人，更加领悟生活真谛的人。",

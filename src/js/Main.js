@@ -7,13 +7,13 @@ import $ from 'jquery';
 class Main extends Component {
   constructor(){
       super();
-      this.state={
-           "banner":{
-               "banner_a":"img/bC.jpg",
-               "banner_b":"img/bD.jpg"
-           },
-          "content":{
-               "bg":"img/bgA.jpg"
+      this.state= {
+          "banner": {
+              "banner_a": "img/bC.jpg",
+              "banner_b": "img/bD.jpg"
+          },
+          "content": {
+              "bg": "img/bgA.jpg"
           },
           // "con":[
           //     { "img":"img/circle-a.png"},
@@ -21,35 +21,25 @@ class Main extends Component {
           //     { "img":"img/circle-c.png"},
           //     { "img":"img/circle-d.png"}
           // ],
-          main_con:[],
-          special:{},
-          // "special":{
-          //     "course":"特色课程",
+          main_con: [],
+          special: [],
+          "btn": {"btn": "我要预约"},
+          side_l: [],
+          // "side_l":{
+          //     "img":"../img/count.jpg",
+          //     "img1":"../img/girl-a.jpg",
+      //}
+          side_r:[],
+          // "side_r":{
+          //     "img1":"../img/class.jpg",
+          //     "img2":"../img/girl-b.jpg",
+          //     "img3":"../img/edu.jpg",
+          //     "img4":"../img/xhr.png",
+          //     "course":"品格教育",
           //     "txt":"LEARNING INTEREST",
-          //     "con":" 课程会让孩子们在每月的不同主题中得到非凡的学习体验。
-          // 伊顿主题课程将孩子日常生活中的方方面面进行合理整合,
-          // 让孩子们学会对身边的事物、动物、理念等进行区别和分类。
-          // 为他们发展更好的逻辑思维能力打下基础。
-          // 伊顿专业的老师和教育专家们将富有创造力的教学主体和教学环境
-          // 建立在丰富的蒙台梭利材料之上，每个月变换不同的主题，全年不间断。"
-          //     },
-          "btn":{"btn":"我要预约"},
-          "side_l":{
-              "img":"../img/count.jpg",
-              "img1":"../img/girl-a.jpg",
-              "course":"彩绘课程",
-              "txt":"LEARNING INTEREST",
-              "con":"为他们发展更好的逻辑思维能力打下基础。伊顿专业的老师和教育专家们将富有创造力的教学主体和教学环境建立在丰富的蒙台梭利材料之上，每个月变换不同的主题，全年不间断。"
-          },
-          "side_r":{
-              "img1":"../img/class.jpg",
-              "img2":"../img/girl-b.jpg",
-              "img3":"../img/edu.jpg",
-              "img4":"../img/xhr.png",
-              "course":"品格教育",
-              "txt":"LEARNING INTEREST",
-              "con":"让孩子们学会对身边的事物、动物、理念等进行区别和分类。为他们发展更好的逻辑思维能力打下基础。全年不间断。"
-          },
+          //     "con":"让孩子们学会对身边的事物、动物、理念等进行区别和分类。
+             // 为他们发展更好的逻辑思维能力打下基础。全年不间断。"
+          // },
           "school":{
               "title":"学校环境",
               "txt":"LEARNING INTEREST",
@@ -79,7 +69,26 @@ class Main extends Component {
               this.setState({special:b});
           }.bind(this)
       });
-          var one = document.getElementById("one");
+
+      $.ajax({
+          url:'http://localhost:8005/side_l',
+          type:'get',
+          success:function(b){
+              console.log(b);
+              this.setState({side_l:b});
+          }.bind(this)
+      });
+
+      $.ajax({
+          url:'http://localhost:8005/side_r',
+          type:'get',
+          success:function(b){
+              console.log(b);
+              this.setState({side_r:b});
+          }.bind(this)
+      });
+
+      var one = document.getElementById("one");
           one.style.backgroundImage = `url("${this.state.side_l.img}")`;
 
           var two = document.getElementById("two");
@@ -136,11 +145,14 @@ class Main extends Component {
                     {/*特色课程  start*/}
                       <div className="special" id="girl">
                           <div className="course">
-                              <h1>{this.state.special.course}</h1>
-                              <b>{this.state.special.txt}</b>
-                              <p>
-                                  {this.state.special.con}
-                              </p>
+                              {this.state.special.map(function (e) {
+                                  return <div>
+                                          <h1>{e.course}</h1>
+                                          <b>{e.txt}</b>
+                                          <p>{e.con}</p>
+                                      </div>
+
+                              })}
                           </div>
                           <Link to="/forward"><input type="button" value={this.state.btn.btn} className="btn"/></Link>
                       </div>
@@ -149,9 +161,13 @@ class Main extends Component {
                        <div className="course_a">
                            <div className="side_l">
                                <div className="one" id="one">
-                                   <h1>{this.state.side_l.course}</h1>
-                                   <h4>{this.state.side_l.txt}</h4>
-                                   <p>{this.state.side_l.con}</p>
+                                   {this.state.side_l.map(function (e) {
+                                       return <div>
+                                           <h1>{e.course}</h1>
+                                           <h4>{e.txt}</h4>
+                                           <p>{e.con}</p>
+                                       </div>
+                                   })}
                                </div>
                                <div className="two" id="two"></div>
                            </div>
@@ -160,9 +176,16 @@ class Main extends Component {
                                <div id="img_a"></div>
                                <div id="img_b"></div>
                                <div id="img_c">
-                                   <h1>{this.state.side_r.course}</h1>
-                                   <h4>{this.state.side_r.txt}</h4>
-                                   <p>{this.state.side_r.con}</p>
+                                   {this.state.side_r.map(function (e) {
+                                       return <div>
+                                           <h1>{e.course}</h1>
+                                           <h4>{e.txt}</h4>
+                                           <p>{e.con}</p>
+                                       </div>
+                                   })}
+                                   {/*<h1>{this.state.side_r.course}</h1>*/}
+                                   {/*<h4>{this.state.side_r.txt}</h4>*/}
+                                   {/*<p>{this.state.side_r.con}</p>*/}
                                </div>
                                <div id="xhr"></div>
                            </div>

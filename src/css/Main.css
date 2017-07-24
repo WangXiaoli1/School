@@ -211,20 +211,20 @@
 }
 .one h1{
     font-size: 25px;
-    color: white;
+    /*color: white;*/
     line-height: 20px;
     padding-top: 50px;
     width: 420px;
 }
 .one h4{
-    color: white;
+    /*color: white;*/
     margin-top: 5px;
     margin-bottom: 39px;
     width: 420px;
 }
 .one p{
     width: 420px;
-    color: white;
+    /*color: white;*/
     font-size: 14px;
     line-height: 25px;
 }
@@ -267,15 +267,15 @@
     padding-left: 55px;
 }
 .side_r div:nth-of-type(3) h1{
-    color: white;
+    /*color: white;*/
     font-size: 25px;
     padding-top:59px
 }
 .side_r div:nth-of-type(3) h4{
-    color: white;
+    /*color: white;*/
 }
 .side_r div:nth-of-type(3) p{
-    color: white;
+    /*color: white;*/
     font-size:14px;
     width: 319px;
     height: 75px;
