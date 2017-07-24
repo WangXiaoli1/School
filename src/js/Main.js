@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import {BrowserRouter as Router,Route,Link} from 'react-router-dom';
 import { Carousel } from 'antd';
+import $ from 'jquery';
 
 // import phone from 'img/phone.png';
 class Main extends Component {
   constructor(){
       super();
-      this.data={
+      this.state={
            "banner":{
                "banner_a":"img/bC.jpg",
                "banner_b":"img/bD.jpg"
@@ -14,18 +15,24 @@ class Main extends Component {
           "content":{
                "bg":"img/bgA.jpg"
           },
-          "con":[
-              {"img":"img/circle-a.png","txt":"特色活动","txt1":"SPECIAL EVENTS"},
-              {"img":"img/circle-b.png","txt":"描绘世界","txt1":"SPECIAL EVENTS"},
-              {"img":"img/circle-c.png","txt":"亲子乐园","txt1":"SPECIAL EVENTS"},
-              {"img":"img/circle-d.png","txt":"最新资讯","txt1":"SPECIAL EVENTS"},
-              ],
-          "special":{
-              "img":"../img/girl.png",
-              "course":"特色课程",
-              "txt":"LEARNING INTEREST",
-              "con":" 课程会让孩子们在每月的不同主题中得到非凡的学习体验。伊顿主题课程将孩子日常生活中的方方面面进行合理整合,让孩子们学会对身边的事物、动物、理念等进行区别和分类。为他们发展更好的逻辑思维能力打下基础。伊顿专业的老师和教育专家们将富有创造力的教学主体和教学环境建立在丰富的蒙台梭利材料之上，每个月变换不同的主题，全年不间断。"
-              },
+          // "con":[
+          //     { "img":"img/circle-a.png"},
+          //     { "img":"img/circle-b.png"},
+          //     { "img":"img/circle-c.png"},
+          //     { "img":"img/circle-d.png"}
+          // ],
+          main_con:[],
+          special:{},
+          // "special":{
+          //     "course":"特色课程",
+          //     "txt":"LEARNING INTEREST",
+          //     "con":" 课程会让孩子们在每月的不同主题中得到非凡的学习体验。
+          // 伊顿主题课程将孩子日常生活中的方方面面进行合理整合,
+          // 让孩子们学会对身边的事物、动物、理念等进行区别和分类。
+          // 为他们发展更好的逻辑思维能力打下基础。
+          // 伊顿专业的老师和教育专家们将富有创造力的教学主体和教学环境
+          // 建立在丰富的蒙台梭利材料之上，每个月变换不同的主题，全年不间断。"
+          //     },
           "btn":{"btn":"我要预约"},
           "side_l":{
               "img":"../img/count.jpg",
@@ -55,35 +62,49 @@ class Main extends Component {
       }
   }
   componentDidMount() {
-          var girl = document.getElementById("girl");
-          girl.style.backgroundImage = `url("${this.data.special.img}")`;
+      $.ajax({
+          url:'http://localhost:8005/main',
+          type:'get',
+          success:function(b){
+              console.log(b);
+              this.setState({main_con:b});
+          }.bind(this)
+      });
 
+      $.ajax({
+          url:'http://localhost:8005/special',
+          type:'get',
+          success:function(b){
+              console.log(b);
+              this.setState({special:b});
+          }.bind(this)
+      });
           var one = document.getElementById("one");
-          one.style.backgroundImage = `url("${this.data.side_l.img}")`;
+          one.style.backgroundImage = `url("${this.state.side_l.img}")`;
 
           var two = document.getElementById("two");
-          two.style.backgroundImage = `url("${this.data.side_l.img1}")`;
+          two.style.backgroundImage = `url("${this.state.side_l.img1}")`;
 
           var img_a = document.getElementById("img_a");
-          img_a.style.backgroundImage = `url("${this.data.side_r.img1}")`;
+          img_a.style.backgroundImage = `url("${this.state.side_r.img1}")`;
 
           var img_b = document.getElementById("img_b");
-          img_b.style.backgroundImage = `url("${this.data.side_r.img2}")`;
+          img_b.style.backgroundImage = `url("${this.state.side_r.img2}")`;
 
           var img_c = document.getElementById("img_c");
-          img_c.style.backgroundImage = `url("${this.data.side_r.img3}")`;
+          img_c.style.backgroundImage = `url("${this.state.side_r.img3}")`;
 
           var xhr = document.getElementById("xhr");
-          xhr.style.backgroundImage = `url("${this.data.side_r.img4}")`;
+          xhr.style.backgroundImage = `url("${this.state.side_r.img4}")`;
 
           var xhr_a = document.getElementById("xhr_a");
-          xhr_a.style.backgroundImage = `url("${this.data.school.img}")`;
+          xhr_a.style.backgroundImage = `url("${this.state.school.img}")`;
 
           var school = document.getElementById("school");
-          school.style.backgroundImage = `url("${this.data.school.img1}")`;
+          school.style.backgroundImage = `url("${this.state.school.img1}")`;
 
           var content = document.getElementById("content");
-          content.style.backgroundImage = `url("${this.data.content.bg}")`;
+          content.style.backgroundImage = `url("${this.state.content.bg}")`;
       }
   render() {
     return (
@@ -101,38 +122,36 @@ class Main extends Component {
                 <div className="box">
                     {/*课程列表 start*/}
                     <ul className="con">
-                        {this.data.con.map(function(con,i){
-                            return <li key={i}>
-                                <img src={con.img} alt=""/>
+                        {this.state.main_con.map(function (e) {
+                            return <li key={e.id}>
                                 <div className="txt">
-                                    <h2> {con.txt}</h2>
-                                    <p>{con.txt1}</p>
+                                    <h2>{e.txt}</h2>
+                                    <p>{e.txt1}</p>
                                     <h6></h6>
                                 </div>
                             </li>
                         })}
                     </ul>
                     {/*课程列表  end*/}
-                    
                     {/*特色课程  start*/}
                       <div className="special" id="girl">
                           <div className="course">
-                              <h1>{this.data.special.course}</h1>
-                              <b>{this.data.special.txt}</b>
+                              <h1>{this.state.special.course}</h1>
+                              <b>{this.state.special.txt}</b>
                               <p>
-                                  {this.data.special.con}
+                                  {this.state.special.con}
                               </p>
                           </div>
-                          <Link to="/forward"><input type="button" value={this.data.btn.btn} className="btn"/></Link>
+                          <Link to="/forward"><input type="button" value={this.state.btn.btn} className="btn"/></Link>
                       </div>
                     {/*特色课程  end*/}
                     {/*彩绘课程  start*/}
                        <div className="course_a">
                            <div className="side_l">
                                <div className="one" id="one">
-                                   <h1>{this.data.side_l.course}</h1>
-                                   <h4>{this.data.side_l.txt}</h4>
-                                   <p>{this.data.side_l.con}</p>
+                                   <h1>{this.state.side_l.course}</h1>
+                                   <h4>{this.state.side_l.txt}</h4>
+                                   <p>{this.state.side_l.con}</p>
                                </div>
                                <div className="two" id="two"></div>
                            </div>
@@ -141,9 +160,9 @@ class Main extends Component {
                                <div id="img_a"></div>
                                <div id="img_b"></div>
                                <div id="img_c">
-                                   <h1>{this.data.side_r.course}</h1>
-                                   <h4>{this.data.side_r.txt}</h4>
-                                   <p>{this.data.side_r.con}</p>
+                                   <h1>{this.state.side_r.course}</h1>
+                                   <h4>{this.state.side_r.txt}</h4>
+                                   <p>{this.state.side_r.con}</p>
                                </div>
                                <div id="xhr"></div>
                            </div>
@@ -153,10 +172,10 @@ class Main extends Component {
                     {/*学校环境 start*/}
                         <div className="school">
                             <div className="school_l">
-                                <h1>{this.data.school.title}</h1>
-                                <h4>{this.data.school.txt}</h4>
-                                <p>{this.data.school.con}</p>
-                                <p>{this.data.school.intro}</p>
+                                <h1>{this.state.school.title}</h1>
+                                <h4>{this.state.school.txt}</h4>
+                                <p>{this.state.school.con}</p>
+                                <p>{this.state.school.intro}</p>
                                 <div id="xhr_a"></div>
                             </div>
                             <div className="school_r">
