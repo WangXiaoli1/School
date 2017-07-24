@@ -135,7 +135,7 @@
     width: 993px;
     height: 640px;
     position: relative;
-    /*background-image:url("../img/girl.png");*/
+    background-image:url("../img/girl.png");
     background-repeat:no-repeat;
     background-size: 100%;
     animation: 0.7s  linear move2;

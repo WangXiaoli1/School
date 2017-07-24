@@ -22,12 +22,17 @@ class Main extends Component {
           //     { "img":"img/circle-d.png"}
           // ],
           main_con:[],
-          "special":{
-              "img":"../img/girl.png",
-              "course":"特色课程",
-              "txt":"LEARNING INTEREST",
-              "con":" 课程会让孩子们在每月的不同主题中得到非凡的学习体验。伊顿主题课程将孩子日常生活中的方方面面进行合理整合,让孩子们学会对身边的事物、动物、理念等进行区别和分类。为他们发展更好的逻辑思维能力打下基础。伊顿专业的老师和教育专家们将富有创造力的教学主体和教学环境建立在丰富的蒙台梭利材料之上，每个月变换不同的主题，全年不间断。"
-              },
+          special:{},
+          // "special":{
+          //     "course":"特色课程",
+          //     "txt":"LEARNING INTEREST",
+          //     "con":" 课程会让孩子们在每月的不同主题中得到非凡的学习体验。
+          // 伊顿主题课程将孩子日常生活中的方方面面进行合理整合,
+          // 让孩子们学会对身边的事物、动物、理念等进行区别和分类。
+          // 为他们发展更好的逻辑思维能力打下基础。
+          // 伊顿专业的老师和教育专家们将富有创造力的教学主体和教学环境
+          // 建立在丰富的蒙台梭利材料之上，每个月变换不同的主题，全年不间断。"
+          //     },
           "btn":{"btn":"我要预约"},
           "side_l":{
               "img":"../img/count.jpg",
@@ -65,9 +70,15 @@ class Main extends Component {
               this.setState({main_con:b});
           }.bind(this)
       });
-          var girl = document.getElementById("girl");
-          girl.style.backgroundImage = `url("${this.state.special.img}")`;
 
+      $.ajax({
+          url:'http://localhost:8005/special',
+          type:'get',
+          success:function(b){
+              console.log(b);
+              this.setState({special:b});
+          }.bind(this)
+      });
           var one = document.getElementById("one");
           one.style.backgroundImage = `url("${this.state.side_l.img}")`;
 

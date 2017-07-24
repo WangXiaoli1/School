@@ -57,33 +57,37 @@ class App extends Component {
             success:function(a){
                 console.log(a);
                 this.setState({nav:a});
-            }.bind(this)
-        });
-        var nav=document.getElementById('nav');
-        var navLi=nav.getElementsByTagName('li');
-        for(var i=0;i<navLi.length;i++){
-            navLi[i].style.backgroundColor='#4bb344';
-            navLi[i].style.color='#fff';
-            navLi[0].style.backgroundColor='#fff';
-            navLi[0].style.color='#4bb344';
-            navLi[i].onclick=function () {
+                var nav=document.getElementById('nav');
+                var navLi=nav.getElementsByTagName('li');
                 for(var i=0;i<navLi.length;i++){
                     navLi[i].style.backgroundColor='#4bb344';
                     navLi[i].style.color='#fff';
+                    navLi[0].style.backgroundColor='#fff';
+                    navLi[0].style.color='#4bb344';
+                    navLi[i].onclick=function () {
+                        for(var i=0;i<navLi.length;i++){
+                            navLi[i].style.backgroundColor='#4bb344';
+                            navLi[i].style.color='#fff';
+                        }
+                        this.style.backgroundColor='#fff';
+                        this.style.color='#4bb344';
+                    };
+                    // 悬浮
+                    navLi[i].onmouseover=function () {
+                        this.style.backgroundColor='#fff';
+                        this.style.color='#4bb344';
+                    };
+                    navLi[i].onmouseout=function () {
+                        this.style.backgroundColor='#4bb344';
+                        this.style.color='#fff';
+                    }
                 }
-                this.style.backgroundColor='#fff';
-                this.style.color='#4bb344';
-            };
-            // 悬浮
-            navLi[i].onmouseover=function () {
-                this.style.backgroundColor='#fff';
-                this.style.color='#4bb344';
-            };
-            navLi[i].onmouseout=function () {
-                this.style.backgroundColor='#4bb344';
-                this.style.color='#fff';
-            }
-        }
+
+
+
+            }.bind(this)
+        });
+
         // footer背景
         var footer = document.getElementById("App-footer");
         footer.style.backgroundImage = `url("${this.state.foot.bg}")`;
@@ -137,10 +141,6 @@ class App extends Component {
                 <div className="nav">
                     <div className="box">
                         <ul className="list" id="nav">
-                            {/*{this.data.nav.map(function(con,i){*/}
-                                {/*return <Link to={con.r}><li>{con.title}*/}
-                                {/*</li></Link>*/}
-                            {/*})}*/}
                                 {this.state.nav.map(function(e){
                                     return <Link to={e.r}>
                                         <li key={e.id}>{e.title}</li>
