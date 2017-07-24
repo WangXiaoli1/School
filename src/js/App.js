@@ -3,6 +3,7 @@ import {BrowserRouter as Router,Route,Link} from 'react-router-dom';
 import $ from 'jquery';
 
 
+
 import '../css/App.css';
 import '../css/Main.css';
 import '../css/ConB.css';
@@ -24,6 +25,7 @@ import Education from './Education';
 import Baby from './Baby';
 import Teach from './Teach';
 import Forward from './Forward';
+import GVerify from './GVerify';
 
 
 

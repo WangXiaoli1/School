@@ -2,6 +2,7 @@
  * Created by Administrator on 2017/7/20.
  */
 import React, { Component } from 'react';
+import GVerify from './GVerify';
 
 class Forward extends Component{
     componentDidMount=function () {
@@ -33,44 +34,49 @@ class Forward extends Component{
         }
 
         // 验证码
-        // var React = require('react');
-        // var AMR = require('amazeui-react');
-        // var Input = AMR.Input;
-        //
-        // var Captcha = React.createClass({
-        //     propTypes: {
-        //         bgImage: React.PropTypes.string,
-        //         size: React.PropTypes.number,
-        //         captchaType: React.PropTypes.oneOf(['Calculation', 'Normal']),
-        //         color: React.PropTypes.string
-        //     }
-        // })
-        var code;
-        function createCode() {
-            code = "";
-            var codeLength = 4; //验证码的长度
-            var checkCode = document.getElementById("checkCode");
-            var codeChars = new Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9,'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'); //所有候选组成验证码的字符，当然也可以用中文的
-            for (var i = 0; i < codeLength; i++){
-                var charNum = Math.floor(Math.random() * 52);
-                code += codeChars[charNum];
-            }
-            if (checkCode){
-                checkCode.className = "code";
-                checkCode.innerHTML = code;
-            }
+        var yan=document.getElementById('yan');
+        var change=document.getElementById('change');
+        var txt=document.getElementById('txt');
+        /**生成字母数组**/
+        // function getAllLetter() {
+            var letterStr = "a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z,0,1,2,3,4,5,6,7,8,9";
+            var letterString=letterStr.split(",");
+        // }
+        /**生成一个随机数**/
+        function randomNum(min, max) {
+            return Math.floor(Math.random() * (max - min) + min);
         }
-        function validateCode() {
-            var inputCode = document.getElementById("inputCode").value;
-            if (inputCode.length <= 0){
-                alert("请输入验证码！");
+        /**生成一个随机色**/
+        function randomColor(min, max) {
+            var r = randomNum(min, max);
+            var g = randomNum(min, max);
+            var b = randomNum(min, max);
+            return "rgba(" + r + "," + g + "," + b +","+0.4+ ")";
+        }
+        for(var i=0;i<4;i++){
+            yan.innerHTML+=letterString[randomNum(0, 62)]
+        }
+        change.onclick=function () {
+            yan.style.backgroundColor=randomColor(0, 255);
+            yan.innerHTML='';
+            for(var i=0;i<4;i++){
+                yan.innerHTML+=letterString[randomNum(0, 62)]
             }
-            else if (inputCode.toUpperCase() != code.toUpperCase()){
-                alert("验证码输入有误！");
-                createCode();
+            return yan.innerHTML
+        }
+        yan.onclick=function () {
+            yan.style.backgroundColor=randomColor(0, 255);
+            yan.innerHTML='';
+            for(var i=0;i<4;i++){
+                yan.innerHTML+=letterString[randomNum(0, 62)]
             }
-            else{
-                alert("验证码正确！");
+            return yan.innerHTML
+        }
+        txt.onblur=function () {
+            if(txt.value!=yan.innerHTML){
+                alert("验证码不正确")
+            }else{
+
             }
         }
 
@@ -78,7 +84,7 @@ class Forward extends Component{
     };
     render(){
         return(
-            <div className="wrapF" onload="createCode()">
+            <div className="wrapF">
                 <img src="img/bA.jpg" alt="" className="bannerF"/>
                 <div className="super-myMain">
                     <div className="myMain">
@@ -91,24 +97,13 @@ class Forward extends Component{
                          <h2>信息 <span>Information</span></h2>
                          <p><textarea id="message"></textarea></p>
                          <h2>验证码</h2>
-                         {/*<div><input type="text"/><img src="../img/validateCode.jpg"/><b>换一张</b><span>*</span></div>*/}
-                   {/*<button>提交</button>*/}
-                   //
-                   //       <form id="form1" runat="server" onsubmit="validateCode()">
-                   //            <div>
-                   //                <table border="0" cellspacing="5" cellpadding="5" >
-                                    {/*<tr>*/}
-                                        {/*<td></td><td> <div class="code" id="checkCode" onclick="createCode()" ></div></td>*/}
-                                        {/*<td><a  href="#" onclick="createCode()">看不清换一张</a></td>*/}
-                                    {/*</tr>*/}
-                                    {/*<tr>*/}
-                                        {/*<td>验证码：</td><td><input  style="float:left;" type="text"   id="inputCode" /></td><td>请输入验证码</td>*/}
-                                    {/*</tr>*/}
-                                    {/*<tr><td></td><td><input id="Button1"  onclick="validateCode();" type="button" value="确定" /></td><td></td>*/}
-                                    {/*</tr>*/}
-                                {/*</table>*/}
-                            {/*</div>*/}
-                        {/*</form>*/}
+                        <div>
+                            <input type="text" id="txt"/>
+                            <b id="yan"></b>
+                            <p id="change">换一换</p>
+                            <span>*</span>
+                        </div>
+                        <button>提交</button>
                     </div>
                 </div>
             </div>
