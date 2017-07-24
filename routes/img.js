@@ -54,13 +54,12 @@ router.post('/',function(req,res){
     })
 });
 
-
 //调取图片
-// router.get('/',function(req,res){
-//     res.header("Access-Control-Allow-Origin", "*");
-//     pool.query('select * from user',function(err,rows){
-//         if(err) throw err;
-//         res.send(rows);
-//     })
-// })
+router.get('/get',function(req,res){
+    res.header("Access-Control-Allow-Origin", "*");
+    pool.query('select * from img',function(err,rows){
+        if(err) throw err;
+        res.send(rows);
+    })
+})
 module.exports=router;

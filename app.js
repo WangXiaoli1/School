@@ -12,6 +12,8 @@ var get=require('./routes/get');
 var get1=require('./routes/get1');
 var img=require('./routes/img');
 
+var special=require('./routes/special');
+
 var app = express();
 
 // view engine setup
@@ -32,6 +34,7 @@ app.use('/users', users);
 app.use('/text',get);
 app.use('/main',get1);
 app.use('/img',img);
+app.use('/special',special);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

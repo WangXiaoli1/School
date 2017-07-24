@@ -33,7 +33,22 @@
                 console.log(e)
             }
         });
-    })
+    });
+
+
+    $.ajax({
+        type:"get",
+        url:"http://localhost:8005/img/get",
+        async:true,
+        success:function(e){
+            console.log(e)
+            for(var i=0;i<e.length;i++){
+                console.log(e[i].src)
+                $('.photo').append('<img src="'+e[i].src+'">')
+            }
+        }
+    });
+
 
 </script>
 
