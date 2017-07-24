@@ -42,7 +42,20 @@ class Education extends Component{
         for(var i=0;i<pictureCLeft.children.length;i++){
             pictureCLeft.children[i].style.backgroundImage=`url("${this.data.pictureCLeft[i].img}")`
         }
-        pictureCRight.style.backgroundImage=`url("${this.data.pictureCRight.img}")`
+        pictureCRight.style.backgroundImage=`url("${this.data.pictureCRight.img}")`;
+
+        // function moveY(id,t) {
+        //     var obj=document.getElementById(id);
+        //     var timer='';
+        //     var screenW=document.documentElement.offsetWidth;
+        //     obj.parentNode.style.overflow='hidden';
+        //     var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        //     timer=setInterval(function () {
+        //         obj.style.transition=t+"s";
+        //         obj.style.transform="translateY("+0+")";
+        //     },500)
+        // }
+        // moveY(id,t)
     }
     render(){
         return(
