@@ -24,6 +24,7 @@ class ConB extends Component {
                 {"img":"../img/pic-f.jpg"},
                 {"img":"../img/student-b.jpg"}
             ],
+
             introduce:[],
             // "introduce":{
             //     "img":"img/teacher.png",
@@ -36,6 +37,8 @@ class ConB extends Component {
             //     "btn":"我要预约"
             //
             // }
+
+
         }
     }
     componentDidMount=function () {

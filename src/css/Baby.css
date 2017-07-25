@@ -58,6 +58,7 @@
     text-align: center;
     line-height: 49px;
     margin-top:46px;
+    font-size: 15px;
 }
 /*baby end*/
 /*park start*/
@@ -69,11 +70,11 @@
     background-repeat: no-repeat;
 }
 .park_a{
-    width: 464px;
     height: 570px;
+    position: relative;
 }
+
 .park_a p:nth-of-type(1){
-    width: 464px;
     font-size: 35px;
     line-height: 25px;
     color: white;
@@ -83,7 +84,6 @@
     font-weight: bold;
 }
 .park_a p:nth-of-type(2){
-    width: 464px;
     font-size: 14px;
     color: white;
     padding-left:565px;
@@ -91,7 +91,6 @@
     text-align: center;
 }
 .park_a p:nth-of-type(3){
-    width: 464px;
     text-align: center;
     color: white;
     font-size: 15px;
@@ -100,7 +99,6 @@
     margin-top: 56px;
 }
 .park_a p:nth-of-type(4){
-    width: 464px;
     text-align: center;
     color: white;
     font-size: 15px;
@@ -117,6 +115,7 @@
     color: white;
     margin-left:740px;
     margin-top: 57px;
+    font-size: 15px;
 }
 /*park end*/
 /*create start*/
@@ -134,6 +133,7 @@
     line-height: 30px;
     color: #666666;
     padding-top: 158px;
+    font-size: 20px;
 }
 .create_con p:nth-of-type(2){
     font-size: 32px;
