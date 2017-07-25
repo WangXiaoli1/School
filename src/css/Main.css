@@ -1,11 +1,4 @@
 /*轮播  start*/
-
-/*.ant-carousel .slick-slide {*/
-    /*text-align: center;*/
-    /*height: 160px;*/
-    /*line-height: 160px;*/
-    /*overflow: hidden;*/
-/*}*/
 /*slick-next*/
 @import "~antd/dist/antd.css";
 .ant-carousel .slick-prev:hover {
@@ -112,13 +105,13 @@
 
 .txt h2{
     font-size: 25px;
-    /*color: white;*/
+    color: white;
     text-align: center;
     font-weight: bold;
     margin-top:20px;
 }
 .txt p{
-    /*color: white;*/
+    color: white;
     font-size: 14px;
     text-align: center;
 }

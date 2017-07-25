@@ -4,6 +4,7 @@ import { Carousel } from 'antd';
 import $ from 'jquery';
 
 // import phone from 'img/phone.png';
+
 class Main extends Component {
   constructor(){
       super();
@@ -54,6 +55,7 @@ class Main extends Component {
 
       }
   }
+
   componentDidMount() {
       $.ajax({
           url:'http://192.168.43.5:8005/main',
@@ -101,32 +103,60 @@ class Main extends Component {
           }.bind(this)
       });
 
-      var one = document.getElementById("one");
-          one.style.backgroundImage = `url("${this.state.side_l.img}")`;
+      $.ajax({
+          type:"get",
+          url:"http://localhost:8005/img/get",
+          async:true,
+          success:function(e){
+              console.log(e)
+              for(var i=0;i<e.length;i++){
+                  console.log(e[i].src)
+                  $('.photo').append('<img src="'+e[i].src+'">')
+              }
+          }
+      });
 
-          var two = document.getElementById("two");
-          two.style.backgroundImage = `url("${this.state.side_l.img1}")`;
 
-          var img_a = document.getElementById("img_a");
-          img_a.style.backgroundImage = `url("${this.state.side_r.img1}")`;
+      $.ajax({
+          type:"get",
+          url:"http://localhost:8005/img/sides",
+          success:function(e){
+              console.log(e);
+              for(var i=0;i<e.length;i++){
+                  console.log(e[i].src);
+                  $('.photo').append('<img src="'+e[i].src+'">');
+                  var one = document.getElementById("one");
+                  one.style.backgroundImage = `url("${e.src}")`;
+              }
+          }
+      });
 
-          var img_b = document.getElementById("img_b");
-          img_b.style.backgroundImage = `url("${this.state.side_r.img2}")`;
 
-          var img_c = document.getElementById("img_c");
-          img_c.style.backgroundImage = `url("${this.state.side_r.img3}")`;
 
-          var xhr = document.getElementById("xhr");
-          xhr.style.backgroundImage = `url("${this.state.side_r.img4}")`;
 
-          var xhr_a = document.getElementById("xhr_a");
-          xhr_a.style.backgroundImage = `url("${this.state.school.img}")`;
+          {/*var two = document.getElementById("two");*/}
+          {/*two.style.backgroundImage = `url("${this.state.side_l.img1}")`;*/}
 
-          var school = document.getElementById("school");
-          school.style.backgroundImage = `url("${this.state.school.img1}")`;
+          {/*var img_a = document.getElementById("img_a");*/}
+          {/*img_a.style.backgroundImage = `url("${this.state.side_r.img1}")`;*/}
 
-          var content = document.getElementById("content");
-          content.style.backgroundImage = `url("${this.state.content.bg}")`;
+          {/*var img_b = document.getElementById("img_b");*/}
+          {/*img_b.style.backgroundImage = `url("${this.state.side_r.img2}")`;*/}
+
+          {/*var img_c = document.getElementById("img_c");*/}
+          {/*img_c.style.backgroundImage = `url("${this.state.side_r.img3}")`;*/}
+
+          {/*var xhr = document.getElementById("xhr");*/}
+          {/*xhr.style.backgroundImage = `url("${this.state.side_r.img4}")`;*/}
+
+      //     var xhr_a = document.getElementById("xhr_a");
+      //     xhr_a.style.backgroundImage = `url("${this.state.school.img}")`;
+      //
+      //     var school = document.getElementById("school");
+      //     school.style.backgroundImage = `url("${this.state.school.img1}")`;
+      //
+      //     var content = document.getElementById("content");
+      //     content.style.backgroundImage = `url("${this.state.content.bg}")`;
       }
   render() {
     return (
@@ -146,6 +176,7 @@ class Main extends Component {
                     <ul className="con">
                         {this.state.main_con.map(function (e) {
                             return <li key={e.id}>
+                                <img src={e.src} alt=""/>
                                 <div className="txt">
                                     <h2>{e.txt}</h2>
                                     <p>{e.txt1}</p>
@@ -179,7 +210,9 @@ class Main extends Component {
                                            <h1>{e.course}</h1>
                                            <h4>{e.txt}</h4>
                                            <p>{e.con}</p>
+                                           <img src={e.src2} alt=""/>
                                        </div>
+
                                    })}
                                </div>
                                <div className="two" id="two"></div>
