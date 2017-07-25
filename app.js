@@ -15,6 +15,8 @@ var img=require('./routes/img');
 var special=require('./routes/special');
 var side_l=require('./routes/side_l');
 var side_r=require('./routes/side_r');
+var school=require('./routes/school');
+var  model=require('./routes/model');
 
 var app = express();
 
@@ -39,6 +41,8 @@ app.use('/img',img);
 app.use('/special',special);
 app.use('/side_l',side_l);
 app.use('/side_r',side_r);
+app.use('/school',school);
+app.use('/model',model);
 
 
 // catch 404 and forward to error handler
