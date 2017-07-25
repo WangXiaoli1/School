@@ -16,8 +16,6 @@ router.get("/",function(req,res){
         if (err) throw err;
         res.send(rows)
     });
-})
-
-
+});
 module.exports=router;
 

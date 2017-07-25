@@ -43,23 +43,30 @@ router.post('/',function(req,res){
             fs.renameSync(file.path,newPath);
             // res.send(fName)
         }
-        pool.query(`insert into img(src) values('http://localhost:8005/img/${fName}')`,function(err,rows){
+         pool.query(`insert into main_con(src) values('http://localhost:8005/img/${fName}')`,function(err,rows){
             if (err) throw err;
             if(rows){
                 res.send('上传成功')
             }
 
+        });
+
+        pool.query(`insert into main_side_l(src1) values('http://localhost:8005/img/${fName}')`,function(err,rows){
+            if (err) throw err;
+            if(rows){
+                res.send('上传成功')
+            }
         })
 
     })
 });
-
-//调取图片
-router.get('/get',function(req,res){
-    res.header("Access-Control-Allow-Origin", "*");
-    pool.query('select * from img',function(err,rows){
-        if(err) throw err;
-        res.send(rows);
-    })
-})
+//
+// //调取图片
+// router.get('/get',function(req,res){
+//     res.header("Access-Control-Allow-Origin", "*");
+//     pool.query('select * from img',function(err,rows){
+//         if(err) throw err;
+//         res.send(rows);
+//     })
+// })
 module.exports=router;

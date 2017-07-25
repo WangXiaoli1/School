@@ -10,7 +10,7 @@ var users = require('./routes/users');
 
 var get=require('./routes/get');
 var get1=require('./routes/get1');
-var img=require('./routes/img');
+var img=require('./routes/photo');
 
 var special=require('./routes/special');
 var side_l=require('./routes/side_l');
@@ -29,6 +29,12 @@ var teach_brand=require('./routes/teach_brand');
 var teach_leaderOne=require('./routes/teach_leaderOne');
 var teach_leaderTwo=require('./routes/teach_leaderTwo');
 var teach_leaderThree=require('./routes/teach_leaderThree');
+
+
+
+
+
+var photo=require('./routes/photo');
 
 var app = express();
 
@@ -67,6 +73,10 @@ app.use('/teach_brand',teach_brand);
 app.use('/teach_leaderOne',teach_leaderOne);
 app.use('/teach_leaderTwo',teach_leaderTwo);
 app.use('/teach_leaderThree',teach_leaderThree);
+
+
+
+app.use('/photo',photo);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
