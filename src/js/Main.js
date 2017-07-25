@@ -25,11 +25,8 @@ class Main extends Component {
           special: [],
           "btn": {"btn": "我要预约"},
           side_l: [],
-          // "side_l":{
-          //     "img":"../img/count.jpg",
-          //     "img1":"../img/girl-a.jpg",
-      //}
           side_r:[],
+          school:[],
           // "side_r":{
           //     "img1":"../img/class.jpg",
           //     "img2":"../img/girl-b.jpg",
@@ -40,14 +37,20 @@ class Main extends Component {
           //     "con":"让孩子们学会对身边的事物、动物、理念等进行区别和分类。
              // 为他们发展更好的逻辑思维能力打下基础。全年不间断。"
           // },
-          "school":{
-              "title":"学校环境",
-              "txt":"LEARNING INTEREST",
-              "con":"作为中外知名的双语学前教育机构，引进一流的教育管理模式、融合国内外先进的教研成果、拥有国际一流的教育专家团队和具有国际资格认证的中外教师队伍。",
-              "intro":"每个校园都是按照国际纯正蒙台梭利校园的特点和标准精心设计的，充满着温馨关爱的教育氛，打造了最适合孩子健康成长的校园环境。经过十年的积累与沉淀，目前伊顿已经发展成为引领中国幼教国际化发展的旗舰。",
-              "img":"../img/xhr-a.jpg",
-              "img1":"../img/school.png"
-          }
+      //     "school":{
+      //         "title":"学校环境",
+      //         "txt":"LEARNING INTEREST",
+      //         "con":"作为中外知名的双语学前教育机构，
+      //         引进一流的教育管理模式、融合国内外先进的教研成果、
+      //         拥有国际一流的教育专家团队和具有国际资格认证的中外教师队伍。
+      //         "intro":"每个校园都是按照国际纯正蒙台梭利校园的特点
+      // 和标准精心设计的，充满着温馨关爱的教育氛，
+      // 打造了最适合孩子健康成长的校园环境。
+      // 经过十年的积累与沉淀，
+      // 目前伊顿已经发展成为引领中国幼教国际化发展的旗舰。
+      //         "img":"../img/xhr-a.jpg",
+      //         "img1":"../img/school.png"
+      //     }
 
       }
   }
@@ -85,6 +88,16 @@ class Main extends Component {
           success:function(b){
               console.log(b);
               this.setState({side_r:b});
+          }.bind(this)
+      });
+
+
+      $.ajax({
+          url:'http://localhost:8005/school',
+          type:'get',
+          success:function(b){
+              console.log(b);
+              this.setState({school:b});
           }.bind(this)
       });
 
@@ -183,9 +196,6 @@ class Main extends Component {
                                            <p>{e.con}</p>
                                        </div>
                                    })}
-                                   {/*<h1>{this.state.side_r.course}</h1>*/}
-                                   {/*<h4>{this.state.side_r.txt}</h4>*/}
-                                   {/*<p>{this.state.side_r.con}</p>*/}
                                </div>
                                <div id="xhr"></div>
                            </div>
@@ -195,11 +205,21 @@ class Main extends Component {
                     {/*学校环境 start*/}
                         <div className="school">
                             <div className="school_l">
-                                <h1>{this.state.school.title}</h1>
-                                <h4>{this.state.school.txt}</h4>
-                                <p>{this.state.school.con}</p>
-                                <p>{this.state.school.intro}</p>
+                                {this.state.school.map(function (e) {
+                                    return <div>
+                                        <h1>{e.title}</h1>
+                                        <h4>{e.txt}</h4>
+                                        <p>{e.con}</p>
+                                        <p>{e.intro}</p>
+                                    </div>
+                                })}
                                 <div id="xhr_a"></div>
+
+
+                                {/*<h1>{this.state.school.title}</h1>*/}
+                                {/*<h4>{this.state.school.txt}</h4>*/}
+                                {/*<p>{this.state.school.con}</p>*/}
+                                {/*<p>{this.state.school.intro}</p>*/}
                             </div>
                             <div className="school_r">
                                 <div id="school"></div>

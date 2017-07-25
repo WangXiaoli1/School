@@ -25,7 +25,7 @@ import Education from './Education';
 import Baby from './Baby';
 import Teach from './Teach';
 import Forward from './Forward';
-import GVerify from './GVerify';
+
 
 
 

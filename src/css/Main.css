@@ -309,17 +309,24 @@
     color: #929292;
     margin-bottom: 73px;
     margin-top: 5px;
+    font-size: 16px;
 }
 .school_l p:nth-of-type(1){
     width: 364px;
     height: 79px;
     margin-bottom: 49px;
-}
-.school_l p{
-    color:#929292;
-    text-align: left;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 25px;
+    color: #929292;
+}
+.school_l p:nth-of-type(2){
+    width: 364px;
+    height: 112px;
+    font-size: 14px;
+    color: #929292;
+    text-align: left;
+    line-height: 25px;
+
 }
 .school_l div{
     width: 225px;

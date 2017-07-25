@@ -3,18 +3,15 @@
  */
 import React,{Component} from 'react';
 import {BrowserRouter as Router,Route,Link} from 'react-router-dom';
+import $ from 'jquery';
 class Baby extends Component{
     constructor(){
         super();
-        this.data={
+        this.state={
             "banner":{
                 "img":"img/banner-b.jpg"
             },
-            "model":[
-                {"txt":"孩子是祖国的未来和希望"},
-                {"txt":"EDUCATIONAL MANAGEMENT MODEL"},
-                {"txt":"专注于激发孩子们学习兴趣、食品认知能力、动手能力、我们坚信，伊顿的孩子会拥有这样的核心价值——多元文化的情商和胸怀、优良的品格和超凡的创造力！"}
-            ],
+            model:[],
             "btn":{"btn":"我要预约"},
             "park":[
                 {"txt":"亲子主题乐园"},
@@ -35,22 +32,32 @@ class Baby extends Component{
 
         }
     }
+    componentDidMount(){
+        $.ajax({
+            url:'http://localhost:8005/model',
+            type:'get',
+            success:function(b){
+                console.log(b);
+                this.setState({model:b});
+            }.bind(this)
+        });
+    }
     render(){
         return(
             <div className="wrapD">
                 {/*banner start*/}
                 <div className="bannerD">
-                    <img src={this.data.banner.img} alt=""/>
+                    <img src={this.state.banner.img} alt=""/>
                 </div>
                 {/*banner end*/}
                 {/*baby start*/}
                 <div className="baby">
                     <div className="box">
                         <div className="model">
-                            {this.data.model.map(function (con) {
+                            {this.state.model.map(function (con) {
                                 return <p>{con.txt}</p>
                             })}
-                            <Link to="/forward"><input type="button" value={this.data.btn.btn}/></Link>
+                            <Link to="/forward"><input type="button" value={this.state.btn.btn}/></Link>
                         </div>
                     </div>
                 </div>
@@ -59,10 +66,10 @@ class Baby extends Component{
                 <div className="park">
                     <div className="box">
                         <div className="park_a">
-                            {this.data.park.map(function (con) {
+                            {this.state.park.map(function (con) {
                                 return <p>{con.txt}</p>
                             })}
-                            <Link to="/forward"><input type="button" value={this.data.btn.btn}/></Link>
+                            <Link to="/forward"><input type="button" value={this.state.btn.btn}/></Link>
                         </div>
                     </div>
                 </div>
@@ -71,10 +78,10 @@ class Baby extends Component{
                 <div className="create">
                     <div className="box">
                         <div className="create_con">
-                            {this.data.create_con.map(function (con) {
+                            {this.state.create_con.map(function (con) {
                                 return <p>{con.txt}</p>
                             })}
-                            {this.data.create_img.map(function (img) {
+                            {this.state.create_img.map(function (img) {
                                 return <img src={img.img} alt=""/>
                             })}
                         </div>

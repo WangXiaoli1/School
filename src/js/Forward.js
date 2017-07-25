@@ -2,7 +2,7 @@
  * Created by Administrator on 2017/7/20.
  */
 import React, { Component } from 'react';
-import GVerify from './GVerify';
+
 
 class Forward extends Component{
     componentDidMount=function () {
