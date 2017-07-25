@@ -80,7 +80,7 @@
 .environment-left p:nth-of-type(1){
     margin-top: 80px;
 }
-.environment>p{
+.environment-right{
     float: right;
     width: 436px;
     margin-left: 55px;
@@ -92,6 +92,7 @@
     color: rgb(146, 146, 146);
     line-height: 30px;
 }
+
 /*picture*/
 /*.pictureWrap{*/
     /*width: 1000px;*/

@@ -64,6 +64,8 @@ class Main extends Component {
           }.bind(this)
       });
 
+
+
       $.ajax({
           url:'http://192.168.43.5:8005/special',
           type:'get',
@@ -99,6 +101,22 @@ class Main extends Component {
               console.log(b);
               this.setState({school:b});
           }.bind(this)
+      });
+
+
+
+
+      $.ajax({
+          type:"get",
+          url:"http://192.168.43.5:8005/img/get",
+          async:true,
+          success:function(e){
+              console.log(e)
+              for(var i=0;i<e.length;i++){
+                  console.log(e[i].src)
+                  $('.photo').append('<img src="'+e[i].src+'">')
+              }
+          }
       });
 
       var one = document.getElementById("one");
@@ -144,8 +162,9 @@ class Main extends Component {
                 <div className="box">
                     {/*课程列表 start*/}
                     <ul className="con">
-                        {this.state.main_con.map(function (e) {
-                            return <li key={e.id}>
+                        {this.state.main_con.map(function (e,i) {
+                            return <li key={e.id} a={i}>
+                                <img src={e.src} alt=""/>
                                 <div className="txt">
                                     <h2>{e.txt}</h2>
                                     <p>{e.txt1}</p>

@@ -136,7 +136,7 @@ class ConB extends Component {
                                         <p>{e.leftB}</p>
                                         <p>{e.leftC}</p>
                                     </div>
-                                    <p>{e.rightA}</p>
+                                    <p className="environment-right">{e.rightA}</p>
                                 </div>
                             })}
 
