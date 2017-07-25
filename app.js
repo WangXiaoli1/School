@@ -17,6 +17,18 @@ var side_l=require('./routes/side_l');
 var side_r=require('./routes/side_r');
 var school=require('./routes/school');
 var  model=require('./routes/model');
+var  conBenvir=require('./routes/conBenvir');
+var conB_introduce=require('./routes/conB_introduce');
+var edu_class=require('./routes/edu_class');
+var edu_myclass=require('./routes/edu_myclass');
+var edu_xhrGreen=require('./routes/edu_xhrGreen');
+var edu_xhrGreenRight=require('./routes/edu_xhrGreenRight');
+var baby_park=require('./routes/baby_park');
+var baby_create=require('./routes/baby_create');
+var teach_brand=require('./routes/teach_brand');
+var teach_leaderOne=require('./routes/teach_leaderOne');
+var teach_leaderTwo=require('./routes/teach_leaderTwo');
+var teach_leaderThree=require('./routes/teach_leaderThree');
 
 var app = express();
 
@@ -43,7 +55,18 @@ app.use('/side_l',side_l);
 app.use('/side_r',side_r);
 app.use('/school',school);
 app.use('/model',model);
-
+app.use('/conBenvir',conBenvir);
+app.use('/conB_introduce',conB_introduce);
+app.use('/edu_class',edu_class);
+app.use('/edu_myclass',edu_myclass);
+app.use('/edu_xhrGreen',edu_xhrGreen);
+app.use('/edu_xhrGreenRight',edu_xhrGreenRight);
+app.use('/baby_park',baby_park);
+app.use('/baby_create',baby_create);
+app.use('/teach_brand',teach_brand);
+app.use('/teach_leaderOne',teach_leaderOne);
+app.use('/teach_leaderTwo',teach_leaderTwo);
+app.use('/teach_leaderThree',teach_leaderThree);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -1,0 +1,355 @@
+/*轮播  start*/
+
+/*.ant-carousel .slick-slide {*/
+    /*text-align: center;*/
+    /*height: 160px;*/
+    /*line-height: 160px;*/
+    /*overflow: hidden;*/
+/*}*/
+/*slick-next*/
+@import "~antd/dist/antd.css";
+.ant-carousel .slick-prev:hover {
+    background: rgba(0,0,0,.2);
+}
+ .ant-carousel .slick-next:hover{
+    background: rgba(0,0,0,.2);
+}
+.ant-carousel .slick-prev{
+    left: 0;
+    background-image: url("../img/right.png");
+}
+.ant-carousel .slick-prev, .ant-carousel .slick-next {
+    position: absolute;
+    display: block;
+    height:71px;
+    width:71px;
+    line-height: 0;
+    font-size: 0;
+    cursor: pointer;
+    background: rgba(0,0,0,.1);
+    color: transparent;
+    top: 50%;
+    margin-top: -10px;
+    padding: 0;
+    border: 0;
+    outline: none;
+    z-index: 9999;
+    border-radius: 6px;
+}
+.ant-carousel .slick-next {
+    right: 0;
+}
+.banner{
+    width:100%;
+    height: 750px;
+    overflow: hidden;
+    position:relative;
+}
+.banner img{
+    width:100%;
+    height: 750px;
+}
+.arrow{
+    z-index: 3;
+    margin-top: -35.5px;
+    cursor: pointer;
+
+}
+
+/*轮播 end*/
+/*课程列表  start*/
+.content{
+    width: 100%;
+    height: 2596px;
+    /*background-image:url("../img/bgA.jpg");*/
+    background-repeat:no-repeat;
+    background-size: 100%;
+}
+.con{
+    width: 1000px;
+    height: 336px;
+    animation: 0.5s linear move;
+}
+@keyframes move {
+    0%{
+        transform: translateY(120px);
+    }
+    100%{
+        transform: translateY(0px);
+    }
+}
+.con li{
+    float: left;
+    margin-top:96px;
+    width: 186px;
+    height: 240px;
+    margin-right:85px;
+    position: relative;
+}
+.con li:nth-of-type(4){
+    margin-right: 0;
+}
+.txt{
+    width: 162px;
+    height: 105px;
+    background: transparent;
+    position: absolute;
+    left:12px;
+    top:38px;
+    animation: 0.7s  linear move1;
+}
+@keyframes move1 {
+    0%{
+        transform: translateY(120px);
+    }
+    50%{
+        transform: translateY(120px);
+    }
+    100%{
+        transform: translateY(0px);
+    }
+}
+
+.txt h2{
+    font-size: 25px;
+    /*color: white;*/
+    text-align: center;
+    font-weight: bold;
+    margin-top:20px;
+}
+.txt p{
+    /*color: white;*/
+    font-size: 14px;
+    text-align: center;
+}
+.txt h6{
+    width: 33px;
+    height: 3px;
+    background: white;
+    margin-left:65px;
+    margin-top:20px;
+}
+/*课程列表  end*/
+/*特色课程  start*/
+.special{
+    width: 993px;
+    height: 640px;
+    position: relative;
+    background-image:url("../img/girl.png");
+    background-repeat:no-repeat;
+    background-size: 100%;
+    animation: 0.7s  linear move2;
+}
+@keyframes move2 {
+    0%{
+        transform: translateY(120px);
+    }
+    50%{
+        transform: translateY(120px);
+    }
+    100%{
+        transform: translateY(0px);
+    }
+}
+.course{
+    width:578px;
+    height: 207px;
+    position: absolute;
+    top:117px;
+    left:330px;
+}
+.course h1{
+    font-size: 25px;
+    color: white;
+    font-weight: bold;
+    margin-top: 37px;
+    text-align: left;
+}
+.course b{
+    color:#158d42;
+    font-size: 20px;
+    text-align: left;
+}
+.course p{
+    font-size: 14px;
+    line-height: 25px;
+    text-align: left;
+    color: white;
+    margin-top: 40px;
+}
+.btn{
+    width: 114px;
+    height: 45px;
+    text-align: center;
+    line-height: 45px;
+    font-size: 15px;
+    font-weight: normal;
+    color: #40b16a;
+    background: white;
+    border: none;
+    outline: none;
+    position: absolute;
+    top:365px;
+    left:330px;
+}
+/*特色课程  end*/
+/*彩绘课程  start*/
+.course_a{
+    margin-bottom: 107px;
+}
+.side_l{
+    float: left;
+}
+.one{
+    height: 269px;
+    width:491px;
+    /*background-image: url("../img/count.jpg");*/
+    background-repeat:no-repeat;
+    background-size: 100%;
+    padding-left: 42px;
+    margin-top:25px;
+}
+.one h1{
+    font-size: 25px;
+    /*color: white;*/
+    line-height: 20px;
+    padding-top: 50px;
+    width: 420px;
+}
+.one h4{
+    /*color: white;*/
+    margin-top: 5px;
+    margin-bottom: 39px;
+    width: 420px;
+}
+.one p{
+    width: 420px;
+    /*color: white;*/
+    font-size: 14px;
+    line-height: 25px;
+}
+.two{
+    width: 371px;
+    height: 500px;
+    /*background-image: url("../img/girl-a.jpg");*/
+    background-repeat: no-repeat;
+    background-size: 100%;
+    margin-left:162px;
+    margin-top: 28px;
+}
+.side_r{
+    float: right;
+    position: relative;
+}
+.side_r div:nth-of-type(1){
+    width: 440px;
+    height: 300px;
+    /*background-image: url("../img/class.jpg");*/
+    background-repeat: no-repeat;
+    background-size: 100%;
+    margin-top: -80px;
+}
+.side_r div:nth-of-type(2){
+    width: 318px;
+    height:273px;
+    /*background-image: url("../img/girl-b.jpg");*/
+    background-repeat: no-repeat;
+    background-size: 100%;
+    margin-bottom: 30px;
+    margin-top: 28px;
+}
+.side_r div:nth-of-type(3){
+    width:385px;
+    height: 300px;
+    /*background-image: url("../img/edu.jpg");*/
+    background-repeat: no-repeat;
+    background-size: 100%;
+    padding-left: 55px;
+}
+.side_r div:nth-of-type(3) h1{
+    /*color: white;*/
+    font-size: 25px;
+    padding-top:59px
+}
+.side_r div:nth-of-type(3) h4{
+    /*color: white;*/
+}
+.side_r div:nth-of-type(3) p{
+    /*color: white;*/
+    font-size:14px;
+    width: 319px;
+    height: 75px;
+    line-height: 20px;
+    margin-top: 39px;
+}
+.side_r div:nth-of-type(4){
+    width: 299px;
+    height: 288px;
+    /*background-image: url("../img/xhr.png");*/
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position:absolute;
+    z-index: 111111;
+    top:340px;
+    left:140px;
+}
+/*彩绘课程 end*/
+/*学校环境 start*/
+.school_l{
+    width:428px;
+    float: left;
+}
+.school_l h1{
+    font-weight: bold;
+    color: #3a3a3a;
+    font-size: 25px;
+    line-height: 20px;
+}
+.school_l h4{
+    color: #929292;
+    margin-bottom: 73px;
+    margin-top: 5px;
+    font-size: 16px;
+}
+.school_l p:nth-of-type(1){
+    width: 364px;
+    height: 79px;
+    margin-bottom: 49px;
+    font-size: 14px;
+    line-height: 25px;
+    color: #929292;
+}
+.school_l p:nth-of-type(2){
+    width: 364px;
+    height: 112px;
+    font-size: 14px;
+    color: #929292;
+    text-align: left;
+    line-height: 25px;
+
+}
+.school_l div{
+    width: 225px;
+    height: 266px;
+    /*background-image: url("../img/xhr-a.jpg");*/
+    background-repeat: no-repeat;
+    background-size: 100%;
+    margin-top: 74px;
+}
+.school_r{
+    width: 572px;
+    height: 548px;
+    float: left;
+}
+.school_r div{
+    width: 572px;
+    height: 548px;
+    /*background-image: url("../img/school.png");*/
+    background-repeat: no-repeat;
+    background-size: 100%;
+    margin-left: 65px;
+    margin-top: -58px;
+
+}
+/*学校环境 end*/
+
