@@ -34,7 +34,7 @@ class Baby extends Component{
     }
     componentDidMount(){
         $.ajax({
-            url:'http://localhost:8005/model',
+            url:'http://192.168.43.5:8005/model',
             type:'get',
             success:function(b){
                 console.log(b);

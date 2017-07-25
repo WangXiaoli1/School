@@ -38,15 +38,13 @@
     width: 1000px;
     height: 845px;
     margin: 0 auto;
-    /*position: relative;*/
     overflow: hidden;
 }
 .environment{
     width: 1000px;
     height: 845px;
     margin: 0 auto;
-    /*position: absolute;*/
-    transform: translateX(1000px);
+    /*transform: translateX(1000px);*/
 }
 .environment h2{
     width: 100%;
@@ -113,7 +111,7 @@
     background-size: 100% 100%;
     position: relative;
     overflow: hidden;
-    transform: translateX(1000px);
+    /*transform: translateX(1000px);*/
 }
 .picture div:nth-of-type(1){
       width: 428px;
@@ -152,7 +150,7 @@
     height: 237px;
     margin-left: 390px;
     margin-top: 138px;
-    transform: translateX(1000px);
+    /*transform: translateX(1000px);*/
 }
 .introduce>h2{
     width: 100%;
@@ -163,7 +161,7 @@
    color: rgb(84, 194, 68);
     text-align: center;
     cursor: move;
-    transform: translateX(1000px);
+    /*transform: translateX(1000px);*/
 }
 .introduce>h3{
     width: 100%;
@@ -173,7 +171,7 @@
     color: #666666;
     text-align: center;
     cursor: move;
-    transform: translateX(1000px);
+    /*transform: translateX(1000px);*/
 }
 .introduce>h3:nth-of-type(1){
     margin-top: 5px;
@@ -190,7 +188,7 @@
     border:1px solid transparent;
     margin: 0 auto;
     margin-top: 32px;
-    transform: translateX(1000px);
+    /*transform: translateX(1000px);*/
 }
 .introduce p{
     width: 100%;
@@ -200,7 +198,7 @@
     font-family: "微软雅黑";
     cursor: move;
     line-height: 35px;
-    transform: translateX(1000px);
+    /*transform: translateX(1000px);*/
 }
 .introduce p:nth-of-type(1){
     margin-top: 32px;
@@ -219,5 +217,5 @@
     outline: none;
     margin-top: 78px;
     margin-left: 392px;
-    transform: translateX(1000px);
+    /*transform: translateX(1000px);*/
 }

@@ -56,7 +56,7 @@ class App extends Component {
     }
     componentDidMount=function () {
         $.ajax({
-            url:'http://localhost:8005/text',
+            url:'http://192.168.43.5:8005/text',
             type:'get',
             success:function(a){
                 console.log(a);
@@ -145,8 +145,8 @@ class App extends Component {
                 <div className="nav">
                     <div className="box">
                         <ul className="list" id="nav">
-                                {this.state.nav.map(function(e){
-                                    return <Link to={e.r}>
+                                {this.state.nav.map(function(e,i){
+                                    return <Link to={e.r} key={i}>
                                         <li key={e.id}>{e.title}</li>
                                         </Link>
                                 })}
@@ -177,8 +177,8 @@ class App extends Component {
                                 <div className="footerContact">
                                     <img src={this.state.foot.img} alt="地点"/>
                                     <div>
-                                        {this.state.contact.map(function(con){
-                                            return <p>{con.link}
+                                        {this.state.contact.map(function(con,i){
+                                            return <p  key={i}>{con.link}
                                             </p>
                                         })}
                                     </div>

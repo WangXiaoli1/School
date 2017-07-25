@@ -56,7 +56,7 @@ class Main extends Component {
   }
   componentDidMount() {
       $.ajax({
-          url:'http://localhost:8005/main',
+          url:'http://192.168.43.5:8005/main',
           type:'get',
           success:function(b){
               console.log(b);
@@ -65,7 +65,7 @@ class Main extends Component {
       });
 
       $.ajax({
-          url:'http://localhost:8005/special',
+          url:'http://192.168.43.5:8005/special',
           type:'get',
           success:function(b){
               console.log(b);
@@ -74,7 +74,7 @@ class Main extends Component {
       });
 
       $.ajax({
-          url:'http://localhost:8005/side_l',
+          url:'http://192.168.43.5:8005/side_l',
           type:'get',
           success:function(b){
               console.log(b);
@@ -83,7 +83,7 @@ class Main extends Component {
       });
 
       $.ajax({
-          url:'http://localhost:8005/side_r',
+          url:'http://192.168.43.5:8005/side_r',
           type:'get',
           success:function(b){
               console.log(b);
@@ -93,7 +93,7 @@ class Main extends Component {
 
 
       $.ajax({
-          url:'http://localhost:8005/school',
+          url:'http://192.168.43.5:8005/school',
           type:'get',
           success:function(b){
               console.log(b);
