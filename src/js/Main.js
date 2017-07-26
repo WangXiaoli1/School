@@ -109,38 +109,54 @@ class Main extends Component {
 
 
 
-      $.ajax({
-          type: "get",
-          url: "http://192.168.43.5:8005/img/get",
-      })
+
       $.ajax({
           type:"get",
-          url:"http://localhost:8005/img/get",
+          url:"http://192.168.43.5:8005/photo/get",
           async:true,
           success:function(e){
               console.log(e)
               for(var i=0;i<e.length;i++){
                   console.log(e[i].src)
-                  $('.photo').append('<img src="'+e[i].src+'">')
+                  $('.photo').append('<img src="'+e[i].src+'">');
+
               }
           }
-      })
+      });
 
-
-      var one = document.getElementById("one");
-          one.style.backgroundImage = `url("${this.state.side_l.img}")`;
+        // var one = document.getElementById("one");
+        //   one.style.backgroundImage = `url("${this.state.side_l.img}")`;
 
 
       $.ajax({
           type:"get",
-          url:"http://localhost:8005/img/sides",
+          url:"http://192.168.43.5:8005/photo/sides",
           success:function(e){
               console.log(e);
               for(var i=0;i<e.length;i++){
                   console.log(e[i].src);
                   $('.photo').append('<img src="'+e[i].src+'">');
                   var one = document.getElementById("one");
-                  one.style.backgroundImage = `url("${e.src}")`;
+                  one.style.backgroundImage = `url("http://192.168.43.5:8005/img/1501036942162 
+
+")`;
+              }
+          }
+      });
+      $.ajax({
+          type:"get",
+          url:"http://192.168.43.5:8005/photo/sides_r",
+          success:function(e){
+              console.log(e);
+              for(var i=0;i<e.length;i++){
+                  console.log(e[i].src);
+                  $('.photo').append('<img src="'+e[i].src+'">');
+                  var one = document.getElementById("one");
+                  one.style.backgroundImage = `url("http://192.168.43.5:8005/img/1501036942162 
+
+")`;
+                  {/*var img_a = document.getElementById("img_a");*/}
+                  {/*img_a.style.backgroundImage = `url("${this.state.side_r.img1}")`;*/}
               }
           }
       });
@@ -221,12 +237,12 @@ class Main extends Component {
                        <div className="course_a">
                            <div className="side_l">
                                <div className="one" id="one">
+
                                    {this.state.side_l.map(function (e) {
                                        return <div>
                                            <h1>{e.course}</h1>
                                            <h4>{e.txt}</h4>
                                            <p>{e.con}</p>
-                                           <img src={e.src2} alt=""/>
                                        </div>
 
                                    })}

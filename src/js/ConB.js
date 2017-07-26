@@ -8,37 +8,9 @@ class ConB extends Component {
     constructor () {
         super();
         this.state = {
-            "banner":{"img":"img/bA.jpg"},
             environment:[],
-            // "environment": {
-            //     "title": "学校环境",
-            //     "enTitle":"LEARNING INTEREST",
-            //     "leftA":"作为中外知名的双语学前教育机构，引进一流的教育管理模式、融合国内外先进的教研成果、秉承最适合儿童成长的教育理念，同时，吸纳了经过百年验证的蒙台梭利教育精髓，拥有国际一流的教育专家团队和具有国际资格认证的中外教师队伍。",
-            //     "leftB":"每个校园都是按照国际纯正蒙台梭利校园的特点和标准精心设计的，充满着温馨关爱的教育氛，打造了最适合孩子健康成长的校园环境。经过十年的积累与沉淀，目前伊顿已经发展成为引领中国幼教国际化发展的旗舰。",
-            //     "leftC":"同时，吸纳了经过百年验证的蒙台梭利教育精髓，拥有国际一流的教育专家团队和具有国际资格认证的中外教师队伍。充满着温馨关爱的教育氛，打造了最适合孩子健康成长的校园环境",
-            //     "rightA":"每个校园都是按照国际纯正蒙台梭利校园的特点和标准精心设计的，充满着温馨关爱的教育氛，打造了最适合孩子健康成长的校园环境。儿童教育，其实不只是大人如何教育孩子，也是孩子如何教育大人，让大人成为更加完善的人，更加领悟生活真谛的人。"
-            // },
-            "picture":[
-                {"img":"../img/student-a.jpg"},
-                {"img":"../img/pic-e.jpg"},
-                {"img":"../img/pic-f.jpg"},
-                {"img":"../img/student-b.jpg"}
-            ],
-
+            picture:[],
             introduce:[],
-            // "introduce":{
-            //     "img":"img/teacher.png",
-            //     "title":"为孩子的未来撑起一片天空！",
-            //     "enTitleA":"儿童教育，其实不只是大人如何教育孩子，也是孩子如何教育大人，让大人成为更加完",
-            //     "enTitleB":"善的人，更加领悟生活真谛的人。",
-            //     "conA":"作为中外知名的双语学前教育机构，引进一流的教育管理模式、融合国内外先进的教研成果、秉承最适合儿童成长的教育理念，",
-            //     "conB":"同时，吸纳了经过百年验证的蒙台梭利教育精髓，拥有国际一流的教育专家团队和具有国际资格认证的中外教师队伍，打造了最适合孩子健康成长的校",
-            //     "conC":"园环境。经过十年的积累与沉淀，目前伊顿已经发展成为引领中国幼教国际化发展的旗舰。",
-            //     "btn":"我要预约"
-            //
-            // }
-
-
         }
     }
     componentDidMount=function () {
@@ -48,12 +20,11 @@ class ConB extends Component {
         var picSpan=picture.getElementsByTagName('span');
 
         for (var i=0;i<picDiv.length;i++){
-            picDiv[i].style.backgroundImage=`url("${this.state.picture[i].img}")`;
             picDiv[i].onmouseover=function () {
-                this.children[0].style.bottom='0px'
+                this.children[1].style.bottom='0px'
             }
             picDiv[i].onmouseout=function () {
-                this.children[0].style.bottom='-5px'
+                this.children[1].style.bottom='-5px'
             }
         }
         // picture部分效果完
@@ -74,6 +45,9 @@ class ConB extends Component {
                 this.setState({introduce:a});
             }.bind(this)
         });
+
+
+
 
         // function moveX(id,t) {
         //     var obj=document.getElementById(id);
@@ -117,12 +91,37 @@ class ConB extends Component {
         // moveX('introduceG',0.4);
         // moveX('introduceI',0.5);
 
+        // 图片
+
+        //banner
+        $.ajax({
+            type: "get",
+            url: "http://192.168.43.5:8005/banner2/banner2",
+            success: function (e) {
+                this.setState({banner2:[e[0].src]});
+            }.bind(this)
+        });
+        $.ajax({
+            type: "get",
+            url: "http://192.168.43.5:8005/conB_picture/get",
+            success: function (e) {
+                this.setState({picture:e});
+            }.bind(this)
+        });
+        $.ajax({
+            type: "get",
+            url: "http://192.168.43.5:8005/intro/intro",
+            success: function (e) {
+                console.log(e)
+
+            }.bind(this)
+        });
     };
     render() {
         return (
             // 园所概况
             <div className="wrapB">
-                <img src={this.state.banner.img} alt="" className="bannerB"/>
+                <img src={this.state.banner2} alt="" className="bannerB"/>
                 <div className="super-conB">
                     {/*environment*/}
                     <div className="environmentWrap">
@@ -143,20 +142,19 @@ class ConB extends Component {
                         </div>
                     </div>
                     {/*picture*/}
-                    {/*<div className="pictureWrap">*/}
+                    <div className="pictureWrap">
                         <div className="picture" id="picture">
-                            <div id="pictureA"><span></span></div>
-                            <div id="pictureB"><span></span></div>
-                            <div id="pictureC"><span></span></div>
-                            <div id="pictureD"><span></span></div>
+                            {this.state.picture.map(function (e,i) {
+                                return <div><img src={e.src} alt=""/><span></span></div>
+                            })}
                         </div>
-                    {/*</div>*/}
+                    </div>
                     {/*introduce*/}
                     {/*<div className="introduceWrap">*/}
-                        {/*<div className="introduce" id="introduce">*/}
+                        <div className="introduce" id="introduce">
                             {this.state.introduce.map(function (e,i) {
                                 return <div className="introduce" id="introduce" key={i}>
-                                    <img src={e.img} alt="" id="introduceA"/>
+                                    <img src={e.src} alt="" id="introduceA"/>
                                     <h2 id="introduceB">{e.title}</h2>
                                     <h3 id="introduceC">{e.enTitleA}</h3>
                                     <h3 id="introduceD">{e.enTitleB}</h3>
@@ -167,19 +165,9 @@ class ConB extends Component {
                                     <Link to="/forward"><button id="introduceI">{e.btn}</button></Link>
                                 </div>
                             })}
-                            {/*<img src={this.state.introduce.img} alt="" id="introduceA"/>*/}
-                            {/*<h2 id="introduceB">{this.state.introduce.title}</h2>*/}
-                            {/*<h3 id="introduceC">{this.state.introduce.enTitleA}</h3>*/}
-                            {/*<h3 id="introduceD">{this.state.introduce.enTitleB}</h3>*/}
-                            {/*<b id="introduceE"></b>*/}
-                            {/*<p id="introduceF">{this.state.introduce.conA}</p>*/}
-                            {/*<p id="introduceG">{this.state.introduce.conB}</p>*/}
-                            {/*<p id="introduceH">{this.state.introduce.conC}</p>*/}
-                            {/*<Link to="/forward"><button id="introduceI">{this.state.introduce.btn}</button></Link>*/}
                         </div>
                     </div>
-                // </div>
-            // </div>
+                </div>
         );
     }
 }

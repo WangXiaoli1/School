@@ -7,7 +7,7 @@ class Education extends Component{
     constructor(){
         super();
         this.state = {
-            "banner":"img/banner-a.jpg",
+            // "banner":"img/banner-a.jpg",
 
             class:[],
             myClass:[],
@@ -95,6 +95,31 @@ class Education extends Component{
                 this.setState({xhrGreenRight:a});
             }.bind(this)
         });
+
+// 获取图片
+//         banner
+        $.ajax({
+            type: "get",
+            url: "http://192.168.43.5:8005/banner3/banner3",
+            success: function (e) {
+                this.setState({banner3:[e[0].src]});
+            }.bind(this)
+        });
+        // class
+        $.ajax({
+            type: "get",
+            url: "http://192.168.43.5:8005/e_class/e_class",
+            success: function (e) {
+                this.setState({myClass:e});
+            }.bind(this)
+        });
+        $.ajax({
+            type: "get",
+            url: "http://192.168.43.5:8005/e_xhrGreen/e_xhrGreen",
+            success: function (e) {
+                this.setState({xhrGreen:e});
+            }.bind(this)
+        });
         // function moveY(id,t) {
         //     var obj=document.getElementById(id);
         //     var timer='';
@@ -111,7 +136,7 @@ class Education extends Component{
     render(){
         return(
             <div className="wrapC">
-                <img src={this.state.banner} alt="" className="bannerC"/>
+                <img src={this.state.banner3} alt="" className="bannerC"/>
                 <div className="super-class">
                     <div className="class">
                         {this.state.class.map(function (v,i) {
