@@ -10,7 +10,7 @@ var users = require('./routes/users');
 
 var get=require('./routes/get');
 var get1=require('./routes/get1');
-var img=require('./routes/photo');
+
 
 var special=require('./routes/special');
 var side_l=require('./routes/side_l');
@@ -34,7 +34,19 @@ var teach_leaderThree=require('./routes/teach_leaderThree');
 
 
 
-var photo=require('./routes/photo');
+
+var img=require('./routes/img');
+var main_con=require('./routes/post_pic/main_con');
+var main_side_l=require('./routes/post_pic/main_side_l');
+var main_side_r=require('./routes/post_pic/main_side_r');
+var main_school=require('./routes/post_pic/main_school');
+var banner=require('./routes/post_pic/banner');
+var banner2=require('./routes/post_pic/banner2');
+var conB_picture=require('./routes/post_pic/conB_picture');
+var intro=require('./routes/post_pic/intro');
+var banner3=require('./routes/post_pic/banner3');
+var e_myclass=require('./routes/post_pic/e_myclass');
+
 
 var app = express();
 
@@ -55,7 +67,6 @@ app.use('/users', users);
 
 app.use('/text',get);
 app.use('/main',get1);
-app.use('/img',img);
 app.use('/special',special);
 app.use('/side_l',side_l);
 app.use('/side_r',side_r);
@@ -76,7 +87,20 @@ app.use('/teach_leaderThree',teach_leaderThree);
 
 
 
-app.use('/photo',photo);
+
+
+app.use('/img',img);
+app.use('/main_con',main_con);
+app.use('/main_side_l',main_side_l);
+app.use('/main_side_r',main_side_r);
+app.use('/main_school',main_school);
+app.use('/banner',banner);
+app.use('/banner2',banner2);
+app.use('/conB_picture',conB_picture);
+app.use('/intro',intro);
+app.use('/banner3',banner3);
+app.use('/e_myclass',e_myclass);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
