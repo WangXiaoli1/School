@@ -9,7 +9,17 @@ class ConB extends Component {
         super();
         this.state = {
             environment:[],
+<<<<<<< HEAD
             picture:[],
+=======
+            "picture":[
+                {"img":"../img/student-a.jpg"},
+                {"img":"../img/pic-e.jpg"},
+                {"img":"../img/pic-f.jpg"},
+                {"img":"../img/student-b.jpg"}
+            ],
+
+>>>>>>> origin/master
             introduce:[],
         }
     }

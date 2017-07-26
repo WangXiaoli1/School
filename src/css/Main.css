@@ -1,3 +1,30 @@
+/*公共部分 */
+@charset "UTF-8";
+/*css reset*/
+html{color:#000;background:#FFF;font-family:Microsoft YaHei,sans-serif,Arial,'宋体';}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td,strong{padding:0;margin:0;}
+table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}
+a{text-decoration:none;outline:none;}
+var,em,i{font-style:normal;}
+address,caption,cite,code,dfn,em,th,var,optgroup{font-style:inherit;font-weight:inherit;}
+del,ins{text-decoration:none;}li{list-style:none;}caption,th{text-align:left;}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}
+abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:baseline;}
+sub{vertical-align:baseline;}legend{color:#000;}
+input,button,textarea,select,optgroup,option{font-family:inherit;font-size:inherit;font-style:inherit;font-weight:inherit;}
+input,button,textarea,select{*font-size:100%;}
+.clear{clear:both;height:0px;overflow:hidden;}
+.clearfix:after{clear:both;display: block;content: "...";visibility: hidden;height: 0;font-size: 0;}
+input[type="submit"],input[type="reset"],input[type="button"],button {-webkit-appearance: none;outline:none;cursor:pointer;}
+.clearfix{*zoom:1;}
+
+.wrap{
+    width:100%;
+    height:100%;
+}
+.clear{
+    clear:both;
+}
 /*轮播  start*/
 /*slick-next*/
 @import "~antd/dist/antd.css";
@@ -36,19 +63,28 @@
     width:100%;
     height: 750px;
     overflow: hidden;
-    position:relative;
 }
 .banner img{
     width:100%;
     height: 750px;
+    position:relative;
 }
-.arrow{
-    z-index: 3;
-    margin-top: -35.5px;
-    cursor: pointer;
+.arrow-r{
+    font-size: 60px;
+    color: white;
+    position: absolute;
+    top:76%;
+    right:15px;
 
 }
+.arrow-l{
+    font-size: 60px;
+    color:white;
+    position: absolute;
+    top:76%;
+    left:15px;
 
+}
 /*轮播 end*/
 /*课程列表  start*/
 .content{
@@ -195,29 +231,28 @@
 }
 .one{
     height: 269px;
-    width:491px;
-    /*background-image: url("../img/count.jpg");*/
-    background-repeat:no-repeat;
-    background-size: 100%;
+    width:533px;
+    background: #EA585B;
+
     padding-left: 42px;
     margin-top:25px;
 }
 .one h1{
     font-size: 25px;
-    /*color: white;*/
+    color: white;
     line-height: 20px;
     padding-top: 50px;
     width: 420px;
 }
 .one h4{
-    /*color: white;*/
+    color: white;
     margin-top: 5px;
     margin-bottom: 39px;
     width: 420px;
 }
 .one p{
     width: 420px;
-    /*color: white;*/
+    color: white;
     font-size: 14px;
     line-height: 25px;
 }
@@ -231,10 +266,11 @@
     margin-top: 28px;
 }
 .side_r{
+    width: 440px;
     float: right;
     position: relative;
 }
-.side_r div:nth-of-type(1){
+.side_r img:nth-of-type(1){
     width: 440px;
     height: 300px;
     /*background-image: url("../img/class.jpg");*/
@@ -242,45 +278,40 @@
     background-size: 100%;
     margin-top: -80px;
 }
-.side_r div:nth-of-type(2){
+.side_r img:nth-of-type(2){
     width: 318px;
     height:273px;
-    /*background-image: url("../img/girl-b.jpg");*/
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: 100% 100%;
     margin-bottom: 30px;
     margin-top: 28px;
 }
-.side_r div:nth-of-type(3){
-    width:385px;
-    height: 300px;
-    /*background-image: url("../img/edu.jpg");*/
-    background-repeat: no-repeat;
-    background-size: 100%;
+.edu{
+    width:441px;
+    height: 274px;
+    background:#FF8F3D;
     padding-left: 55px;
+    margin-top:-10px;
 }
-.side_r div:nth-of-type(3) h1{
-    /*color: white;*/
+.edu h1{
+    color: white;
     font-size: 25px;
     padding-top:59px
 }
-.side_r div:nth-of-type(3) h4{
-    /*color: white;*/
+.edu h4{
+    color: white;
 }
-.side_r div:nth-of-type(3) p{
-    /*color: white;*/
+.edu p{
+    color: white;
     font-size:14px;
     width: 319px;
     height: 75px;
     line-height: 20px;
     margin-top: 39px;
 }
-.side_r div:nth-of-type(4){
+.side_r img:nth-of-type(3){
     width: 299px;
     height: 288px;
-    /*background-image: url("../img/xhr.png");*/
-    background-repeat: no-repeat;
-    background-size: 100%;
     position:absolute;
     z-index: 111111;
     top:340px;
@@ -321,28 +352,25 @@
     line-height: 25px;
 
 }
-.school_l div{
+.school_l img{
     width: 225px;
-    height: 266px;
-    /*background-image: url("../img/xhr-a.jpg");*/
-    background-repeat: no-repeat;
-    background-size: 100%;
-    margin-top: 74px;
+    height:266px;
+    margin-top:24px;
 }
 .school_r{
     width: 572px;
     height: 548px;
     float: left;
+    margin-top:-18px;
 }
 .school_r div{
     width: 572px;
     height: 548px;
-    /*background-image: url("../img/school.png");*/
-    background-repeat: no-repeat;
-    background-size: 100%;
-    margin-left: 65px;
-    margin-top: -58px;
-
+}
+.blank{
+    width: 1000px;
+    height: 90px;
+    margin: 0 auto;
 }
 /*学校环境 end*/
 
