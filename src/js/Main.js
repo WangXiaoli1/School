@@ -98,7 +98,7 @@ class Main extends Component {
                     console.log(e[i].src);
                     $('.photo').append('<img src="' + e[i].src + '">');
                     var one = document.getElementById("one");
-                    one.style.backgroundImage = `url("http://192.168.43.5:8005/img/1501036942162 
+                    one.style.backgroundImage = `url("http://192.168.43.5:8005/img/1501036942162
 
 ")`;
                 }
