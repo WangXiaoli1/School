@@ -3,20 +3,17 @@
     width: 100%;
     height: 2866px;
 }
-.box{
-    width: 1000px;
-    min-width: 1000px;
-    margin: 0 auto;
-}
+/*.box{*/
+    /*width: 1000px;*/
+    /*min-width: 1000px;*/
+    /*margin: 0 auto;*/
+/*}*/
 /*banner start*/
 .bannerD{
     width: 100%;
     height:450px;
 }
-.bannerD img{
-    width: 100%;
-    height:450px;
-}
+
 /*banner end*/
 /*baby start*/
 .baby{
@@ -65,13 +62,21 @@
 .park{
     width: 100%;
     height: 570px;
-    background-image: url("../img/park.jpg");
+    /*background-image: url("../img/park.jpg");*/
     background-size: 100% 100%;
     background-repeat: no-repeat;
+    position: relative;
+}
+.park img{
+    width: 100%;
+    height: 100%;
 }
 .park_a{
     height: 570px;
-    position: relative;
+    position: absolute;
+    top:0px;
+    left: 50%;
+    margin-left: -500px;
 }
 
 .park_a p:nth-of-type(1){
@@ -80,7 +85,7 @@
     color: white;
     text-align: center;
     padding-left:570px;
-    padding-top: 57px;
+    padding-top: 115px;
     font-weight: bold;
 }
 .park_a p:nth-of-type(2){

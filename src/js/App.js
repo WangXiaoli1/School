@@ -54,7 +54,40 @@ class App extends Component {
 
         };
     }
-    componentDidMount=function () {
+    componentDidMount(){
+        // 滚轮事件
+       /* 添加滑轮事件*/
+        // if(window.addEventListener){
+        //     document.addEventListener('scroll', this.bodyScroll.bind(this));
+        // }else{
+        //     document.attachEvent('onscroll', this.bodyScroll.bind(this));
+        // }
+
+        // bodyScroll=function(e){
+        //     var ev=e||window.event;
+        //     var tops=document.body.scrollTop;
+        //     console.log(tops);
+        //     if(window.location.href=="http://localhost:3000/"){
+        //         if(tops<=500){
+        //             $(".scrveconimg").css("top",tops/3+"px")
+        //         }
+        //         if(tops>=200&&tops<=1200){
+        //             var ww=tops-560
+        //             $(".scrvecon2img").css("transform", "translateY("+ww/3+"px)")
+        //         }
+        //         if(tops>=1800&&tops<=2300){
+        //             var ww=tops-1800
+        //             $(".scrvecon4img").css("marginLeft", ww/5+"px")
+        //         }
+        //     }
+        // }
+
+
+
+
+
+
+        // 滚轮事件完
         $.ajax({
             url:'http://192.168.43.5:8005/text',
             type:'get',

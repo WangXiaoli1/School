@@ -8,34 +8,13 @@ class Baby extends Component{
     constructor(){
         super();
         this.state={
-            "banner":{
-                "img":"img/banner-b.jpg"
-            },
+            banner:[],
             model:[],
             "btn":{"btn":"我要预约"},
              park:[],
+            parkBg:[],
             create_con:[],
-            "create_con":[
-                {"txt":"全面激发孩子的好奇心"},
-                {"txt":"乐享艺术课程,帮助孩子们激发无限的创想力"},
-                {"txt":"没有什么能比艺术更能全面激发孩子创造力和想象力了！" +
-                "爱乐创意美术课程，" +
-                "绝不仅仅是让孩子在老师的指导下完成一件简单的手工作品，" +
-                "而是通过游戏的方式，给孩子提供自己动手的平台，以音乐为媒介，" +
-                "以艺术为手段，全面激发孩子的好奇心、" +
-                "创新精神和自我内心表达的能力。" +
-                "在我们的课堂里，孩子们自己动手，" +
-                "不断探索，感受七彩多变的艺术世界，" +
-                "通过绘画、雕塑、素描、拼贴画、" +
-                "歌唱、角色扮演等不同的艺术表现方式以及富于想象的适龄活动，" +
-                "帮助孩子们激发无限的创想力，帮助家长了解孩子们的内心世界。"},
-            ],
-            "create_img":[
-                {"img":"img/baby-a.jpg"},
-                {"img":"img/baby-b.jpg"},
-                {"img":"img/baby-c.jpg"},
-            ]
-
+            create_img:[],
         }
     }
     componentDidMount(){
@@ -49,7 +28,7 @@ class Baby extends Component{
         });
 
         $.ajax({
-            url:'http://localhost:8005/baby_park',
+            url:'http://192.168.43.5:8005/baby_park',
             type:'get',
             success:function(b){
                 console.log(b);
@@ -59,11 +38,38 @@ class Baby extends Component{
 
 
         $.ajax({
-            url:'http://localhost:8005/baby_create',
+            url:'http://192.168.43.5:8005/baby_create',
             type:'get',
             success:function(b){
                 console.log(b);
                 this.setState({create_con:b});
+            }.bind(this)
+        });
+         // 获取图片
+        //banner
+        $.ajax({
+            type: "get",
+            url: "http://192.168.43.5:8005/banner4/banner4",
+            success: function (e) {
+                console.log(e)
+                this.setState({banner:[e[0].src]});
+            }.bind(this)
+        });
+        $.ajax({
+            type: "get",
+            url: "http://192.168.43.5:8005/baby_img/baby_img",
+            success: function (e) {
+                console.log(e)
+                this.setState({create_img:e});
+            }.bind(this)
+        });
+        // park背景
+        $.ajax({
+            type: "get",
+            url: "http://192.168.43.5:8005/parkBg/parkBg",
+            success: function (e) {
+                console.log(e)
+                this.setState({parkBg:[e[0].src]});
             }.bind(this)
         });
 
@@ -72,16 +78,14 @@ class Baby extends Component{
         return(
             <div className="wrapD">
                 {/*banner start*/}
-                <div className="bannerD">
-                    <img src={this.state.banner.img} alt=""/>
-                </div>
+                <img src={this.state.banner} alt="" className="bannerD"/>
                 {/*banner end*/}
                 {/*baby start*/}
                 <div className="baby">
                     <div className="box">
                         <div className="model">
                             {this.state.model.map(function (con) {
-                                return <p>{con.txt}</p>
+                                return <p key={con.id}>{con.txt}</p>
                             })}
                             <Link to="/forward"><input type="button" value={this.state.btn.btn}/></Link>
                         </div>
@@ -90,13 +94,12 @@ class Baby extends Component{
                 {/*baby end*/}
                 {/*park start*/}
                 <div className="park">
-                    <div className="box">
-                        <div className="park_a">
-                            {this.state.park.map(function (con) {
-                                return <p>{con.txt}</p>
-                            })}
-                            <Link to="/forward"><input type="button" value={this.state.btn.btn}/></Link>
-                        </div>
+                    <img src={this.state.parkBg} alt="" className="bannerD"/>
+                    <div className="park_a">
+                        {this.state.park.map(function (con) {
+                            return <p>{con.txt}</p>
+                        })}
+                        <Link to="/forward"><input type="button" value={this.state.btn.btn}/></Link>
                     </div>
                 </div>
                 {/*park end*/}
@@ -108,7 +111,7 @@ class Baby extends Component{
                                 return <p>{con.txt}</p>
                             })}
                             {this.state.create_img.map(function (img) {
-                                return <img src={img.img} alt=""/>
+                                return <img src={img.src} alt=""/>
                             })}
                         </div>
                     </div>

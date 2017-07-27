@@ -3,8 +3,6 @@ import {BrowserRouter as Router,Route,Link} from 'react-router-dom';
 import { Carousel } from 'antd';
 import $ from 'jquery';
 
-// import phone from 'img/phone.png';
-
 class Main extends Component {
     constructor() {
         super();
@@ -87,38 +85,6 @@ class Main extends Component {
                 this.setState({banner: [e[0].src, e[1].src]});
             }.bind(this)
         });
-
-
-        $.ajax({
-            type: "get",
-            url: "http://192.168.43.5:8005/photo/sides",
-            success: function (e) {
-                console.log(e);
-                for (var i = 0; i < e.length; i++) {
-                    console.log(e[i].src);
-                    $('.photo').append('<img src="' + e[i].src + '">');
-                    var one = document.getElementById("one");
-                    one.style.backgroundImage = `url("http://192.168.43.5:8005/img/1501036942162 
-
-")`;
-                }
-            }
-        });
-        $.ajax({
-
-            type: "get",
-            url: "http://192.168.43.5:8005/photo/sides_r",
-            success: function (e) {
-                console.log(e);
-                for (var i = 0; i < e.length; i++) {
-                    console.log(e[i].src);
-                    $('.photo').append('<img src="' + e[i].src + '">');
-                    var one = document.getElementById("one");
-                    one.style.backgroundImage = `url("http://192.168.43.5:8005/img/1501036942162 ")`;
-                }
-            }
-        })
-
 
         $.ajax({
             type: "get",
