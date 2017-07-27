@@ -85,7 +85,7 @@ class Main extends Component {
                 this.setState({banner: [e[0].src, e[1].src]});
             }.bind(this)
         });
-
+        
         $.ajax({
             type: "get",
             url: "http://192.168.43.5:8005/main_side_l/sides",

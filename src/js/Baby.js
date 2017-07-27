@@ -14,7 +14,7 @@ class Baby extends Component{
              park:[],
             parkBg:[],
             create_con:[],
-            create_img:[],
+            create_img:[]
         }
     }
     componentDidMount(){
