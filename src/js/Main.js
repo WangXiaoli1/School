@@ -80,12 +80,9 @@ class Main extends Component {
             }
         });
 
-        // var one = document.getElementById("one");
-        //   one.style.backgroundImage = `url("${this.state.side_l.img}")`;
-
         $.ajax({
             type: "get",
-            url: "http://localhost:8005/banner/banner",
+            url: "http://192.168.43.5:8005/banner/banner",
             success: function (e) {
                 this.setState({banner: [e[0].src, e[1].src]});
             }.bind(this)
@@ -125,7 +122,7 @@ class Main extends Component {
 
         $.ajax({
             type: "get",
-            url: "http://localhost:8005/main_side_l/sides",
+            url: "http://192.168.43.5:8005/main_side_l/sides",
             success: function (e) {
 
             }
@@ -133,7 +130,7 @@ class Main extends Component {
 
         $.ajax({
             type: "get",
-            url: "http://localhost:8005/main_side_r/sides_r",
+            url: "http://192.168.43.5:8005/main_side_r/sides_r",
             success: function (e) {
 
             }
@@ -141,7 +138,7 @@ class Main extends Component {
 
         $.ajax({
             type: "get",
-            url: "http://localhost:8005/main_school/school",
+            url: "http://192.168.43.5:8005/main_school/school",
             success: function (e) {
 
             }

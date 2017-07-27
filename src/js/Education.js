@@ -7,7 +7,6 @@ class Education extends Component{
     constructor(){
         super();
         this.state = {
-            // "banner":"img/banner-a.jpg",
 
             class:[],
             myClass:[],
@@ -161,7 +160,6 @@ class Education extends Component{
                             {this.state.xhrGreen.map(function (v,i) {
                                 return <img src={v.img} alt="" className="xhr" key={i}/>
                             })}
-                            {/*<img src={this.state.xhrGreen.img} alt="" className="xhr"/>*/}
                             <div className="xhrGreen-right">
                                 {this.state.xhrGreenRight.map(function (v,i) {
                                     return <p key={i}>{v.text}</p>
@@ -169,7 +167,6 @@ class Education extends Component{
                                 {this.state.xhrGreen.map(function (v,i) {
                                     return <a key={i}>{v.text}</a>
                                 })}
-                                {/*<a>{this.state.xhrGreen.text}</a>*/}
                             </div>
                         </div>
                     </div>
