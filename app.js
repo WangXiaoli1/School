@@ -46,6 +46,17 @@ var conB_picture=require('./routes/post_pic/conB_picture');
 var intro=require('./routes/post_pic/intro');
 var banner3=require('./routes/post_pic/banner3');
 var e_myclass=require('./routes/post_pic/e_myclass');
+var e_xhr=require('./routes/post_pic/e_xhr');
+var edu_pic=require('./routes/post_pic/edu_pic');
+var edu_pic1=require('./routes/post_pic/edu_pic1');
+var banner4=require('./routes/post_pic/banner4');
+var baby_img=require('./routes/post_pic/baby_img');
+var parkBg=require('./routes/post_pic/parkBg');
+
+var banner5=require('./routes/post_pic/banner5');
+var tea_leaderOne=require('./routes/post_pic/tea_leaderOne');
+var tea_leaderTwo=require('./routes/post_pic/tea_leaderTwo');
+var tea_leaderThree=require('./routes/post_pic/tea_leaderThree');
 
 
 var app = express();
@@ -100,6 +111,17 @@ app.use('/conB_picture',conB_picture);
 app.use('/intro',intro);
 app.use('/banner3',banner3);
 app.use('/e_myclass',e_myclass);
+app.use('/e_xhr',e_xhr);
+app.use('/edu_pic',edu_pic);
+app.use('/edu_pic1',edu_pic1);
+app.use('/banner4',banner4);
+app.use('/baby_img',baby_img);
+app.use('/parkBg',parkBg);
+
+app.use('/banner5',banner5);
+app.use('/tea_leaderOne',tea_leaderOne);
+app.use('/tea_leaderTwo',tea_leaderTwo);
+app.use('/tea_leaderThree',tea_leaderThree);
 
 
 // catch 404 and forward to error handler

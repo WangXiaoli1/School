@@ -111,7 +111,72 @@ router.post('/',function(req,res){
         // });
 
 
-        pool.query(`insert into edu_myclass(src) values('http://192.168.43.5:8005/img/${fName}')`,function(err,rows){
+        // pool.query(`insert into edu_myclass(src) values('http://192.168.43.5:8005/img/${fName}')`,function(err,rows){
+        //     if (err) throw err;
+        //     if(rows){
+        //         res.send('上传成功')
+        //     }
+        // });
+
+        // pool.query(`insert into edu_xhrgreen(src) values('http://192.168.43.5:8005/img/${fName}')`,function(err,rows){
+        //     if (err) throw err;
+        //     if(rows){
+        //         res.send('上传成功')
+        //     }
+        // });
+
+        // pool.query(`insert into edu_pic(src) values('http://192.168.43.5:8005/img/${fName}')`,function(err,rows){
+        //     if (err) throw err;
+        //     if(rows){
+        //         res.send('上传成功')
+        //     }
+        // });
+
+        // pool.query(`insert into edu_pic1(src) values('http://192.168.43.5:8005/img/${fName}')`,function(err,rows){
+        //     if (err) throw err;
+        //     if(rows){
+        //         res.send('上传成功')
+        //     }
+        // });
+        // pool.query(`insert into banner4(src) values('http://192.168.43.5:8005/img/${fName}')`,function(err,rows){
+        //     if (err) throw err;
+        //     if(rows){
+        //         res.send('上传成功')
+        //     }
+        // });
+
+        // pool.query(`insert into baby_img(src) values('http://192.168.43.5:8005/img/${fName}')`,function(err,rows){
+        //     if (err) throw err;
+        //     if(rows){
+        //         res.send('上传成功')
+        //     }
+        // });
+
+        // pool.query(`insert into parkBg(src) values('http://192.168.43.5:8005/img/${fName}')`,function(err,rows){
+        //     if (err) throw err;
+        //     if(rows){
+        //         res.send('上传成功')
+        //     }
+        // });
+        // pool.query(`insert into banner5(src) values('http://192.168.43.5:8005/img/${fName}')`,function(err,rows){
+        //     if (err) throw err;
+        //     if(rows){
+        //         res.send('上传成功')
+        //     }
+        // });
+        // pool.query(`insert into teach_leaderOne(src) values('http://192.168.43.5:8005/img/${fName}')`,function(err,rows){
+        //     if (err) throw err;
+        //     if(rows){
+        //         res.send('上传成功')
+        //     }
+        // });
+        // pool.query(`insert into teach_leaderTwo(src) values('http://192.168.43.5:8005/img/${fName}')`,function(err,rows){
+        //     if (err) throw err;
+        //     if(rows){
+        //         res.send('上传成功')
+        //     }
+        // });
+        pool.query(`insert into teach_leaderthree(src) values('http://192.168.43.5:8005/img/${fName}')`,function(err,rows){
             if (err) throw err;
             if(rows){
                 res.send('上传成功')
