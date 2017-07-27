@@ -85,7 +85,7 @@ class Main extends Component {
                 this.setState({banner: [e[0].src, e[1].src]});
             }.bind(this)
         });
-        
+
         $.ajax({
             type: "get",
             url: "http://192.168.43.5:8005/main_side_l/sides",
@@ -109,6 +109,13 @@ class Main extends Component {
 
             }
         });
+            // document.addEventListener('scroll',()=>{
+            //     var scrollTop=document.body.scrollTop
+            //     if(scrollTop>=800){
+            //         console.log(this.refs.txt)
+            //         this.refs.txt.style.transform='translateY('+0+'px)'
+            //     }
+            // });
     }
 
     render() {
@@ -129,9 +136,9 @@ class Main extends Component {
                         {/*课程列表 start*/}
                         <ul className="con">
                             {this.state.main_con.map(function (e, i) {
-                                return <li key={e.id}>
+                                return <li key={e.id} className="conLi">
                                     <img src={e.src} alt=""/>
-                                    <div className="txt">
+                                    <div className="txt" ref="txt">
                                         <h2>{e.txt}</h2>
                                         <p>{e.txt1}</p>
                                         <h6></h6>
