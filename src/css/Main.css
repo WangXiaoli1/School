@@ -128,7 +128,7 @@ input[type="submit"],input[type="reset"],input[type="button"],button {-webkit-ap
     position: absolute;
     left:12px;
     top:38px;
-    transform: translateY(300px);
+    /*transform: translateY(300px);*/
     /*animation: 0.7s  linear move1;*/
 }
 @keyframes move1 {

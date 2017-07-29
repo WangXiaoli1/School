@@ -12,7 +12,10 @@ import '../css/Baby.css';
 import '../css/Teach.css';
 import '../css/Forward.css';
 import 'antd/dist/antd.css';
-
+// 移动端
+import '../css/App.css';
+import '../css/HeaderP.css';
+import '../css/HomeP.css';
 
 
 
@@ -25,6 +28,10 @@ import Education from './Education';
 import Baby from './Baby';
 import Teach from './Teach';
 import Forward from './Forward';
+// 移动端
+import HeaderP from './HeaderP';
+import HomeP from './HomeP';
+import rem from './rem'
 
 
 
@@ -151,92 +158,103 @@ class App extends Component {
     render(){
         return (
             <Router>
-            <div className="wrap">
-                <div className="box">
-                    {/*头部 start*/}
-                    <div className="head">
-                        {/*logo start*/}
-                        <div className="logo">
-                            <span>School</span>
-                            &#x3000;
-                            <span>Design</span>
-                            <span>专注于激发孩子们学习兴趣</span>
+            <div>
+                    {/*@media screen and (min-width:1000px){*/}
+                    <div className="wrap">
+                        <div className="box">
+                            {/*头部 start*/}
+                            <div className="head">
+                                {/*logo start*/}
+                                <div className="logo">
+                                    <span>School</span>
+                                    &#x3000;
+                                    <span>Design</span>
+                                    <span>专注于激发孩子们学习兴趣</span>
+                                </div>
+                                {/*logo end*/}
+                                {/*报名 start*/}
+                                <div className="phone">
+                                    <p>报名热线</p>
+                                    <p>{this.state.tel.tel}</p>
+                                </div>
+                                <div className="tel">
+                                    <img src="img/phone.png"/>
+                                </div>
+                                <div className="clear"></div>
+                                {/*报名 end*/}
+                            </div>
                         </div>
-                        {/*logo end*/}
-                        {/*报名 start*/}
-                        <div className="phone">
-                            <p>报名热线</p>
-                            <p>{this.state.tel.tel}</p>
-                        </div>
-                        <div className="tel">
-                            <img src="img/phone.png"/>
-                        </div>
-                        <div className="clear"></div>
-                        {/*报名 end*/}
-                    </div>
-                </div>
-                {/*头部end*/}
-                {/*导航 start*/}
-                <div className="nav">
-                    <div className="box">
-                        <ul className="list" id="nav">
-                                {this.state.nav.map(function(e,i){
-                                    return <Link to={e.r} key={i}>
-                                        <li key={e.id}>{e.title}</li>
+                        {/*头部end*/}
+                        {/*导航 start*/}
+                        <div className="nav">
+                            <div className="box">
+                                <ul className="list" id="nav">
+                                    {this.state.nav.map(function (e, i) {
+                                        return <Link to={e.r} key={i}>
+                                            <li key={e.id}>{e.title}</li>
                                         </Link>
-                                })}
-                            <div className="clear"></div>
-                        </ul>
-                    </div>
-                </div>
-                {/*导航 end*/}
-                {/*<Forward/>*/}
-                {/*change start*/}
-                <div className="center">
-                    <Route exact path="/" component={Main}/>
-                    <Route path="/ConB" component={ConB}/>
-                    <Route path="/Education" component={Education}/>
-                    <Route path="/Baby" component={Baby}/>
-                    <Route path="/Teach" component={Teach}/>
-                    <Route path="/forward" component={Forward}/>
-                </div>
-                {/*change end*/}
-                {/*footer*/}
-                {/*// Appfooter  START*/}
-                <div className="App-footer" id="App-footer">
-                    <div className="footer">
-                        {/*appfooterLeft*/}
-                        <div className="footerIn" id="footerIn">
-                            <div className="footer-left">
-                                <p>{this.state.foot.con1}</p>
-                                <div className="footerContact">
-                                    <img src={this.state.foot.img} alt="地点"/>
-                                    <div>
-                                        {this.state.contact.map(function(con,i){
-                                            return <p  key={i}>{con.link}
-                                            </p>
-                                        })}
+                                    })}
+                                    <div className="clear"></div>
+                                </ul>
+                            </div>
+                        </div>
+                        {/*导航 end*/}
+                        {/*<Forward/>*/}
+                        {/*change start*/}
+                        <div className="center">
+                            <Route exact path="/" component={Main}/>
+                            <Route path="/ConB" component={ConB}/>
+                            <Route path="/Education" component={Education}/>
+                            <Route path="/Baby" component={Baby}/>
+                            <Route path="/Teach" component={Teach}/>
+                            <Route path="/forward" component={Forward}/>
+                        </div>
+                        {/*change end*/}
+                        {/*footer*/}
+                        {/*// Appfooter  START*/}
+                        <div className="App-footer" id="App-footer">
+                            <div className="footer">
+                                {/*appfooterLeft*/}
+                                <div className="footerIn" id="footerIn">
+                                    <div className="footer-left">
+                                        <p>{this.state.foot.con1}</p>
+                                        <div className="footerContact">
+                                            <img src={this.state.foot.img} alt="地点"/>
+                                            <div>
+                                                {this.state.contact.map(function (con, i) {
+                                                    return <p key={i}>{con.link}
+                                                    </p>
+                                                })}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {/*footer-right*/}
+                                    <div className="footer-right">
+                                        <p>姓名</p>
+                                        <input type="text"/>
+                                        <p>描述</p>
+                                        <textarea>
+                        </textarea>
+                                        <button>提交</button>
                                     </div>
                                 </div>
-                            </div>
-                            {/*footer-right*/}
-                            <div className="footer-right">
-                                <p>姓名</p>
-                                <input type="text"/>
-                                <p>描述</p>
-                                <textarea>
-                        </textarea>
-                                <button>提交</button>
+                                {/*底部*/}
+                                <p className="footer-pA">{this.state.bottom.copy}</p>
+                                <p className="footer-pB">{this.state.bottom.phone}</p>
                             </div>
                         </div>
-                        {/*底部*/}
-                        <p className="footer-pA">{this.state.bottom.copy}</p>
-                        <p className="footer-pB">{this.state.bottom.phone}</p>
+                        {/*// Appfooter  END*/}
                     </div>
-                </div>
-                {/*// Appfooter  END*/}
+                {/*}*/}
+                    {/*@media screen and (max-width:414px){*/}
+                    {/*<div className="App">*/}
+                        {/*<HeaderP/>*/}
+                        {/*<HomeP/>*/}
+                    {/*</div>*/}
+                {/*}*/}
             </div>
-                </Router>
+            </Router>
+
         );
     }
 }
