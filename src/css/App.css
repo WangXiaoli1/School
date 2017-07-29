@@ -1,22 +1,89 @@
 /*公共部分 */
+/*重置代码*/
 @charset "UTF-8";
 /*css reset*/
 html{color:#000;background:#FFF;font-family:Microsoft YaHei,sans-serif,Arial,'宋体';}
-body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td,strong{padding:0;margin:0;}
-table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}
-a{text-decoration:none;outline:none;}
-var,em,i{font-style:normal;}
-address,caption,cite,code,dfn,em,th,var,optgroup{font-style:inherit;font-weight:inherit;}
-del,ins{text-decoration:none;}li{list-style:none;}caption,th{text-align:left;}
-h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}
-abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:baseline;}
-sub{vertical-align:baseline;}legend{color:#000;}
-input,button,textarea,select,optgroup,option{font-family:inherit;font-size:inherit;font-style:inherit;font-weight:inherit;}
-input,button,textarea,select{*font-size:100%;}
-.clear{clear:both;height:0px;overflow:hidden;}
-.clearfix:after{clear:both;display: block;content: "...";visibility: hidden;height: 0;font-size: 0;}
-input[type="submit"],input[type="reset"],input[type="button"],button {-webkit-appearance: none;outline:none;cursor:pointer;}
-.clearfix{*zoom:1;}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td,strong{
+    padding:0;margin:0;
+}
+table{
+    border-collapse:collapse;
+    border-spacing:0;
+}
+fieldset,img{
+    border:0;
+}
+a{
+    text-decoration:none;
+    outline:none;
+}
+var,em,i{
+    font-style:normal;
+}
+address,caption,cite,code,dfn,em,th,var,optgroup{
+    font-style:inherit;
+    font-weight:inherit;
+}
+del,ins{
+    text-decoration:none;
+}
+li{
+    list-style:none;
+}
+caption,th{
+    text-align:left;
+}
+h1,h2,h3,h4,h5,h6{
+    font-size:100%;
+    font-weight:normal;
+}
+q:before,q:after{
+    content:'';
+}
+abbr,acronym{
+    border:0;
+    font-variant:normal;
+}
+sup{
+    vertical-align:baseline;
+}
+sub{
+    vertical-align:baseline;
+}
+legend{
+    color:#000;
+}
+input,button,textarea,select,optgroup,option{
+    font-family:inherit;
+    font-size:inherit;
+    font-style:inherit;
+    font-weight:inherit;
+}
+input,button,textarea,select{
+    *font-size:100%;
+}
+.clear{
+    clear:both;
+    height:0px;
+    overflow:hidden;
+}
+.clearfix:after{
+    clear:both;
+    display: block;
+    content: "...";
+    visibility: hidden;
+    height: 0;
+    font-size: 0;
+}
+input[type="submit"],input[type="reset"],input[type="button"],button {
+    -webkit-appearance: none;
+    outline:none;
+    cursor:pointer;
+}
+.clearfix{
+    *zoom:1;
+}
+/*重置代码完*/
 
 .wrap{
     width:100%;
@@ -112,13 +179,11 @@ input[type="submit"],input[type="reset"],input[type="button"],button {-webkit-ap
 .App-footer{
     width: 100%;
     height: 734px;
-    /*background-image: url("../img/footer-bg.jpg");*/
-    background-size: 100% 100%;
+    overflow: hidden;
 }
 
 .footerIn{
     width: 100%;
-    transform: translateX(1000px);
 }
 .footer{
     width: 1000px;
@@ -135,7 +200,6 @@ input[type="submit"],input[type="reset"],input[type="button"],button {-webkit-ap
     line-height: 30px;
     font-size: 12px;
     margin-top: 178px;
-    /*text-align: left;*/
 }
 .footerContact{
     width:100%;
@@ -218,4 +282,24 @@ input[type="submit"],input[type="reset"],input[type="button"],button {-webkit-ap
 }
 .footer>p:nth-of-type(2){
     margin-top: 11px;
+}
+.footerContact p:nth-of-type(4){
+    text-align: left;
+    font-size: 12px;
+    color: #b9b9b9;
+}
+
+.moveFooter{
+    animation:footer 2s;
+    animation-fill-mode:forwards;
+    animation-direction:alternate;
+}
+
+@keyframes footer{
+    from {
+        transform:translateX(1200px);
+    }
+    to{
+        transform:translateX(0px);
+    }
 }

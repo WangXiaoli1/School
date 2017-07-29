@@ -61,44 +61,183 @@ class App extends Component {
 
         };
     }
-    bodyScroll=function(e){
-        var ev=e||window.event;
-        var tops=document.body.scrollTop;
+    bodyScroll(e){
+
+        // var ev=e||window.event;
+        // var tops=document.body.scrollTop;
         // console.log(tops);
-        if(window.location.href=="http://localhost:3000/"){
-            if(tops>=905&&tops<=1241){
-                var conLi=document.querySelectorAll('conLi');
-                for(var i=0;i<conLi.length;i++){
-                    conLi.style.animation=" 0.5s linear move";
+        if(window.location.href=="http://localhost:3001/"){
+            function gdjz(div,cssname,offset){
+                var a,b,c,d;
+                d=$(div).offset().top;
+                a=eval(d + offset);
+                b=$(window).scrollTop();
+                c=$(window).height();
+                if(b+c>a){
+                    $((div)).addClass((cssname));
                 }
-                // $(".con").animate({height:50})
             }
-            if(tops>=200&&tops<=1200){
-                var ww=tops-560
-                $(".scrvecon2img").css("transform", "translateY("+ww/3+"px)")
-            }
-            if(tops>=1800&&tops<=2300){
-                var ww=tops-1800
-                $(".scrvecon4img").css("marginLeft", ww/5+"px")
-            }
+            //Main 动画
+
+            // 圆盘动画
+            $(document).ready(function(e) {
+                $(window).scroll(function(){
+                        gdjz(".con",'moveConLi',0);
+                    }
+                );
+            });
+            // 圆盘动画完
+            // 圆盘上的字动画
+            $(document).ready(function(e) {
+                $(window).scroll(function(){
+                        gdjz(".txt",'moveConLiTxt',0);
+                    }
+                );
+            });
+            // 圆盘上的字动画完
+
+            //小女孩背景动画
+            $(document).ready(function(e) {
+                $(window).scroll(function(){
+                        gdjz(".special",'moveSpecial',100);
+                    }
+                );
+            });
+            //小女孩背景动画完
+
+            //小女孩字动画
+            $(document).ready(function(e) {
+                $(window).scroll(function(){
+                        gdjz(".course",'moveCourse',100);
+                    }
+                );
+            });
+            //小女孩字动画完
+
+            //小女孩按钮动画
+            $(document).ready(function(e) {
+                $(window).scroll(function(){
+                        gdjz(".btn",'moveCourseBtn',-200);
+                    }
+                );
+            });
+            //小女孩按钮动画完
+
+            //彩绘课程动画
+            $(document).ready(function(e) {
+                $(window).scroll(function(){
+                        gdjz(".one",'moveOne',-50);
+                    }
+                );
+            });
+            //彩绘课程动画完
+
+            //彩绘课程文字动画
+            $(document).ready(function(e) {
+                $(window).scroll(function(){
+                        gdjz(".oneTxt",'moveOneTxt',-50);
+                    }
+                );
+            });
+            //彩绘课程文字动画完
+
+            //彩绘课程下动画
+            $(document).ready(function(e) {
+                $(window).scroll(function(){
+                        gdjz(".two",'moveOne',-250);
+                    }
+                );
+            });
+            //彩绘课程下动画完
+
+
+            //品德教育1动画
+            $(document).ready(function(e) {
+                $(window).scroll(function(){
+                        gdjz(".side_r_one",'moveEduOne',-50);
+                    }
+                );
+            });
+            //品德教育1动画完
+
+            //品德教育2动画
+            $(document).ready(function(e) {
+                $(window).scroll(function(){
+                        gdjz(".side_r_two",'moveEduTwo',-250);
+                    }
+                );
+            });
+            //品德教育2动画完
+
+            //xhr动画
+            $(document).ready(function(e) {
+                $(window).scroll(function(){
+                        gdjz(".side_r_three",'moveEduThree',-300);
+                    }
+                );
+            });
+            //xhr动画完
+
+            //品德教育动画
+            $(document).ready(function(e) {
+                $(window).scroll(function(){
+                        gdjz(".edu",'moveEdu',-300);
+                    }
+                );
+            });
+            //品德教育动画完
+
+            //品德教育文字动画
+            $(document).ready(function(e) {
+                $(window).scroll(function(){
+                        gdjz(".eduTxt",'moveEduTxt',-300);
+                    }
+                );
+            });
+            //品德教育文字动画完
+
+            //学校环境动画
+            $(document).ready(function(e) {
+                $(window).scroll(function(){
+                        gdjz(".school",'moveSchool',0);
+                    }
+                );
+            });
+            //学校环境动画完
+
+            //xhr2动画
+            $(document).ready(function(e) {
+                $(window).scroll(function(){
+                        gdjz(".xhrtwo",'moveXhrTwo',-150);
+                    }
+                );
+            });
+            //xhr2动画完
+
+
+
+            //Main 动画完
+
+
+            // footer动画
+            $(document).ready(function() {
+                $(window).scroll(function(){
+                        gdjz(".footerIn",'moveFooter',300);
+                    }
+                );
+            });
+            // footer动画完
+
         }
     }
-    componentDidMount(){
+    componentDidMount() {
         // 滚轮事件
-       /* 添加滑轮事件*/
-        if(window.addEventListener){
-            document.addEventListener('scroll', this.bodyScroll.bind(this));
-        }else{
+        /* 添加滑轮事件*/
+        if (window.addEventListener) {
+            document.addEventListener('scroll', this.bodyScroll.bind(this),false);
+        } else {
             document.attachEvent('onscroll', this.bodyScroll.bind(this));
         }
-
-
-
-
-
-
-
-
         // 滚轮事件完
         $.ajax({
             url:'http://192.168.43.5:8005/text',
@@ -128,61 +267,56 @@ class App extends Component {
                     };
 
                 }
-
-
-
             }.bind(this)
         });
-
         // footer背景
         var footer = document.getElementById("App-footer");
         footer.style.backgroundImage = `url("${this.state.foot.bg}")`;
-        // footer动画效果
-        function moveX(id,t) {
-            var obj=document.getElementById(id);
-            var timer='';
-            var screenW=document.documentElement.offsetWidth;
-            obj.parentNode.style.overflow='hidden';
-            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-            if(scrollTop=obj.offsetTop){
-                timer=setInterval(function () {
-                    obj.style.transition=t+"s";
-                    obj.style.transform="translateX("+0+")";
-                },500)
-            }
-        }
-        moveX('footerIn',0.6);
+        // // footer动画效果
+        // function moveX(id,t) {
+        //     var obj=document.getElementById(id);
+        //     var timer='';
+        //     var screenW=document.documentElement.offsetWidth;
+        //     obj.parentNode.style.overflow='hidden';
+        //     var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        //     if(scrollTop=obj.offsetTop){
+        //         timer=setInterval(function () {
+        //             obj.style.transition=t+"s";
+        //             obj.style.transform="translateX("+0+")";
+        //         },500)
+        //     }
+        // }
+        // moveX('footerIn',0.6);
 
     };
-
     render(){
         return (
             <Router>
             <div>
-                    {/*@media screen and (min-width:1000px){*/}
-                    <div className="wrap">
-                        <div className="box">
-                            {/*头部 start*/}
-                            <div className="head">
-                                {/*logo start*/}
-                                <div className="logo">
-                                    <span>School</span>
-                                    &#x3000;
-                                    <span>Design</span>
-                                    <span>专注于激发孩子们学习兴趣</span>
-                                </div>
-                                {/*logo end*/}
-                                {/*报名 start*/}
-                                <div className="phone">
-                                    <p>报名热线</p>
-                                    <p>{this.state.tel.tel}</p>
-                                </div>
-                                <div className="tel">
-                                    <img src="img/phone.png"/>
-                                </div>
-                                <div className="clear"></div>
-                                {/*报名 end*/}
-                            </div>
+               {/*@media screen and (min-width:1000px){*/}
+
+               <div className="wrap">
+               <div className="box">
+               {/*头部 start*/}
+               <div className="head">
+                   {/*logo start*/}
+                   <div className="logo">
+                       <span>School</span>&#x3000;
+                       <span>Design</span>
+                       <span>专注于激发孩子们学习兴趣</span>
+                   </div>
+                       {/*logo end*/}
+                       {/*报名 start*/}
+                   <div className="phone">
+                        <p>报名热线</p>
+                        <p>{this.state.tel.tel}</p>
+                   </div>
+                   <div className="tel">
+                         <img src="img/phone.png"/>
+                   </div>
+                   <div className="clear"></div>
+                   {/*报名 end*/}
+                   </div>
                         </div>
                         {/*头部end*/}
                         {/*导航 start*/}
@@ -222,8 +356,7 @@ class App extends Component {
                                             <img src={this.state.foot.img} alt="地点"/>
                                             <div>
                                                 {this.state.contact.map(function (con, i) {
-                                                    return <p key={i}>{con.link}
-                                                    </p>
+                                                    return <p key={i}>{con.link}</p>
                                                 })}
                                             </div>
                                         </div>
@@ -233,8 +366,7 @@ class App extends Component {
                                         <p>姓名</p>
                                         <input type="text"/>
                                         <p>描述</p>
-                                        <textarea>
-                        </textarea>
+                                        <textarea></textarea>
                                         <button>提交</button>
                                     </div>
                                 </div>
@@ -243,8 +375,9 @@ class App extends Component {
                                 <p className="footer-pB">{this.state.bottom.phone}</p>
                             </div>
                         </div>
-                        {/*// Appfooter  END*/}
-                    </div>
+                    {/*// Appfooter  END*/}
+                </div>
+
                 {/*}*/}
                     {/*@media screen and (max-width:414px){*/}
                     {/*<div className="App">*/}

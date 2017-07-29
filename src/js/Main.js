@@ -63,21 +63,6 @@ class Main extends Component {
             }.bind(this)
         });
 
-
-        $.ajax({
-            type: "get",
-            url: "http://192.168.43.5:8005/photo/get",
-            async: true,
-            success: function (e) {
-                console.log(e)
-                for (var i = 0; i < e.length; i++) {
-                    console.log(e[i].src)
-                    $('.photo').append('<img src="' + e[i].src + '">');
-
-                }
-            }
-        });
-
         $.ajax({
             type: "get",
             url: "http://192.168.43.5:8005/banner/banner",
@@ -109,13 +94,6 @@ class Main extends Component {
 
             }
         });
-            // document.addEventListener('scroll',()=>{
-            //     var scrollTop=document.body.scrollTop
-            //     if(scrollTop>=800){
-            //         console.log(this.refs.txt)
-            //         this.refs.txt.style.transform='translateY('+0+'px)'
-            //     }
-            // });
     }
 
     render() {
@@ -151,8 +129,8 @@ class Main extends Component {
                         {/*特色课程  start*/}
                         <div className="special" id="girl">
                             <div className="course">
-                                {this.state.special.map(function (e) {
-                                    return <div>
+                                {this.state.special.map(function (e,i) {
+                                    return <div key={i}>
                                         <h1>{e.course}</h1>
                                         <b>{e.txt}</b>
                                         <p>{e.con}</p>
@@ -167,8 +145,8 @@ class Main extends Component {
                             <div className="side_l">
                                 <div className="one" id="one">
 
-                                    {this.state.side_l.map(function (e) {
-                                        return <div>
+                                    {this.state.side_l.map(function (e,i) {
+                                        return <div key={i} className="oneTxt">
                                             <h1>{e.course}</h1>
                                             <h4>{e.txt}</h4>
                                             <p>{e.con}</p>
@@ -177,8 +155,8 @@ class Main extends Component {
                                     })}
                                 </div>
                                 <div className="two" id="two">
-                                    {this.state.side_l.map(function (e) {
-                                        return <div>
+                                    {this.state.side_l.map(function (e,i) {
+                                        return <div key={i}>
                                             <img src={e.src2} alt=""/>
                                         </div>
                                     })}
@@ -186,15 +164,17 @@ class Main extends Component {
                             </div>
 
                             {/*<div >*/}
-                            {this.state.side_r.map(function (e) {
-                                return <div className="side_r">
-                                    <img src={e.src1}/>
-                                    <img src={e.src2}/>
-                                    <img src={e.src4}/>
+                            {this.state.side_r.map(function (e,i) {
+                                return <div className="side_r" key={i}>
+                                    <img src={e.src1} className="side_r_one"/>
+                                    <img src={e.src2} className="side_r_two"/>
+                                    <img src={e.src4} className="side_r_three"/>
                                     <div className="edu">
-                                        <h1>{e.course}</h1>
-                                        <h4>{e.txt}</h4>
-                                        <p>{e.con}</p>
+                                        <div className="eduTxt">
+                                            <h1>{e.course}</h1>
+                                            <h4>{e.txt}</h4>
+                                            <p>{e.con}</p>
+                                        </div>
                                     </div>
                                 </div>
                             })}
@@ -206,13 +186,13 @@ class Main extends Component {
                         {/*学校环境 start*/}
                         <div className="school">
 
-                            {this.state.school.map(function (e) {
-                                return <div className="school_l">
+                            {this.state.school.map(function (e,i) {
+                                return <div className="school_l" key={i}>
                                     <h1>{e.title}</h1>
                                     <h4>{e.txt}</h4>
                                     <p>{e.con}</p>
                                     <p>{e.intro}</p>
-                                    <img src={e.src1} alt="" className=""/>
+                                    <img src={e.src1} alt="" className="xhrtwo"/>
                                 </div>
                             })}
                             {this.state.school.map(function (e) {

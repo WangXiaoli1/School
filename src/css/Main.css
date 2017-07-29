@@ -1,22 +1,89 @@
 /*公共部分 */
+/*重置代码*/
 @charset "UTF-8";
 /*css reset*/
 html{color:#000;background:#FFF;font-family:Microsoft YaHei,sans-serif,Arial,'宋体';}
-body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td,strong{padding:0;margin:0;}
-table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}
-a{text-decoration:none;outline:none;}
-var,em,i{font-style:normal;}
-address,caption,cite,code,dfn,em,th,var,optgroup{font-style:inherit;font-weight:inherit;}
-del,ins{text-decoration:none;}li{list-style:none;}caption,th{text-align:left;}
-h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}
-abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:baseline;}
-sub{vertical-align:baseline;}legend{color:#000;}
-input,button,textarea,select,optgroup,option{font-family:inherit;font-size:inherit;font-style:inherit;font-weight:inherit;}
-input,button,textarea,select{*font-size:100%;}
-.clear{clear:both;height:0px;overflow:hidden;}
-.clearfix:after{clear:both;display: block;content: "...";visibility: hidden;height: 0;font-size: 0;}
-input[type="submit"],input[type="reset"],input[type="button"],button {-webkit-appearance: none;outline:none;cursor:pointer;}
-.clearfix{*zoom:1;}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td,strong{
+    padding:0;margin:0;
+}
+table{
+    border-collapse:collapse;
+    border-spacing:0;
+}
+fieldset,img{
+    border:0;
+}
+a{
+    text-decoration:none;
+    outline:none;
+}
+var,em,i{
+    font-style:normal;
+}
+address,caption,cite,code,dfn,em,th,var,optgroup{
+    font-style:inherit;
+    font-weight:inherit;
+}
+del,ins{
+    text-decoration:none;
+}
+li{
+    list-style:none;
+}
+caption,th{
+    text-align:left;
+}
+h1,h2,h3,h4,h5,h6{
+    font-size:100%;
+    font-weight:normal;
+}
+q:before,q:after{
+    content:'';
+}
+abbr,acronym{
+    border:0;
+    font-variant:normal;
+}
+sup{
+    vertical-align:baseline;
+}
+sub{
+    vertical-align:baseline;
+}
+legend{
+    color:#000;
+}
+input,button,textarea,select,optgroup,option{
+    font-family:inherit;
+    font-size:inherit;
+    font-style:inherit;
+    font-weight:inherit;
+}
+input,button,textarea,select{
+    *font-size:100%;
+}
+.clear{
+    clear:both;
+    height:0px;
+    overflow:hidden;
+}
+.clearfix:after{
+    clear:both;
+    display: block;
+    content: "...";
+    visibility: hidden;
+    height: 0;
+    font-size: 0;
+}
+input[type="submit"],input[type="reset"],input[type="button"],button {
+    -webkit-appearance: none;
+    outline:none;
+    cursor:pointer;
+}
+.clearfix{
+    *zoom:1;
+}
+/*重置代码完*/
 
 .wrap{
     width:100%;
@@ -59,6 +126,7 @@ input[type="submit"],input[type="reset"],input[type="button"],button {-webkit-ap
 .ant-carousel .slick-next {
     right: 0;
 }
+/*banner*/
 .banner{
     width:100%;
     height: 750px;
@@ -90,7 +158,7 @@ input[type="submit"],input[type="reset"],input[type="button"],button {-webkit-ap
 .content{
     width: 100%;
     height: 2596px;
-    /*background-image:url("../img/bgA.jpg");*/
+
     background-repeat:no-repeat;
     background-size: 100%;
 }
@@ -98,16 +166,7 @@ input[type="submit"],input[type="reset"],input[type="button"],button {-webkit-ap
     width: 1000px;
     height: 336px;
     position: relative;
-    /*animation: 0.5s linear move;*/
 }
-/*@keyframes move {*/
-    /*0%{*/
-        /*transform: translateY(120px);*/
-    /*}*/
-    /*100%{*/
-        /*transform: translateY(0px);*/
-    /*}*/
-/*}*/
 .con li{
     float: left;
     margin-top:96px;
@@ -115,12 +174,44 @@ input[type="submit"],input[type="reset"],input[type="button"],button {-webkit-ap
     height: 240px;
     margin-right:85px;
     position: relative;
-    /*top:120px;*/
-    /*transform: translateY(120px);*/
+    /*transform:translateY(300px);*/
 }
 .con li:nth-of-type(4){
     margin-right: 0;
 }
+/*圆盘动画*/
+.moveConLi{
+    animation:conLi 1.5s;
+    animation-fill-mode:forwards;
+    animation-direction:alternate;
+}
+
+@keyframes conLi{
+    from {
+        transform:translateY(300px);
+    }
+    to{
+        transform:translateY(0px);
+    }
+}
+/*圆盘动画完*/
+/*圆盘上的字动画*/
+.moveConLiTxt{
+    animation:conLiTxt 1s;
+    animation-fill-mode:forwards;
+    animation-direction:alternate;
+}
+
+@keyframes conLiTxt{
+    from {
+        transform:translateY(600px);
+    }
+    to{
+        transform:translateY(0px);
+    }
+}
+/*圆盘上的字动画完*/
+
 .txt{
     width: 162px;
     height: 105px;
@@ -128,21 +219,8 @@ input[type="submit"],input[type="reset"],input[type="button"],button {-webkit-ap
     position: absolute;
     left:12px;
     top:38px;
-    /*transform: translateY(300px);*/
-    /*animation: 0.7s  linear move1;*/
+    /*transform:translateY(300px);*/
 }
-@keyframes move1 {
-    0%{
-        transform: translateY(120px);
-    }
-    50%{
-        transform: translateY(120px);
-    }
-    100%{
-        transform: translateY(0px);
-    }
-}
-
 .txt h2{
     font-size: 25px;
     color: white;
@@ -171,19 +249,23 @@ input[type="submit"],input[type="reset"],input[type="button"],button {-webkit-ap
     background-image:url("../img/girl.png");
     background-repeat:no-repeat;
     background-size: 100%;
-    animation: 0.7s  linear move2;
 }
-@keyframes move2 {
-    0%{
-        transform: translateY(120px);
+/*小女孩背景动画*/
+.moveSpecial{
+    animation:moveSpecial 2s;
+    animation-fill-mode:forwards;
+    animation-direction:alternate;
+}
+
+@keyframes moveSpecial{
+    from {
+        transform:translateY(300px);
     }
-    50%{
-        transform: translateY(120px);
-    }
-    100%{
-        transform: translateY(0px);
+    to{
+        transform:translateY(0px);
     }
 }
+/*小女孩背景动画完*/
 .course{
     width:578px;
     height: 207px;
@@ -210,6 +292,39 @@ input[type="submit"],input[type="reset"],input[type="button"],button {-webkit-ap
     color: white;
     margin-top: 40px;
 }
+/*小女孩   动画*/
+.moveCourse{
+    animation:moveCourse 0.5s;
+    animation-fill-mode:forwards;
+    animation-direction:alternate;
+}
+
+@keyframes moveCourse{
+    from {
+        transform:translateY(300px);
+    }
+    to{
+        transform:translateY(0px);
+    }
+}
+/*小女孩  动画完*/
+
+/*小女孩按钮动画*/
+.moveCourseBtn{
+    animation:moveCourseBtn 1.5s;
+    animation-fill-mode:forwards;
+    animation-direction:alternate;
+}
+
+@keyframes moveCourseBtn{
+    from {
+        transform:translateY(300px);
+    }
+    to{
+        transform:translateY(0px);
+    }
+}
+/*小女孩按钮动画完*/
 .btn{
     width: 114px;
     height: 45px;
@@ -233,6 +348,142 @@ input[type="submit"],input[type="reset"],input[type="button"],button {-webkit-ap
 .side_l{
     float: left;
 }
+/*彩绘课程动画*/
+.moveOne{
+    animation:moveOne 1s;
+    animation-fill-mode:forwards;
+    animation-direction:alternate;
+}
+
+@keyframes moveOne{
+    from {
+        transform:translateX(-1200px);
+    }
+    to{
+        transform:translateX(0px);
+    }
+}
+/*彩绘课程动画完*/
+
+/*彩绘课程动画*/
+.moveOneTxt{
+    animation:moveOne 1.3s;
+    animation-fill-mode:forwards;
+    animation-direction:alternate;
+}
+
+@keyframes moveOneTxt{
+    from {
+        transform:translateX(-1200px);
+    }
+    to{
+        transform:translateX(0px);
+    }
+}
+/*彩绘课程动画完*/
+
+/*//彩绘课程下动画*/
+.moveOne{
+    animation:moveOne 2s;
+    animation-fill-mode:forwards;
+    animation-direction:alternate;
+}
+
+@keyframes moveOne{
+    from {
+        transform:translateX(-2400px);
+    }
+    to{
+        transform:translateX(0px);
+    }
+}
+/*//彩绘课程下动画完*/
+
+
+/*品格教育上1动画*/
+.moveEduOne{
+    animation:moveEduOne 1s;
+    animation-fill-mode:forwards;
+    animation-direction:alternate;
+}
+
+@keyframes moveEduOne{
+    from {
+        transform:translateX(1200px);
+    }
+    to{
+        transform:translateX(0px);
+    }
+}
+/*品格教育上1动画完*/
+
+/*//品格教育上2动画动画*/
+.moveEduTwo{
+    animation:moveEduTwo 2s;
+    animation-fill-mode:forwards;
+    animation-direction:alternate;
+}
+
+@keyframes moveEduTwo{
+    from {
+        transform:translateX(2400px);
+    }
+    to{
+        transform:translateX(0px);
+    }
+}
+/*//品格教育上2动画完*/
+
+/*//xhr动画*/
+.moveEduThree{
+    animation:moveEduThree 3s;
+    animation-fill-mode:forwards;
+    animation-direction:alternate;
+}
+
+@keyframes moveEduThree{
+    from {
+        transform:translateX(3200px);
+    }
+    to{
+        transform:translateX(0px);
+    }
+}
+/*//xhr动画完*/
+
+/*//品格教育动画*/
+.moveEdu{
+    animation:moveEdu 2.2s;
+    animation-fill-mode:forwards;
+    animation-direction:alternate;
+}
+
+@keyframes moveEdu{
+    from {
+        transform:translateX(2700px);
+    }
+    to{
+        transform:translateX(0px);
+    }
+}
+/*//品格教育动画完*/
+
+/*//品格教育文字动画*/
+.moveEduTxt{
+    animation:moveEdu 2.4s;
+    animation-fill-mode:forwards;
+    animation-direction:alternate;
+}
+
+@keyframes moveEduTxt{
+    from {
+        transform:translateX(2900px);
+    }
+    to{
+        transform:translateX(0px);
+    }
+}
+/*//品格教育文字动画完*/
 .one{
     height: 269px;
     width:533px;
@@ -323,6 +574,9 @@ input[type="submit"],input[type="reset"],input[type="button"],button {-webkit-ap
 }
 /*彩绘课程 end*/
 /*学校环境 start*/
+.school{
+    overflow: hidden;
+}
 .school_l{
     width:428px;
     float: left;
@@ -376,5 +630,38 @@ input[type="submit"],input[type="reset"],input[type="button"],button {-webkit-ap
     height: 90px;
     margin: 0 auto;
 }
+/*//学校环境动画*/
+.moveSchool{
+    animation:moveSchool 1.2s;
+    animation-fill-mode:forwards;
+    animation-direction:alternate;
+}
+
+@keyframes moveSchool{
+    from {
+        transform:translateY(600px);
+    }
+    to{
+        transform:translateY(0px);
+    }
+}
+/*//学校环境动画完*/
+
+/*//xhr2动画*/
+.moveXhrTwo{
+    animation:moveXhrTwo 1.2s;
+    animation-fill-mode:forwards;
+    animation-direction:alternate;
+}
+
+@keyframes moveXhrTwo{
+    from {
+        transform:translateY(1200px);
+    }
+    to{
+        transform:translateY(0px);
+    }
+}
+/*//xhr2动画完*/
 /*学校环境 end*/
 
