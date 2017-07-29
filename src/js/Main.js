@@ -109,6 +109,18 @@ class Main extends Component {
 
             }
         });
+    //    动画
+        function gdjz(div,cssname,offset){
+            var a,b,c,d;
+            d=$(div).offset().top;
+            a=eval(d + offset);
+            b=$(window).scrollTop();
+            c=$(window).height();
+            if(b+c>a){
+                $((div)).addClass((cssname));
+            }
+        }
+
     }
 
     render() {

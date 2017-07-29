@@ -94,18 +94,21 @@ input[type="submit"],input[type="reset"],input[type="button"],button {-webkit-ap
     background-repeat:no-repeat;
     background-size: 100%;
 }
+.move{
+    animation:translate 2s;
+    animation-fill-mode:forwards;
+    animation-direction:alternate;
+}
+@keyframes translate{
+    from {
+        transform:translateY(120px);
+      }
+    to{
+        transform:translateY(0);
+    }}
 .con{
     width: 1000px;
     height: 336px;
-    animation: 0.5s linear move;
-}
-@keyframes move {
-    0%{
-        transform: translateY(120px);
-    }
-    100%{
-        transform: translateY(0px);
-    }
 }
 .con li{
     float: left;
@@ -125,20 +128,7 @@ input[type="submit"],input[type="reset"],input[type="button"],button {-webkit-ap
     position: absolute;
     left:12px;
     top:38px;
-    animation: 0.7s  linear move1;
 }
-@keyframes move1 {
-    0%{
-        transform: translateY(120px);
-    }
-    50%{
-        transform: translateY(120px);
-    }
-    100%{
-        transform: translateY(0px);
-    }
-}
-
 .txt h2{
     font-size: 25px;
     color: white;

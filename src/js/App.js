@@ -54,35 +54,37 @@ class App extends Component {
 
         };
     }
+
+    bodyScroll=function(e){
+        // var ev=e||window.event;
+        // var tops=document.body.scrollTop;
+        // console.log(tops);
+        if(window.location.href=="http://localhost:3000/"){
+
+            // if(tops<=500){
+            //     $(".scrveconimg").css("top",tops/3+"px")
+            // }
+            // if(tops>=200&&tops<=1200){
+            //     var ww=tops-560
+            //     $(".scrvecon2img").css("transform", "translateY("+ww/3+"px)")
+            // }
+            // if(tops>=1800&&tops<=2300){
+            //     var ww=tops-1800
+            //     $(".scrvecon4img").css("marginLeft", ww/5+"px")
+            // }
+        }
+    }
+
+
+
     componentDidMount(){
         // 滚轮事件
        /* 添加滑轮事件*/
-        // if(window.addEventListener){
-        //     document.addEventListener('scroll', this.bodyScroll.bind(this));
-        // }else{
-        //     document.attachEvent('onscroll', this.bodyScroll.bind(this));
-        // }
-
-        // bodyScroll=function(e){
-        //     var ev=e||window.event;
-        //     var tops=document.body.scrollTop;
-        //     console.log(tops);
-        //     if(window.location.href=="http://localhost:3000/"){
-        //         if(tops<=500){
-        //             $(".scrveconimg").css("top",tops/3+"px")
-        //         }
-        //         if(tops>=200&&tops<=1200){
-        //             var ww=tops-560
-        //             $(".scrvecon2img").css("transform", "translateY("+ww/3+"px)")
-        //         }
-        //         if(tops>=1800&&tops<=2300){
-        //             var ww=tops-1800
-        //             $(".scrvecon4img").css("marginLeft", ww/5+"px")
-        //         }
-        //     }
-        // }
-
-
+        if(window.addEventListener){
+            document.addEventListener('scroll', this.bodyScroll.bind(this));
+        }else{
+            document.attachEvent('onscroll', this.bodyScroll.bind(this));
+        }
 
 
 
@@ -119,12 +121,8 @@ class App extends Component {
                         this.style.color='#fff';
                     }
                 }
-
-
-
             }.bind(this)
         });
-
         // footer背景
         var footer = document.getElementById("App-footer");
         footer.style.backgroundImage = `url("${this.state.foot.bg}")`;
