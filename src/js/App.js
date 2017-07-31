@@ -14,8 +14,6 @@ import '../css/Forward.css';
 import 'antd/dist/antd.css';
 // 移动端
 import '../css/App.css';
-import '../css/HeaderP.css';
-import '../css/HomeP.css';
 
 
 
@@ -29,8 +27,7 @@ import Baby from './Baby';
 import Teach from './Teach';
 import Forward from './Forward';
 // 移动端
-import HeaderP from './HeaderP';
-import HomeP from './HomeP';
+
 import rem from './rem'
 
 
@@ -63,14 +60,6 @@ class App extends Component {
     }
 
     componentDidMount() {
-        // 滚轮事件
-        /* 添加滑轮事件*/
-        // if (window.addEventListener) {
-        //     document.addEventListener('scroll', this.bodyScroll,false);
-        // } else {
-        //     document.attachEvent('onscroll', this.bodyScroll);
-        // }
-        // 滚轮事件完
         $.ajax({
             url:'http://192.168.43.5:8005/text',
             type:'get',
@@ -86,8 +75,6 @@ class App extends Component {
                 navLi[0].classList.add('navColor');
                 for(var i=0;i<navLi.length;i++){
                     navLi[i].index=i;
-
-                    // navLi[0].classList.add('navColor');
                     navLi[i].onclick=function () {
 
                         navLi[index].classList.remove('navColor');
@@ -104,25 +91,35 @@ class App extends Component {
         // footer背景
         var footer = document.getElementById("App-footer");
         footer.style.backgroundImage = `url("${this.state.foot.bg}")`;
+
+        // 移动端侧栏
+        $(function () {
+            var n=0;
+            $('.headerP img').click(function () {
+                n++;
+                if(n%2==0){
+                    $(".slideP").animate({"left":"-10rem"});
+                    $(".homeWrapP").animate({"marginLeft":"0rem"})
+                }else {
+                    $(".slideP").animate({"left":"0rem"});
+                    $(".homeWrapP").animate({"marginLeft":"10rem"})
+                }
+            })
+            $('.phoneChangeCenter').click(function () {
+                $(".slideP").animate({"left":"-10rem"});
+                $(".homeWrapP").animate({"marginLeft":"0rem"})
+            })
+        })
     };
-    // componentWillUnMount(){
-    //     if (window.addEventListener) {
-    //         document.addEventListener('scroll', this.bodyScroll,false);
-    //     } else {
-    //         document.attachEvent('onscroll', this.bodyScroll);
-    //     }
-    // }
-    // // React.unmountComponentAtNode(box);
 
     render(){
         return (
             <Router>
             <div>
-               {/*@media screen and (min-width:1000px){*/}
 
                <div className="wrap">
                <div className="box">
-               {/*头部 start*/}
+               {/*pc头部 start*/}
                <div className="head">
                    {/*logo start*/}
                    <div className="logo">
@@ -142,8 +139,10 @@ class App extends Component {
                    <div className="clear"></div>
                    {/*报名 end*/}
                    </div>
-                        </div>
-                        {/*头部end*/}
+               </div>
+                        {/*pc头部end*/}
+
+
                         {/*导航 start*/}
                         <div className="nav">
                             <div className="box">
@@ -158,6 +157,7 @@ class App extends Component {
                             </div>
                         </div>
                         {/*导航 end*/}
+
                         {/*<Forward/>*/}
                         {/*change start*/}
                         <div className="center">
@@ -203,13 +203,59 @@ class App extends Component {
                     {/*// Appfooter  END*/}
                 </div>
 
-                {/*}*/}
-                    {/*@media screen and (max-width:414px){*/}
-                    {/*<div className="App">*/}
-                        {/*<HeaderP/>*/}
-                        {/*<HomeP/>*/}
-                    {/*</div>*/}
-                {/*}*/}
+
+
+                {/*/!*移动端*!/*/}
+                <div className="phone">
+                    {/*移动端头部  start*/}
+                    <div className="headerP">
+                        <img src="img/topLeft.png" alt="" id="sideBtn"/>
+                        网站模板学校
+                        {/*头部  end*/}
+                    </div>
+                    {/*移动端头部  end*/}
+                    {/*移动端侧栏*/}
+                    <ul className="slideP">
+                        <Link to='/'><li><img src="../img/home.png" alt=""/>首页</li></Link>
+                        <Link to='/ConB'><li><img src="../img/garden.png" alt=""/>园所概况</li></Link>
+                        <Link to='/Education'><li><img src="../img/edu.png" alt=""/>教育天地</li></Link>
+                        <Link to='/Baby'><li><img src="../img/baby.png" alt=""/>宝宝乐园</li></Link>
+                        <Link to='/Teach'><li><img src="../img/teach.png" alt=""/>教师风采</li></Link>
+                    </ul>
+                    {/*移动端侧栏完*/}
+
+
+                    {/*路由*/}
+                    <div className="center phoneChangeCenter">
+                        <Route exact path="/" component={Main}/>
+                        <Route path="/ConB" component={ConB}/>
+                        <Route path="/Education" component={Education}/>
+                        <Route path="/Baby" component={Baby}/>
+                        <Route path="/Teach" component={Teach}/>
+                        <Route path="/forward" component={Forward}/>
+                    </div>
+
+                    {/*路由完*/}
+
+
+
+
+                    {/*footerTop  start*/}
+                    <div className="footerTop">
+                        <a href="#">Top</a>
+                        <span></span>
+                    </div>
+                    {/*footerTop  end*/}
+                    {/*footerP  start*/}
+                    <div className="footerP">
+                        <p>©2017 网站样板-学校 版权所有</p>
+                        <p>电脑版</p>
+                    </div>
+                    {/*footerP  end*/}
+
+                </div>
+
+
             </div>
             </Router>
 

@@ -92,576 +92,781 @@ input[type="submit"],input[type="reset"],input[type="button"],button {
 .clear{
     clear:both;
 }
-/*轮播  start*/
-/*slick-next*/
+
+@media screen and (min-width:1000px){
+    /*轮播  start*/
+    /*slick-next*/
 @import "~antd/dist/antd.css";
-.ant-carousel .slick-prev:hover {
-    background: rgba(0,0,0,.2);
-}
-.ant-carousel .slick-next:hover{
-    background: rgba(0,0,0,.2);
-}
-.ant-carousel .slick-prev{
-    left: 0;
-    background-image: url("../img/right.png");
-}
-.ant-carousel .slick-prev, .ant-carousel .slick-next {
-    position: absolute;
-    display: block;
-    height:71px;
-    width:71px;
-    line-height: 0;
-    font-size: 0;
-    cursor: pointer;
-    background: rgba(0,0,0,.1);
-    color: transparent;
-    top: 50%;
-    margin-top: -10px;
-    padding: 0;
-    border: 0;
-    outline: none;
-    z-index: 9999;
-    border-radius: 6px;
-}
-.ant-carousel .slick-next {
-    right: 0;
-}
-/*banner*/
-.banner{
-    width:100%;
-    height: 750px;
-    overflow: hidden;
-}
-.banner img{
-    width:100%;
-    height: 750px;
-    position:relative;
-}
-.arrow-r{
-    font-size: 60px;
-    color: white;
-    position: absolute;
-    top:76%;
-    right:15px;
-
-}
-.arrow-l{
-    font-size: 60px;
-    color:white;
-    position: absolute;
-    top:76%;
-    left:15px;
-
-}
-/*轮播 end*/
-/*课程列表  start*/
-.content{
-    width: 100%;
-    height: 2596px;
-
-    background-repeat:no-repeat;
-    background-size: 100%;
-}
-.con{
-    width: 1000px;
-    height: 336px;
-    position: relative;
-}
-.con li{
-    float: left;
-    margin-top:96px;
-    width: 186px;
-    height: 240px;
-    margin-right:85px;
-    position: relative;
-    /*transform:translateY(300px);*/
-}
-.con li:nth-of-type(4){
-    margin-right: 0;
-}
-/*圆盘动画*/
-.moveConLi{
-    animation:conLi 1.5s;
-    animation-fill-mode:forwards;
-    animation-direction:alternate;
-}
-
-@keyframes conLi{
-    from {
-        transform:translateY(300px);
+    .ant-carousel .slick-prev:hover {
+        background: rgba(0,0,0,.2);
     }
-    to{
-        transform:translateY(0px);
+    .ant-carousel .slick-next:hover{
+        background: rgba(0,0,0,.2);
     }
-}
-/*圆盘动画完*/
-/*圆盘上的字动画*/
-.moveConLiTxt{
-    animation:conLiTxt 1s;
-    animation-fill-mode:forwards;
-    animation-direction:alternate;
+    .ant-carousel .slick-prev{
+        left: 0;
+        background-image: url("../img/right.png");
+    }
+    .ant-carousel .slick-prev, .ant-carousel .slick-next {
+        position: absolute;
+        display: block;
+        height:71px;
+        width:71px;
+        line-height: 0;
+        font-size: 0;
+        cursor: pointer;
+        background: rgba(0,0,0,.1);
+        color: transparent;
+        top: 50%;
+        margin-top: -10px;
+        padding: 0;
+        border: 0;
+        outline: none;
+        z-index: 9999;
+        border-radius: 6px;
+    }
+    .ant-carousel .slick-next {
+        right: 0;
+    }
+    /*banner*/
+    .banner{
+        width:100%;
+        height: 750px;
+        overflow: hidden;
+    }
+    .banner img{
+        width:100%;
+        height: 750px;
+        position:relative;
+    }
+    .arrow-r{
+        font-size: 60px;
+        color: white;
+        position: absolute;
+        top:76%;
+        right:15px;
+
+    }
+    .arrow-l{
+        font-size: 60px;
+        color:white;
+        position: absolute;
+        top:76%;
+        left:15px;
+
+    }
+    /*轮播 end*/
+    /*课程列表  start*/
+    .content{
+        width: 100%;
+        height: 2596px;
+
+        background-repeat:no-repeat;
+        background-size: 100%;
+    }
+    .con{
+        width: 1000px;
+        height: 336px;
+        position: relative;
+    }
+    .con li{
+        float: left;
+        margin-top:96px;
+        width: 186px;
+        height: 240px;
+        margin-right:85px;
+        position: relative;
+        /*transform:translateY(300px);*/
+    }
+    .con li:nth-of-type(4){
+        margin-right: 0;
+    }
+    /*圆盘动画*/
+    .moveConLi{
+        animation:conLi 1.5s;
+        animation-fill-mode:forwards;
+        animation-direction:alternate;
+    }
+
+    @keyframes conLi{
+        from {
+            transform:translateY(300px);
+        }
+        to{
+            transform:translateY(0px);
+        }
+    }
+    /*圆盘动画完*/
+    /*圆盘上的字动画*/
+    .moveConLiTxt{
+        animation:conLiTxt 1s;
+        animation-fill-mode:forwards;
+        animation-direction:alternate;
+    }
+
+    @keyframes conLiTxt{
+        from {
+            transform:translateY(600px);
+        }
+        to{
+            transform:translateY(0px);
+        }
+    }
+    /*圆盘上的字动画完*/
+
+    .txt{
+        width: 162px;
+        height: 105px;
+        background: transparent;
+        position: absolute;
+        left:12px;
+        top:38px;
+        /*transform:translateY(300px);*/
+    }
+    .txt h2{
+        font-size: 25px;
+        color: white;
+        text-align: center;
+        font-weight: bold;
+        margin-top:20px;
+    }
+    .txt p{
+        color: white;
+        font-size: 14px;
+        text-align: center;
+    }
+    .txt h6{
+        width: 33px;
+        height: 3px;
+        background: white;
+        margin-left:65px;
+        margin-top:20px;
+    }
+    /*课程列表  end*/
+    /*特色课程  start*/
+    .special{
+        width: 993px;
+        height: 640px;
+        position: relative;
+        background-image:url("../img/girl.png");
+        background-repeat:no-repeat;
+        background-size: 100%;
+    }
+    /*小女孩背景动画*/
+    .moveSpecial{
+        animation:moveSpecial 2s;
+        animation-fill-mode:forwards;
+        animation-direction:alternate;
+    }
+
+    @keyframes moveSpecial{
+        from {
+            transform:translateY(300px);
+        }
+        to{
+            transform:translateY(0px);
+        }
+    }
+    /*小女孩背景动画完*/
+    .course{
+        width:578px;
+        height: 207px;
+        position: absolute;
+        top:117px;
+        left:330px;
+    }
+    .course h1{
+        font-size: 25px;
+        color: white;
+        font-weight: bold;
+        margin-top: 37px;
+        text-align: left;
+    }
+    .course b{
+        color:#158d42;
+        font-size: 20px;
+        text-align: left;
+    }
+    .course p{
+        font-size: 14px;
+        line-height: 25px;
+        text-align: left;
+        color: white;
+        margin-top: 40px;
+    }
+    /*小女孩   动画*/
+    .moveCourse{
+        animation:moveCourse 0.5s;
+        animation-fill-mode:forwards;
+        animation-direction:alternate;
+    }
+
+    @keyframes moveCourse{
+        from {
+            transform:translateY(300px);
+        }
+        to{
+            transform:translateY(0px);
+        }
+    }
+    /*小女孩  动画完*/
+
+    /*小女孩按钮动画*/
+    .moveCourseBtn{
+        animation:moveCourseBtn 1.5s;
+        animation-fill-mode:forwards;
+        animation-direction:alternate;
+    }
+
+    @keyframes moveCourseBtn{
+        from {
+            transform:translateY(300px);
+        }
+        to{
+            transform:translateY(0px);
+        }
+    }
+    /*小女孩按钮动画完*/
+    .btn{
+        width: 114px;
+        height: 45px;
+        text-align: center;
+        line-height: 45px;
+        font-size: 15px;
+        font-weight: normal;
+        color: #40b16a;
+        background: white;
+        border: none;
+        outline: none;
+        position: absolute;
+        top:365px;
+        left:330px;
+    }
+    /*特色课程  end*/
+    /*彩绘课程  start*/
+    .course_a{
+        margin-bottom: 107px;
+    }
+    .side_l{
+        float: left;
+    }
+    /*彩绘课程动画*/
+    .moveOne{
+        animation:moveOne 1s;
+        animation-fill-mode:forwards;
+        animation-direction:alternate;
+    }
+
+    @keyframes moveOne{
+        from {
+            transform:translateX(-1200px);
+        }
+        to{
+            transform:translateX(0px);
+        }
+    }
+    /*彩绘课程动画完*/
+
+    /*彩绘课程动画*/
+    .moveOneTxt{
+        animation:moveOne 1.3s;
+        animation-fill-mode:forwards;
+        animation-direction:alternate;
+    }
+
+    @keyframes moveOneTxt{
+        from {
+            transform:translateX(-1200px);
+        }
+        to{
+            transform:translateX(0px);
+        }
+    }
+    /*彩绘课程动画完*/
+
+    /*//彩绘课程下动画*/
+    .moveOne{
+        animation:moveOne 2s;
+        animation-fill-mode:forwards;
+        animation-direction:alternate;
+    }
+
+    @keyframes moveOne{
+        from {
+            transform:translateX(-2400px);
+        }
+        to{
+            transform:translateX(0px);
+        }
+    }
+    /*//彩绘课程下动画完*/
+
+
+    /*品格教育上1动画*/
+    .moveEduOne{
+        animation:moveEduOne 1s;
+        animation-fill-mode:forwards;
+        animation-direction:alternate;
+    }
+
+    @keyframes moveEduOne{
+        from {
+            transform:translateX(1200px);
+        }
+        to{
+            transform:translateX(0px);
+        }
+    }
+    /*品格教育上1动画完*/
+
+    /*//品格教育上2动画动画*/
+    .moveEduTwo{
+        animation:moveEduTwo 2s;
+        animation-fill-mode:forwards;
+        animation-direction:alternate;
+    }
+
+    @keyframes moveEduTwo{
+        from {
+            transform:translateX(2400px);
+        }
+        to{
+            transform:translateX(0px);
+        }
+    }
+    /*//品格教育上2动画完*/
+
+    /*//xhr动画*/
+    .moveEduThree{
+        animation:moveEduThree 3s;
+        animation-fill-mode:forwards;
+        animation-direction:alternate;
+    }
+
+    @keyframes moveEduThree{
+        from {
+            transform:translateX(3200px);
+        }
+        to{
+            transform:translateX(0px);
+        }
+    }
+    /*//xhr动画完*/
+
+    /*//品格教育动画*/
+    .moveEdu{
+        animation:moveEdu 2.2s;
+        animation-fill-mode:forwards;
+        animation-direction:alternate;
+    }
+
+    @keyframes moveEdu{
+        from {
+            transform:translateX(2700px);
+        }
+        to{
+            transform:translateX(0px);
+        }
+    }
+    /*//品格教育动画完*/
+
+    /*//品格教育文字动画*/
+    .moveEduTxt{
+        animation:moveEdu 2.4s;
+        animation-fill-mode:forwards;
+        animation-direction:alternate;
+    }
+
+    @keyframes moveEduTxt{
+        from {
+            transform:translateX(2900px);
+        }
+        to{
+            transform:translateX(0px);
+        }
+    }
+    /*//品格教育文字动画完*/
+    .one{
+        height: 269px;
+        width:533px;
+        background: #EA585B;
+
+        padding-left: 42px;
+        margin-top:25px;
+    }
+    .one h1{
+        font-size: 25px;
+        color: white;
+        line-height: 20px;
+        padding-top: 50px;
+        width: 420px;
+    }
+    .one h4{
+        color: white;
+        margin-top: 5px;
+        margin-bottom: 39px;
+        width: 420px;
+    }
+    .one p{
+        width: 420px;
+        color: white;
+        font-size: 14px;
+        line-height: 25px;
+    }
+    .two{
+        width: 371px;
+        height: 500px;
+        /*background-image: url("../img/girl-a.jpg");*/
+        background-repeat: no-repeat;
+        background-size: 100%;
+        margin-left:162px;
+        margin-top: 28px;
+    }
+    .side_r{
+        width: 440px;
+        float: right;
+        position: relative;
+    }
+    .side_r img:nth-of-type(1){
+        width: 440px;
+        height: 300px;
+        /*background-image: url("../img/class.jpg");*/
+        background-repeat: no-repeat;
+        background-size: 100%;
+        margin-top: -80px;
+    }
+    .side_r img:nth-of-type(2){
+        width: 318px;
+        height:273px;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        margin-bottom: 30px;
+        margin-top: 28px;
+    }
+    .edu{
+        width:441px;
+        height: 274px;
+        background:#FF8F3D;
+        padding-left: 55px;
+        margin-top:-10px;
+    }
+    .edu h1{
+        color: white;
+        font-size: 25px;
+        padding-top:59px
+    }
+    .edu h4{
+        color: white;
+    }
+    .edu p{
+        color: white;
+        font-size:14px;
+        width: 319px;
+        height: 75px;
+        line-height: 20px;
+        margin-top: 39px;
+    }
+    .side_r img:nth-of-type(3){
+        width: 299px;
+        height: 288px;
+        position:absolute;
+        z-index: 111111;
+        top:340px;
+        left:140px;
+    }
+    /*彩绘课程 end*/
+    /*学校环境 start*/
+    .school{
+        overflow: hidden;
+    }
+    .school_l{
+        width:428px;
+        float: left;
+    }
+    .school_l h1{
+        font-weight: bold;
+        color: #3a3a3a;
+        font-size: 25px;
+        line-height: 20px;
+    }
+    .school_l h4{
+        color: #929292;
+        margin-bottom: 73px;
+        margin-top: 5px;
+        font-size: 16px;
+    }
+    .school_l p:nth-of-type(1){
+        width: 364px;
+        height: 79px;
+        margin-bottom: 49px;
+        font-size: 14px;
+        line-height: 25px;
+        color: #929292;
+    }
+    .school_l p:nth-of-type(2){
+        width: 364px;
+        height: 112px;
+        font-size: 14px;
+        color: #929292;
+        text-align: left;
+        line-height: 25px;
+
+    }
+    .school_l img{
+        width: 225px;
+        height:266px;
+        margin-top:24px;
+    }
+    .school_r{
+        width: 572px;
+        height: 548px;
+        float: left;
+        margin-top:-18px;
+    }
+    .school_r div{
+        width: 572px;
+        height: 548px;
+    }
+    .blank{
+        width: 1000px;
+        height: 90px;
+        margin: 0 auto;
+    }
+    /*//学校环境动画*/
+    .moveSchool{
+        animation:moveSchool 1.2s;
+        animation-fill-mode:forwards;
+        animation-direction:alternate;
+    }
+
+    @keyframes moveSchool{
+        from {
+            transform:translateY(600px);
+        }
+        to{
+            transform:translateY(0px);
+        }
+    }
+    /*//学校环境动画完*/
+
+    /*//xhr2动画*/
+    .moveXhrTwo{
+        animation:moveXhrTwo 1.2s;
+        animation-fill-mode:forwards;
+        animation-direction:alternate;
+    }
+
+    @keyframes moveXhrTwo{
+        from {
+            transform:translateY(1200px);
+        }
+        to{
+            transform:translateY(0px);
+        }
+    }
+    /*//xhr2动画完*/
+    /*学校环境 end*/
+
+    /*移动端*/
+    .phoneA{
+        display: none;
+    }
+    /*移动端完*/
 }
 
-@keyframes conLiTxt{
-    from {
-        transform:translateY(600px);
-    }
-    to{
-        transform:translateY(0px);
-    }
-}
-/*圆盘上的字动画完*/
 
-.txt{
-    width: 162px;
-    height: 105px;
-    background: transparent;
-    position: absolute;
-    left:12px;
-    top:38px;
-    /*transform:translateY(300px);*/
-}
-.txt h2{
-    font-size: 25px;
-    color: white;
-    text-align: center;
-    font-weight: bold;
-    margin-top:20px;
-}
-.txt p{
-    color: white;
-    font-size: 14px;
-    text-align: center;
-}
-.txt h6{
-    width: 33px;
-    height: 3px;
-    background: white;
-    margin-left:65px;
-    margin-top:20px;
-}
-/*课程列表  end*/
-/*特色课程  start*/
-.special{
-    width: 993px;
-    height: 640px;
-    position: relative;
-    background-image:url("../img/girl.png");
-    background-repeat:no-repeat;
-    background-size: 100%;
-}
-/*小女孩背景动画*/
-.moveSpecial{
-    animation:moveSpecial 2s;
-    animation-fill-mode:forwards;
-    animation-direction:alternate;
-}
-
-@keyframes moveSpecial{
-    from {
-        transform:translateY(300px);
+/*移动端*/
+@media screen and (max-width:414px){
+    /*PC端*/
+    .wrap{
+        display: none;
     }
-    to{
-        transform:translateY(0px);
+    /*PC端完*/
+    /*移动端*/
+    /*banner  start*/
+    .bannerP{
+        width: 100%;
+        height: 7.75rem;
+        overflow: hidden;
     }
-}
-/*小女孩背景动画完*/
-.course{
-    width:578px;
-    height: 207px;
-    position: absolute;
-    top:117px;
-    left:330px;
-}
-.course h1{
-    font-size: 25px;
-    color: white;
-    font-weight: bold;
-    margin-top: 37px;
-    text-align: left;
-}
-.course b{
-    color:#158d42;
-    font-size: 20px;
-    text-align: left;
-}
-.course p{
-    font-size: 14px;
-    line-height: 25px;
-    text-align: left;
-    color: white;
-    margin-top: 40px;
-}
-/*小女孩   动画*/
-.moveCourse{
-    animation:moveCourse 0.5s;
-    animation-fill-mode:forwards;
-    animation-direction:alternate;
-}
-
-@keyframes moveCourse{
-    from {
-        transform:translateY(300px);
+    .bannerP img{
+        width: 100%;
+        height: 100%;
     }
-    to{
-        transform:translateY(0px);
+    /*banner  end*/
+    /*specialP  start*/
+    .specialP{
+        width: 15.125rem;
+        height: 2.5rem;
+        margin-left: 0.4375rem;
+        margin-top: 1rem;
     }
-}
-/*小女孩  动画完*/
-
-/*小女孩按钮动画*/
-.moveCourseBtn{
-    animation:moveCourseBtn 1.5s;
-    animation-fill-mode:forwards;
-    animation-direction:alternate;
-}
-
-@keyframes moveCourseBtn{
-    from {
-        transform:translateY(300px);
+    .specialP div{
+        width: 2.42rem;
+        height:2.42rem;
+        float: left;
+        border-radius: 80%;
+        margin-right: 1.2rem;
+        padding: 0.625rem;
+        text-align: center;
+        line-height: 0.6rem;
+        color: #fff;
     }
-    to{
-        transform:translateY(0px);
+    .specialP div:nth-of-type(1){
+        margin-left: 0.8rem;
+        background-color: #03b4ba;
     }
-}
-/*小女孩按钮动画完*/
-.btn{
-    width: 114px;
-    height: 45px;
-    text-align: center;
-    line-height: 45px;
-    font-size: 15px;
-    font-weight: normal;
-    color: #40b16a;
-    background: white;
-    border: none;
-    outline: none;
-    position: absolute;
-    top:365px;
-    left:330px;
-}
-/*特色课程  end*/
-/*彩绘课程  start*/
-.course_a{
-    margin-bottom: 107px;
-}
-.side_l{
-    float: left;
-}
-/*彩绘课程动画*/
-.moveOne{
-    animation:moveOne 1s;
-    animation-fill-mode:forwards;
-    animation-direction:alternate;
-}
-
-@keyframes moveOne{
-    from {
-        transform:translateX(-1200px);
+    .specialP div:nth-of-type(2){
+        background-color: #fed92e;
     }
-    to{
-        transform:translateX(0px);
+    .specialP div:nth-of-type(3){
+        background-color: #eb585c;
     }
-}
-/*彩绘课程动画完*/
-
-/*彩绘课程动画*/
-.moveOneTxt{
-    animation:moveOne 1.3s;
-    animation-fill-mode:forwards;
-    animation-direction:alternate;
-}
-
-@keyframes moveOneTxt{
-    from {
-        transform:translateX(-1200px);
+    .specialP div:nth-of-type(4){
+        background-color: #ff8e3d;
+        margin-right: 0rem;
     }
-    to{
-        transform:translateX(0px);
+    /*headerP  end*/
+    /*myClassP_A  start*/
+    .myClassP_A{
+        width: 15.125rem;
+        height:8.242424242424242rem;
+        margin-left: 0.4375rem;
+        margin-top: 2.666666666666667rem;
     }
-}
-/*彩绘课程动画完*/
-
-/*//彩绘课程下动画*/
-.moveOne{
-    animation:moveOne 2s;
-    animation-fill-mode:forwards;
-    animation-direction:alternate;
-}
-
-@keyframes moveOne{
-    from {
-        transform:translateX(-2400px);
+    .myClassP_A h2{
+        width: 100%;
+        font-size: 0.8125rem;
+        color: #3d3d3d;
     }
-    to{
-        transform:translateX(0px);
+    .myClassP_A h3{
+        font-size:0.545rem;
+        color:#cdcdcd;
+        margin-top: 0.36363rem;
     }
-}
-/*//彩绘课程下动画完*/
-
-
-/*品格教育上1动画*/
-.moveEduOne{
-    animation:moveEduOne 1s;
-    animation-fill-mode:forwards;
-    animation-direction:alternate;
-}
-
-@keyframes moveEduOne{
-    from {
-        transform:translateX(1200px);
+    .myClassPAIn{
+        width: 100%;
     }
-    to{
-        transform:translateX(0px);
+    .myClassPAIn img{
+        width: 6rem;
+        height: 7.27rem;
+        float: left;
     }
-}
-/*品格教育上1动画完*/
-
-/*//品格教育上2动画动画*/
-.moveEduTwo{
-    animation:moveEduTwo 2s;
-    animation-fill-mode:forwards;
-    animation-direction:alternate;
-}
-
-@keyframes moveEduTwo{
-    from {
-        transform:translateX(2400px);
+    .myClassPAIn p{
+        width: 8.24rem;
+        float: right;
+        font-size: 0.666rem;
+        color: #545454;
+        line-height: 1.2rem;
+        /*margin-right: 0.75rem;*/
     }
-    to{
-        transform:translateX(0px);
+    /*myClassP_A  end*/
+    /*pic  start*/
+    .pic{
+        width: 100%;
+        height: 6.18rem;
+        border-top:0.125rem solid #F5F5F5;
     }
-}
-/*//品格教育上2动画完*/
-
-/*//xhr动画*/
-.moveEduThree{
-    animation:moveEduThree 3s;
-    animation-fill-mode:forwards;
-    animation-direction:alternate;
-}
-
-@keyframes moveEduThree{
-    from {
-        transform:translateX(3200px);
+    /*pic  end*/
+    /*myClassP_B start*/
+    .myClassP_B{
+        width: 100%;
+        height:10.55rem;
+        margin-top:0.48rem;
+        color: #fff;
+        background-color: #EB585A;
+        border-top:0.24rem solid #F5F5F5;
+        box-sizing: border-box;
     }
-    to{
-        transform:translateX(0px);
+    .myClassP_B h2{
+        width: 14.5rem;
+        font-size:0.9rem;
+        line-height:1.2rem;
+        margin-top:1.81rem;
+        padding: 0 0.6rem;
+        color: #fff;
+        margin-left: 0.8rem;
     }
-}
-/*//xhr动画完*/
-
-/*//品格教育动画*/
-.moveEdu{
-    animation:moveEdu 2.2s;
-    animation-fill-mode:forwards;
-    animation-direction:alternate;
-}
-
-@keyframes moveEdu{
-    from {
-        transform:translateX(2700px);
+    .myClassP_B h3{
+        width: 14.5rem;
+        font-size:0.7rem;
+        line-height: 1.2rem;
+        padding: 0 0.6rem;
+        margin-left: 0.8rem;
+        color: #fff;
     }
-    to{
-        transform:translateX(0px);
+    .myClassP_B p{
+        width: 14.5rem;
+        font-size: 0.65rem;
+        line-height: 1.2rem;
+        padding: 0rem 0.6rem;
+        margin-left: 0.8rem;
     }
-}
-/*//品格教育动画完*/
-
-/*//品格教育文字动画*/
-.moveEduTxt{
-    animation:moveEdu 2.4s;
-    animation-fill-mode:forwards;
-    animation-direction:alternate;
-}
-
-@keyframes moveEduTxt{
-    from {
-        transform:translateX(2900px);
+    /*myClassP_B end*/
+    /*myClassP_C start*/
+    .myClassP_C{
+        width: 100%;
+        height: 9.333333333333333rem;
+        background-color: #FF8E3D;
     }
-    to{
-        transform:translateX(0px);
+    .myClassP_C img{
+        width: 5rem;
+        height: 6.121212121212121rem;
+        float: left;
+        margin-top: 0.78rem;
+        margin-left:0.94rem;
+        margin-right: 0.54rem;
     }
-}
-/*//品格教育文字动画完*/
-.one{
-    height: 269px;
-    width:533px;
-    background: #EA585B;
-
-    padding-left: 42px;
-    margin-top:25px;
-}
-.one h1{
-    font-size: 25px;
-    color: white;
-    line-height: 20px;
-    padding-top: 50px;
-    width: 420px;
-}
-.one h4{
-    color: white;
-    margin-top: 5px;
-    margin-bottom: 39px;
-    width: 420px;
-}
-.one p{
-    width: 420px;
-    color: white;
-    font-size: 14px;
-    line-height: 25px;
-}
-.two{
-    width: 371px;
-    height: 500px;
-    /*background-image: url("../img/girl-a.jpg");*/
-    background-repeat: no-repeat;
-    background-size: 100%;
-    margin-left:162px;
-    margin-top: 28px;
-}
-.side_r{
-    width: 440px;
-    float: right;
-    position: relative;
-}
-.side_r img:nth-of-type(1){
-    width: 440px;
-    height: 300px;
-    /*background-image: url("../img/class.jpg");*/
-    background-repeat: no-repeat;
-    background-size: 100%;
-    margin-top: -80px;
-}
-.side_r img:nth-of-type(2){
-    width: 318px;
-    height:273px;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    margin-bottom: 30px;
-    margin-top: 28px;
-}
-.edu{
-    width:441px;
-    height: 274px;
-    background:#FF8F3D;
-    padding-left: 55px;
-    margin-top:-10px;
-}
-.edu h1{
-    color: white;
-    font-size: 25px;
-    padding-top:59px
-}
-.edu h4{
-    color: white;
-}
-.edu p{
-    color: white;
-    font-size:14px;
-    width: 319px;
-    height: 75px;
-    line-height: 20px;
-    margin-top: 39px;
-}
-.side_r img:nth-of-type(3){
-    width: 299px;
-    height: 288px;
-    position:absolute;
-    z-index: 111111;
-    top:340px;
-    left:140px;
-}
-/*彩绘课程 end*/
-/*学校环境 start*/
-.school{
-    overflow: hidden;
-}
-.school_l{
-    width:428px;
-    float: left;
-}
-.school_l h1{
-    font-weight: bold;
-    color: #3a3a3a;
-    font-size: 25px;
-    line-height: 20px;
-}
-.school_l h4{
-    color: #929292;
-    margin-bottom: 73px;
-    margin-top: 5px;
-    font-size: 16px;
-}
-.school_l p:nth-of-type(1){
-    width: 364px;
-    height: 79px;
-    margin-bottom: 49px;
-    font-size: 14px;
-    line-height: 25px;
-    color: #929292;
-}
-.school_l p:nth-of-type(2){
-    width: 364px;
-    height: 112px;
-    font-size: 14px;
-    color: #929292;
-    text-align: left;
-    line-height: 25px;
-
-}
-.school_l img{
-    width: 225px;
-    height:266px;
-    margin-top:24px;
-}
-.school_r{
-    width: 572px;
-    height: 548px;
-    float: left;
-    margin-top:-18px;
-}
-.school_r div{
-    width: 572px;
-    height: 548px;
-}
-.blank{
-    width: 1000px;
-    height: 90px;
-    margin: 0 auto;
-}
-/*//学校环境动画*/
-.moveSchool{
-    animation:moveSchool 1.2s;
-    animation-fill-mode:forwards;
-    animation-direction:alternate;
-}
-
-@keyframes moveSchool{
-    from {
-        transform:translateY(600px);
+    /*myClassP_C end*/
+    /*edu start*/
+    .edu{
+        width:7.7rem;
+        float: left;
     }
-    to{
-        transform:translateY(0px);
+    .edu h2{
+        font-size: 0.9rem;
+        color: white;
+        line-height:1.2rem;
+        margin-top: 0.84rem;
     }
-}
-/*//学校环境动画完*/
-
-/*//xhr2动画*/
-.moveXhrTwo{
-    animation:moveXhrTwo 1.2s;
-    animation-fill-mode:forwards;
-    animation-direction:alternate;
-}
-
-@keyframes moveXhrTwo{
-    from {
-        transform:translateY(1200px);
+    .edu h3{
+        font-size: 0.7rem;
+        color: white;
+        line-height: 1.2rem;
     }
-    to{
-        transform:translateY(0px);
+    .edu p{
+        font-size: 0.65rem;
+        color: white;
+        line-height: 1.2rem;
     }
+    /*edu end*/
+    /*school start*/
+    .schoolImg{
+        width:10.12rem;
+        height:9.57rem;
+        margin-left: 2.72rem;
+        margin-top: 0.54rem;
+    }
+    .schoolTxt{
+        width:13.5rem;
+        margin-left: 0.48rem;
+        margin-top: 1.45rem;
+        color: #464646;
+        line-height: 1.2rem;
+    }
+    .schoolTxt p{
+        margin-left: 0.78rem;
+        font-family: 微软雅黑;
+    }
+    .schoolTxt p:nth-of-type(1){
+        font-size:0.9rem;
+    }
+    .schoolTxt p:nth-of-type(2){
+        font-size:0.7rem;
+    }
+    .schoolTxt p:nth-of-type(3){
+        font-size:0.65rem;
+    }
+    /*school end*/
+    /*移动端完*/
 }
-/*//xhr2动画完*/
-/*学校环境 end*/
-

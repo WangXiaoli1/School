@@ -26,12 +26,15 @@ class Forward extends Component{
         });
         // footer动画完
     }
-    componentDidMount=function () {
-        if (window.addEventListener) {
-            document.addEventListener('scroll', this.bodyScroll,false);
+    componentDidUpdate(){
+        if (document.addEventListener) {
+
+            document.addEventListener('scroll', this.bodyScroll1,false);
         } else {
-            document.attachEvent('onscroll', this.bodyScroll);
+            document.attachEvent('onscroll', this.bodyScroll1);
         }
+    }
+    componentDidMount=function () {
 
 
         var name=document.getElementById('name');

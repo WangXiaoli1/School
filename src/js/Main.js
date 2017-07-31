@@ -22,9 +22,7 @@ class Main extends Component {
     bodyScroll1(){
         function gdjz(div,cssname,offset){
             var a,b,c,d;
-
             d=$(div).offset().top;
-            console.log(d)
             a=eval(d + offset);
             b=$(window).scrollTop();
             c=$(window).height();
@@ -39,7 +37,7 @@ class Main extends Component {
                     // 圆盘动画完
 
                     // 圆盘上的字动画
-                    //gdjz(".txt",'moveConLiTxt',0);
+                    gdjz(".txt",'moveConLiTxt',0);
                     // 圆盘上的字动画完
 
                     //小女孩背景动画
@@ -59,7 +57,7 @@ class Main extends Component {
                     //彩绘课程动画完
 
                     //彩绘课程文字动画
-                   // gdjz(".oneTxt",'moveOneTxt',-50);
+                   gdjz(".oneTxt",'moveOneTxt',-50);
                     //彩绘课程文字动画完
 
                     //彩绘课程下动画
@@ -68,23 +66,23 @@ class Main extends Component {
 
 
                     //品德教育1动画
-                   // gdjz(".side_r_one",'moveEduOne',-50);
+                   gdjz(".side_r_one",'moveEduOne',-50);
                     //品德教育1动画完
 
                     //品德教育2动画
-                   // gdjz(".side_r_two",'moveEduTwo',-250);
+                   gdjz(".side_r_two",'moveEduTwo',-250);
                     //品德教育2动画完
 
                     //xhr动画
-                   // gdjz(".side_r_three",'moveEduThree',-300);
+                   gdjz(".side_r_three",'moveEduThree',-300);
                     //xhr动画完
 
                     //品德教育动画
-                   // gdjz(".edu",'moveEdu',-300);
+                   gdjz(".edu",'moveEdu',-300);
                     //品德教育动画完
 
                     //品德教育文字动画
-                   //    gdjz(".eduTxt",'moveEduTxt',-300);
+                      gdjz(".eduTxt",'moveEduTxt',-300);
                     //品德教育文字动画完
 
                     //学校环境动画
@@ -92,7 +90,7 @@ class Main extends Component {
                     //学校环境动画完
 
                     //xhr2动画
-                   // gdjz(".xhrtwo",'moveXhrTwo',-150);
+                   gdjz(".xhrtwo",'moveXhrTwo',-150);
                     //xhr2动画完
 
                     //Main 动画完
@@ -105,15 +103,20 @@ class Main extends Component {
 
 
     }
-    componentWillUnMount(){
-        window.removeEventListener('scroll', this.bodyScroll1);
-    }
-    componentDidMount() {
-        if (window.addEventListener) {
+    // componentWillUnmount(){
+    //
+    //     document.removeEventListener('scroll', this.bodyScroll1);
+    // }
+    componentDidUpdate(){
+        if (document.addEventListener) {
+
             document.addEventListener('scroll', this.bodyScroll1,false);
         } else {
             document.attachEvent('onscroll', this.bodyScroll1);
         }
+    }
+    componentDidMount() {
+
         $.ajax({
             url: 'http://192.168.43.5:8005/main',
             type: 'get',
@@ -191,6 +194,8 @@ class Main extends Component {
 
     render() {
         return (
+            <div>
+                {/*pc端*/}
             <div className="wrap">
                 {/*轮播  start*/}
                 <div className="banner">
@@ -297,6 +302,72 @@ class Main extends Component {
                     {/*学校环境 end*/}
                 </div>
                 <div className="blank"></div>
+            </div>
+                {/*pc端完*/}
+                {/*移动端*/}
+                <div className="phoneA">
+                    {/*banner  start*/}
+                    <div className="bannerP">
+                        <img src="../img/bC.jpg" alt=""/>
+                        <img src="../img/bD.jpg" alt=""/>
+                    </div>
+                    {/*banner  end*/}
+                    {/*specialP  start*/}
+                    <div className="specialP">
+                        <div>特色活动</div>
+                        <div>描绘世界</div>
+                        <div>亲子乐园</div>
+                        <div>最新资讯</div>
+                    </div>
+                    {/*specialP end*/}
+                    {/*特色课程 start*/}
+                    <div className="myClassP_A">
+                        <h2>特色课程</h2>
+                        <h3>LEARNING INTEREST</h3>
+                        <div className="myClassPAIn">
+                            <img src="../img/girlP.png" alt=""/>
+                            <p>课程会让孩子们在每月的不同主题中得到非凡的学习体验。伊顿主题课程将孩子日常生活中的方方面面
+                                进行合理整合。
+                                我要预约
+                            </p>
+                        </div>
+                    </div>
+                    {/*特色课程  end*/}
+                    <img src="../img/class.jpg" alt="" className="pic"/>
+                    {/*彩绘课程 start*/}
+                    <div className="myClassP_B">
+                        <h2>彩绘课程</h2>
+                        <h3>LEARNING INTEREST</h3>
+                        <p>为他们发展更好的逻辑思维能力打下基础。
+                            伊顿专业的老师和教育专家们将富有创造力的教学主体和教学环境建立在丰富的蒙台梭利材料之上，
+                            每个月变换不同的主题，全年不间断。
+                        </p>
+                    </div>
+                    {/*彩绘课程  end*/}
+                    {/*品格教育  start*/}
+                    <div className="myClassP_C">
+                        <img src="../img/girl-a.jpg" alt=""/>
+                        <div className="edu">
+                            <h2>品格教育</h2>
+                            <h3>LEARNING INTEREST</h3>
+                            <p>让孩子们学会对身边的事物、动物、理念等进行区别和分类。为他们发展
+                                更好的
+                            </p>
+                        </div>
+                    </div>
+                    {/*品格教育  end*/}
+                    <img className="schoolImg" src="../img/school.png"/>
+                    {/*学校环境  start*/}
+                    <div className="schoolTxt">
+                        <p>学校环境</p>
+                        <p>LEARNING INTEREST</p>
+                        <p>作为中外知名的双语学前教育机构，引进一流的教育管理模式、
+                            融合国内外先进的教研成果、
+                            拥有国际一流的教育专家团队和具有国际资格认证的中外教师队伍。</p>
+                    </div>
+                    {/*学校环境  end*/}
+                </div>
+                {/*移动端完*/}
             </div>
         );
     }

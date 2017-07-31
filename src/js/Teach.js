@@ -78,12 +78,15 @@ class Teach extends Component{
             );
         });
     }
-    componentDidMount(){
-        if (window.addEventListener) {
-            document.addEventListener('scroll', this.bodyScroll,false);
+    componentDidUpdate(){
+        if (document.addEventListener) {
+
+            document.addEventListener('scroll', this.bodyScroll1,false);
         } else {
-            document.attachEvent('onscroll', this.bodyScroll);
+            document.attachEvent('onscroll', this.bodyScroll1);
         }
+    }
+    componentDidMount(){
         $.ajax({
             url: 'http://192.168.43.5:8005/teach_brand',
             type: 'get',
@@ -165,6 +168,8 @@ class Teach extends Component{
 
     render(){
         return(
+            <div>
+                {/*pc*/}
             <div className="wrapE">
                 {/*banner start*/}
                 <div className="bannerE">
@@ -232,6 +237,40 @@ class Teach extends Component{
                         </div>
                     </div>
                 </div>
+            </div>
+                {/*pc完*/}
+                {/*移动端*/}
+                <div className="teacherWrap">
+                    {/*业务园长  start*/}
+                    <div className="teacherP">
+                        <h2>业务园长</h2>
+                        <span>张莹 / ZHANGYING</span>
+                        <img src="../img/teacher-a.jpg" alt=""/>
+                        <p>应用全新的教育理念，以儿童为中心，运用新颖的教具，多元情景模式教学，多方面能力训练，大容量的认知，培养幼儿的观察力、认知力、辨别力、想象力、锻炼孩子的细心和耐心。树立幼教品牌，打造威海一流优质园，省级示范园，民办教育的窗口。</p>
+                        <div className="lineP"></div>
+                    </div>
+                    {/*业务园长  end*/}
+                    {/*副园长  start*/}
+                    <div className="teacherP">
+                        <h2>副园长</h2>
+                        <span>杨晓英 / ZHANGYING</span>
+                        <img src="../img/teacher-b.jpg" alt=""/>
+                        <p>应用全新的教育理念，以儿童为中心，运用新颖的教具，多元情景模式教学，多方面能力训练，大容量的认知，培养幼儿的观察力、认知力、辨别力、想象力、锻炼孩子的细心和耐心。树立幼教品牌，打造威海一流优质园，省级示范园，民办教育的窗口。</p>
+                        <div className="lineP"></div>
+                    </div>
+                    {/*副园长  end*/}
+                    {/*教育主任  start*/}
+                    <div className="teacherP">
+                        <h2>教育主任</h2>
+                        <span>李向丽 / ZHANGYING</span>
+                        <img src="../img/teacher-c.jpg" alt=""/>
+                        <p>应用全新的教育理念，以儿童为中心，运用新颖的教具，多元情景模式教学，多方面能力训练，大容量的认知，培养幼儿的观察力、认知力、辨别力、想象力、锻炼孩子的细心和耐心。树立幼教品牌，打造威海一流优质园，省级示范园，民办教育的窗口。</p>
+                        <div className="lineP"></div>
+                    </div>
+                    {/*教育主任  end*/}
+                </div>
+
+                {/*移动端完*/}
             </div>
         )
     }

@@ -64,18 +64,15 @@ class Education extends Component{
             );
         });
     }
-    componentDidMount(){
-        if (window.addEventListener) {
-            document.addEventListener('scroll', this.bodyScroll,false);
+    componentDidUpdate(){
+        if (document.addEventListener) {
+
+            document.addEventListener('scroll', this.bodyScroll1,false);
         } else {
-            document.attachEvent('onscroll', this.bodyScroll);
+            document.attachEvent('onscroll', this.bodyScroll1);
         }
-        // var pictureCLeft=document.getElementById('pictureCLeft');
-        // var pictureCRight=document.getElementById('pictureCRight');
-        // for(var i=0;i<pictureCLeft.children.length;i++){
-        //     pictureCLeft.children[i].style.backgroundImage=`url("${this.state.pictureCLeft[i].img}")`
-        // }
-        // pictureCRight.style.backgroundImage=`url("${this.state.pictureCRight.img}")`;
+    }
+    componentDidMount(){
 
         $.ajax({
             url:'http://192.168.43.5:8005/edu_class',
@@ -171,21 +168,11 @@ class Education extends Component{
                 }
             }.bind(this)
         });
-        // function moveY(id,t) {
-        //     var obj=document.getElementById(id);
-        //     var timer='';
-        //     var screenW=document.documentElement.offsetWidth;
-        //     obj.parentNode.style.overflow='hidden';
-        //     var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-        //     timer=setInterval(function () {
-        //         obj.style.transition=t+"s";
-        //         obj.style.transform="translateY("+0+")";
-        //     },500)
-        // }
-        // moveY(id,t)
     }
     render(){
         return(
+            <div>
+                {/*PC*/}
             <div className="wrapC">
                 <img src={this.state.banner3} alt="" className="bannerC"/>
                 <div className="super-class">
@@ -235,6 +222,30 @@ class Education extends Component{
                     </div>
                 </div>
              </div>
+                {/*PC端完*/}
+                {/*移动端*/}
+                <div className="eduWrap">
+                    {/*国际班级 start*/}
+                    <div className="classP">
+                        <h2>国际班级</h2>
+                        <img src="../img/pic-a.jpg" alt=""/>
+                        <p>拥有国际一流的教育专家团队和具有国际资格认证的中外教师队伍，每个校园都是按照国际纯正蒙台梭利校园的特点和标准精心设计的，目前伊顿已经发展成为引领中国幼教国际化发展的旗舰。</p>
+                        <div className="lineP"></div>
+                    </div>
+                    {/*国际班级  end*/}
+                    {/*科普班级 start*/}
+                    <div className="classP">
+                        <h2>科普班级</h2>
+                        <img src="../img/pic-b.jpg" alt=""/>
+                        <p>拥有国际一流的教育专家团队和具有国际资格认证的中外教师队伍，每个校园都是按照国际纯正蒙台梭利校园的特点和标准精心设计的，目前伊顿已经发展成为引领中国幼教国际化发展的旗舰。</p>
+                        <div className="lineP"></div>
+                    </div>
+                    {/*科普班级 end*/}
+                </div>
+
+                {/*移动端完*/}
+
+            </div>
         )
     }
 }
