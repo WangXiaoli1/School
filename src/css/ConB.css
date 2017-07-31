@@ -1,3 +1,88 @@
+/*重置代码*/
+@charset "UTF-8";
+/*css reset*/
+html{color:#000;background:#FFF;font-family:Microsoft YaHei,sans-serif,Arial,'宋体';}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td,strong{
+    padding:0;margin:0;
+}
+table{
+    border-collapse:collapse;
+    border-spacing:0;
+}
+fieldset,img{
+    border:0;
+}
+a{
+    text-decoration:none;
+    outline:none;
+}
+var,em,i{
+    font-style:normal;
+}
+address,caption,cite,code,dfn,em,th,var,optgroup{
+    font-style:inherit;
+    font-weight:inherit;
+}
+del,ins{
+    text-decoration:none;
+}
+li{
+    list-style:none;
+}
+caption,th{
+    text-align:left;
+}
+h1,h2,h3,h4,h5,h6{
+    font-size:100%;
+    font-weight:normal;
+}
+q:before,q:after{
+    content:'';
+}
+abbr,acronym{
+    border:0;
+    font-variant:normal;
+}
+sup{
+    vertical-align:baseline;
+}
+sub{
+    vertical-align:baseline;
+}
+legend{
+    color:#000;
+}
+input,button,textarea,select,optgroup,option{
+    font-family:inherit;
+    font-size:inherit;
+    font-style:inherit;
+    font-weight:inherit;
+}
+input,button,textarea,select{
+    *font-size:100%;
+}
+.clear{
+    clear:both;
+    height:0px;
+    overflow:hidden;
+}
+.clearfix:after{
+    clear:both;
+    display: block;
+    content: "...";
+    visibility: hidden;
+    height: 0;
+    font-size: 0;
+}
+input[type="submit"],input[type="reset"],input[type="button"],button {
+    -webkit-appearance: none;
+    outline:none;
+    cursor:pointer;
+}
+.clearfix{
+    *zoom:1;
+}
+/*重置代码完*/
 
 .wrapB{
     width: 100%;
@@ -23,17 +108,22 @@
 }
 /*environment*/
 
-/*@keyframes environmentMove {*/
-    /*0%{*/
-        /*transform: translateX(100%);*/
-    /*}*/
-    /*100%{*/
-        /*transform: translateX(0);*/
-    /*}*/
-/*}*/
-/*.environment:hover{*/
-    /*animation: 0.8s linear footerMove 1;*/
-/*}*/
+/*// 学校环境动画*/
+.moveEnvironment{
+    animation:moveEnvironment 1.2s;
+    animation-fill-mode:forwards;
+    animation-direction:alternate;
+}
+
+@keyframes moveEnvironment{
+    from {
+        transform:translateX(1200px);
+    }
+    to{
+        transform:translateX(0px);
+    }
+}
+/*// 学校环境动画完*/
 .environmentWrap{
     width: 1000px;
     height: 845px;
@@ -94,12 +184,37 @@
 }
 
 /*picture*/
-/*.pictureWrap{*/
-    /*width: 1000px;*/
-    /*height: 560px;*/
-    /*margin:0 auto;*/
-    /*margin-top: 68px;*/
-/*}*/
+
+/*// 照片墙动画*/
+.movePicture{
+    animation:movePicture 1.5s;
+    animation-fill-mode:forwards;
+    animation-direction:alternate;
+}
+
+@keyframes movePicture{
+    from {
+        transform:translateX(1900px);
+    }
+    to{
+        transform:translateX(0px);
+    }
+}
+.movePictureB{
+    animation:movePictureB 1.2s;
+    animation-fill-mode:forwards;
+    animation-direction:alternate;
+}
+
+@keyframes movePictureB{
+    from {
+        transform:translateX(1900px);
+    }
+    to{
+        transform:translateX(0px);
+    }
+}
+/*// 照片墙动画完*/
 .picture{
     width: 1000px;
     height: 560px;
@@ -112,11 +227,8 @@
     background-size: 100% 100%;
     position: relative;
     overflow: hidden;
-    /*transform: translateX(1000px);*/
 }
-/*#picture div:nth-of-type(1){*/
 
-/*}*/
 #picture div:nth-of-type(1){
       width: 428px;
       height: 280px;
@@ -150,6 +262,22 @@
     background-color:rgba(10,10,10,0.7);
 }
 /*introduce*/
+/*介绍动画*/
+.moveIntroduce{
+    animation:moveIntroduce 1.2s;
+    animation-fill-mode:forwards;
+    animation-direction:alternate;
+}
+
+@keyframes moveIntroduce{
+    from {
+        transform:translateX(1900px);
+    }
+    to{
+        transform:translateX(0px);
+    }
+}
+/*介绍动画完*/
 .introduce{
     width: 1000px;
     height: 950px;
@@ -161,7 +289,6 @@
     height: 237px;
     margin-left: 390px;
     margin-top: 138px;
-    /*transform: translateX(1000px);*/
 }
 .introduce>h2{
     width: 100%;
@@ -172,7 +299,6 @@
    color: rgb(84, 194, 68);
     text-align: center;
     cursor: move;
-    /*transform: translateX(1000px);*/
 }
 .introduce>h3{
     width: 100%;
@@ -182,7 +308,6 @@
     color: #666666;
     text-align: center;
     cursor: move;
-    /*transform: translateX(1000px);*/
 }
 .introduce>h3:nth-of-type(1){
     margin-top: 5px;
@@ -199,7 +324,6 @@
     border:1px solid transparent;
     margin: 0 auto;
     margin-top: 32px;
-    /*transform: translateX(1000px);*/
 }
 .introduce p{
     width: 100%;
@@ -209,7 +333,6 @@
     font-family: "微软雅黑";
     cursor: move;
     line-height: 35px;
-    /*transform: translateX(1000px);*/
 }
 .introduce p:nth-of-type(1){
     margin-top: 32px;
@@ -228,5 +351,4 @@
     outline: none;
     margin-top: 78px;
     margin-left: 392px;
-    /*transform: translateX(1000px);*/
 }

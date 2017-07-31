@@ -1,13 +1,109 @@
+/*重置代码*/
+@charset "UTF-8";
+/*css reset*/
+html{color:#000;background:#FFF;font-family:Microsoft YaHei,sans-serif,Arial,'宋体';}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td,strong{
+    padding:0;margin:0;
+}
+table{
+    border-collapse:collapse;
+    border-spacing:0;
+}
+fieldset,img{
+    border:0;
+}
+a{
+    text-decoration:none;
+    outline:none;
+}
+var,em,i{
+    font-style:normal;
+}
+address,caption,cite,code,dfn,em,th,var,optgroup{
+    font-style:inherit;
+    font-weight:inherit;
+}
+del,ins{
+    text-decoration:none;
+}
+li{
+    list-style:none;
+}
+caption,th{
+    text-align:left;
+}
+h1,h2,h3,h4,h5,h6{
+    font-size:100%;
+    font-weight:normal;
+}
+q:before,q:after{
+    content:'';
+}
+abbr,acronym{
+    border:0;
+    font-variant:normal;
+}
+sup{
+    vertical-align:baseline;
+}
+sub{
+    vertical-align:baseline;
+}
+legend{
+    color:#000;
+}
+input,button,textarea,select,optgroup,option{
+    font-family:inherit;
+    font-size:inherit;
+    font-style:inherit;
+    font-weight:inherit;
+}
+input,button,textarea,select{
+    *font-size:100%;
+}
+.clear{
+    clear:both;
+    height:0px;
+    overflow:hidden;
+}
+.clearfix:after{
+    clear:both;
+    display: block;
+    content: "...";
+    visibility: hidden;
+    height: 0;
+    font-size: 0;
+}
+input[type="submit"],input[type="reset"],input[type="button"],button {
+    -webkit-appearance: none;
+    outline:none;
+    cursor:pointer;
+}
+.clearfix{
+    *zoom:1;
+}
+/*重置代码完*/
+
 /*公共部分*/
 .wrapD{
     width: 100%;
     height: 2866px;
 }
-/*.box{*/
-    /*width: 1000px;*/
-    /*min-width: 1000px;*/
-    /*margin: 0 auto;*/
-/*}*/
+/*动画*/
+.baby_move{
+    animation:baby_move 1.2s;
+    animation-fill-mode:forwards;
+    animation-direction:alternate;
+}
+@keyframes baby_move{
+    from {
+        transform:translateY(600px);
+    }
+    to{
+        transform:translateY(0px);
+    }
+}
+/*动画完*/
 /*banner start*/
 .bannerD{
     width: 100%;
@@ -22,6 +118,7 @@
     background-image: url("../img/bgD.jpg");
     background-size: 100% 725px;
     background-repeat: no-repeat;
+    overflow: hidden;
 }
 .model{
     width: 429px;
@@ -66,6 +163,7 @@
     background-size: 100% 100%;
     background-repeat: no-repeat;
     position: relative;
+    overflow: hidden;
 }
 .park img{
     width: 100%;
@@ -130,6 +228,7 @@
     background-image: url("../img/bgF.jpg");
     background-size: 100% 100%;
     background-repeat:no-repeat;
+    overflow: hidden;
 }
 .create_con{
     height: 1121px;

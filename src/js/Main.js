@@ -98,13 +98,13 @@ class Main extends Component {
 
             }
         });
-            // document.addEventListener('scroll',()=>{
-            //     var scrollTop=document.body.scrollTop
-            //     if(scrollTop>=800){
-            //         console.log(this.refs.txt)
-            //         this.refs.txt.style.transform='translateY('+0+'px)'
-            //     }
-            // });
+        // document.addEventListener('scroll',()=>{
+        //     var scrollTop=document.body.scrollTop
+        //     if(scrollTop>=800){
+        //         console.log(this.refs.txt)
+        //         this.refs.txt.style.transform='translateY('+0+'px)'
+        //     }
+        // });
     }
 
     render() {
@@ -112,14 +112,12 @@ class Main extends Component {
             <div className="wrap">
                 {/*轮播  start*/}
                 <div className="banner">
-
                     <Carousel autoplay>
-                       <div>
+                        <div>
                             {this.state.banner.map(function (v,i) {
                                 return    <div><img src={v.scr}/></div>
-
                             })}
-                       </div>
+                        </div>
 
                     </Carousel>
 

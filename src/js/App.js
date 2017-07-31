@@ -12,7 +12,10 @@ import '../css/Baby.css';
 import '../css/Teach.css';
 import '../css/Forward.css';
 import 'antd/dist/antd.css';
-
+// 移动端
+import '../css/App.css';
+import '../css/HeaderP.css';
+import '../css/HomeP.css';
 
 
 
@@ -25,6 +28,10 @@ import Education from './Education';
 import Baby from './Baby';
 import Teach from './Teach';
 import Forward from './Forward';
+// 移动端
+import HeaderP from './HeaderP';
+import HomeP from './HomeP';
+import rem from './rem'
 
 
 
@@ -95,11 +102,11 @@ class App extends Component {
     componentDidMount() {
         // 滚轮事件
         /* 添加滑轮事件*/
-        if (window.addEventListener) {
-            document.addEventListener('scroll', this.bodyScroll.bind(this));
-        } else {
-            document.attachEvent('onscroll', this.bodyScroll.bind(this));
-        }
+        // if (window.addEventListener) {
+        //     document.addEventListener('scroll', this.bodyScroll,false);
+        // } else {
+        //     document.attachEvent('onscroll', this.bodyScroll);
+        // }
         // 滚轮事件完
         $.ajax({
             url:'http://192.168.43.5:8005/text',
@@ -111,7 +118,7 @@ class App extends Component {
                 var navLi=nav.getElementsByTagName('li');
 
                 var index=0;
-                var index2=0
+                var index2=0;
                 navLi[0].style.color='#4bb344';
                 navLi[0].classList.add('navColor');
                 for(var i=0;i<navLi.length;i++){
@@ -134,51 +141,44 @@ class App extends Component {
         // footer背景
         var footer = document.getElementById("App-footer");
         footer.style.backgroundImage = `url("${this.state.foot.bg}")`;
-        // footer动画效果
-        function moveX(id,t) {
-            var obj=document.getElementById(id);
-            var timer='';
-            var screenW=document.documentElement.offsetWidth;
-            obj.parentNode.style.overflow='hidden';
-            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-            if(scrollTop=obj.offsetTop){
-                timer=setInterval(function () {
-                    obj.style.transition=t+"s";
-                    obj.style.transform="translateX("+0+")";
-                },500)
-            }
-        }
-        moveX('footerIn',0.6);
-
     };
+    // componentWillUnMount(){
+    //     if (window.addEventListener) {
+    //         document.addEventListener('scroll', this.bodyScroll,false);
+    //     } else {
+    //         document.attachEvent('onscroll', this.bodyScroll);
+    //     }
+    // }
+    // // React.unmountComponentAtNode(box);
 
-    render()
-        {
-            return (
-                <Router>
-                    <div className="wrap">
-                        <div className="box">
-                            {/*头部 start*/}
-                            <div className="head">
-                                {/*logo start*/}
-                                <div className="logo">
-                                    <span>School</span>
-                                    &#x3000;
-                                    <span>Design</span>
-                                    <span>专注于激发孩子们学习兴趣</span>
-                                </div>
-                                {/*logo end*/}
-                                {/*报名 start*/}
-                                <div className="phone">
-                                    <p>报名热线</p>
-                                    <p>{this.state.tel.tel}</p>
-                                </div>
-                                <div className="tel">
-                                    <img src="img/phone.png"/>
-                                </div>
-                                <div className="clear"></div>
-                                {/*报名 end*/}
-                            </div>
+    render(){
+        return (
+            <Router>
+            <div>
+               {/*@media screen and (min-width:1000px){*/}
+
+               <div className="wrap">
+               <div className="box">
+               {/*头部 start*/}
+               <div className="head">
+                   {/*logo start*/}
+                   <div className="logo">
+                       <span>School</span>&#x3000;
+                       <span>Design</span>
+                       <span>专注于激发孩子们学习兴趣</span>
+                   </div>
+                       {/*logo end*/}
+                       {/*报名 start*/}
+                   <div className="phone">
+                        <p>报名热线</p>
+                        <p>{this.state.tel.tel}</p>
+                   </div>
+                   <div className="tel">
+                         <img src="img/phone.png"/>
+                   </div>
+                   <div className="clear"></div>
+                   {/*报名 end*/}
+                   </div>
                         </div>
                         {/*头部end*/}
                         {/*导航 start*/}
@@ -218,8 +218,7 @@ class App extends Component {
                                             <img src={this.state.foot.img} alt="地点"/>
                                             <div>
                                                 {this.state.contact.map(function (con, i) {
-                                                    return <p key={i}>{con.link}
-                                                    </p>
+                                                    return <p key={i}>{con.link}</p>
                                                 })}
                                             </div>
                                         </div>
@@ -229,8 +228,7 @@ class App extends Component {
                                         <p>姓名</p>
                                         <input type="text"/>
                                         <p>描述</p>
-                                        <textarea>
-                        </textarea>
+                                        <textarea></textarea>
                                         <button>提交</button>
                                     </div>
                                 </div>
@@ -239,10 +237,20 @@ class App extends Component {
                                 <p className="footer-pB">{this.state.bottom.phone}</p>
                             </div>
                         </div>
-                        {/*// Appfooter  END*/}
-                    </div>
-                </Router>
-            );
+                    {/*// Appfooter  END*/}
+                </div>
+
+                {/*}*/}
+                    {/*@media screen and (max-width:414px){*/}
+                    {/*<div className="App">*/}
+                        {/*<HeaderP/>*/}
+                        {/*<HomeP/>*/}
+                    {/*</div>*/}
+                {/*}*/}
+            </div>
+            </Router>
+
+        );
     }
 }
 

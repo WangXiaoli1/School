@@ -4,11 +4,12 @@
   "private": true,
   "dependencies": {
     "antd": "^2.12.1",
+    "formidable": "latest",
+    "fs": "latest",
     "react": "^15.6.1",
+    "react-bootstrap": "^0.31.1",
     "react-dom": "^15.6.1",
-    "react-scripts": "1.0.10",
-    "formidable":"latest",
-    "fs":"latest"
+    "react-scripts": "1.0.10"
   },
   "scripts": {
     "start": "react-scripts start",

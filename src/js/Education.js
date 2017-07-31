@@ -16,7 +16,60 @@ class Education extends Component{
             pictureCRight:[],
     }
     }
+    bodyScroll(){
+        function gdjz(div,cssname,offset){
+            var a,b,c,d;
+
+            d=$(div).offset().top;
+            console.log(d)
+            a=eval(d + offset);
+            b=$(window).scrollTop();
+            c=$(window).height();
+            if(b+c>a){
+                $((div)).addClass((cssname));
+            }
+        }
+        $(document).ready(function() {
+            $(window).scroll(function(){
+                    // class 动画
+                    gdjz(".class>p:nth-of-type(1)",'Edu_moveClass',-100);
+                    gdjz(".class>p:nth-of-type(2)",'Edu_moveClass',-100);
+                    gdjz(".class>p:nth-of-type(3)",'Edu_moveClass',-100);
+                    gdjz(".class>p:nth-of-type(4)",'Edu_moveClass',-100);
+                    // class动画完
+
+                    // myclass动画
+                    gdjz(".myClassA",'Edu_myClassBg',-100);
+                    gdjz(".myClassCon",'Edu_myClassTxt',-100);
+                    gdjz(".myClassB",'Edu_myClassImg',-100);
+                    // myclass动画完
+
+                    // 绿色小黄人动画
+                    gdjz(".xhr",'Edu_moveXhr',-50);
+                    gdjz(".xhrGreen-right",'Edu_xhrGreenRight',-50);
+                    // 绿色小黄人动画完
+
+                    // 图片动画
+                    gdjz(".pictureC-left div:nth-of-type(1)",'Edu_pictureCLeft',-50);
+                    gdjz(".pictureC-left div:nth-of-type(2)",'Edu_pictureCLeftA',-50);
+                    gdjz(".pictureC-left div:nth-of-type(3)",'Edu_pictureCLeft',-50);
+                    gdjz(".pictureC-left div:nth-of-type(4)",'Edu_pictureCLeftA',-50);
+                    gdjz(".pictureC-right",'Edu_pictureCRight',-50);
+                    // 图片动画完
+
+                    // footer动画
+                    gdjz(".footerIn",'moveFooter',300);
+                    // footer动画完
+                }
+            );
+        });
+    }
     componentDidMount(){
+        if (window.addEventListener) {
+            document.addEventListener('scroll', this.bodyScroll,false);
+        } else {
+            document.attachEvent('onscroll', this.bodyScroll);
+        }
         // var pictureCLeft=document.getElementById('pictureCLeft');
         // var pictureCRight=document.getElementById('pictureCRight');
         // for(var i=0;i<pictureCLeft.children.length;i++){
@@ -88,6 +141,18 @@ class Education extends Component{
             url: "http://192.168.43.5:8005/edu_pic/edu_pic",
             success: function (e) {
                 this.setState({pictureCLeft:e});
+                var pictureCLeft=document.getElementById('pictureCLeft');
+                var pictureCLeftDiv=pictureCLeft.getElementsByTagName('div');
+                for(var i=0;i<pictureCLeftDiv.length;i++){
+                    pictureCLeftDiv[i].onmouseover=function () {
+                        this.children[0].style.marginLeft='0px';
+                        this.children[0].style.transition='0.5s';
+                    }
+                    pictureCLeftDiv[i].onmouseout=function () {
+                        this.children[0].style.marginLeft='-20px';
+                        this.children[0].style.transition='0.5s';
+                    }
+                }
             }.bind(this)
         });
         $.ajax({
@@ -95,6 +160,15 @@ class Education extends Component{
             url: "http://192.168.43.5:8005/edu_pic1/edu_pic1",
             success: function (e) {
                 this.setState({pictureCRight:[e[0].src]});
+                var pictureCRight=document.getElementById('pictureCRight');
+                pictureCRight.onmouseover=function () {
+                    this.children[0].style.marginLeft='0px';
+                    this.children[0].style.transition='0.5s';
+                }
+                pictureCRight.onmouseout=function () {
+                    this.children[0].style.marginLeft='-20px';
+                    this.children[0].style.transition='0.5s';
+                }
             }.bind(this)
         });
         // function moveY(id,t) {
@@ -117,12 +191,12 @@ class Education extends Component{
                 <div className="super-class">
                     <div className="class">
                         {this.state.class.map(function (v,i) {
-                            return <p key={i}>{v.text}</p>
+                            return <p key={i} className="classIn">{v.text}</p>
                         })}
                         <div className="myClass">
                             {this.state.myClass.map(function (v,i) {
                                 return <div key={i}>
-                                    <span><img src={v.src} alt=""/></span>
+                                    <span className="myClassA"><img src={v.src} alt="" className="myClassB"/></span>
                                     <div className="myClassCon">
                                         <h3>{v.title}</h3>
                                         <h4>{v.enTitle}</h4>

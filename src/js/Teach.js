@@ -15,8 +15,75 @@ class Teach extends Component{
             leader_three_l:[],
         }
     }
+    bodyScroll(){
+        function gdjz(div,cssname,offset){
+            var a,b,c,d;
 
+            d=$(div).offset().top;
+            console.log(d)
+            a=eval(d + offset);
+            b=$(window).scrollTop();
+            c=$(window).height();
+            if(b+c>a){
+                $((div)).addClass((cssname));
+            }
+        }
+        $(document).ready(function() {
+            $(window).scroll(function(){
+                    // brand字动画
+                    gdjz(".brand",'teach_move',300);
+                    // brand字动画完
+
+                    // leader_one动画
+                    // 框
+                    gdjz(".leader_one_l",'teach_move',300);
+                    // 框完
+                    // 图
+                    gdjz(".leader_one_l img",'teach_move',300);
+                    // 图完
+                    // 字
+                    gdjz(".leader_one_r",'teach_move',300);
+                    // 字完
+                    // leader_one动画完
+
+                    // leader_two动画
+                    // 框
+                    gdjz(".leader_two_r",'teach_move',300);
+                    // 框完
+                    // 图
+                    gdjz(".leader_two_r img",'teach_move',300);
+                    // 图完
+                    // 字
+                    gdjz(".leader_two_l",'teach_move',300);
+                    // 字完
+                    // leader_two动画完
+
+                    // leader_three动画
+                    // 框
+                    gdjz(".leader_three_l",'teach_move',300);
+                    // 框完
+                    // 图
+                    gdjz(".leader_three_l img",'teach_move',300);
+                    // 图完
+                    // 字
+                    gdjz(".leader_three_r",'teach_move',300);
+                    // 字完
+                    // leader_three动画完
+
+
+                    // footer动画
+                    gdjz(".footerIn",'moveFooter',300);
+                    // footer动画完
+                }
+            );
+        });
+    }
     componentDidMount(){
+        if (window.addEventListener) {
+            document.addEventListener('scroll', this.bodyScroll,false);
+        } else {
+            document.attachEvent('onscroll', this.bodyScroll);
+        }
         $.ajax({
             url: 'http://192.168.43.5:8005/teach_brand',
             type: 'get',

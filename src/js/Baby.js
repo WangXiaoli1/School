@@ -17,7 +17,52 @@ class Baby extends Component{
             create_img:[]
         }
     }
+    bodyScroll(){
+        function gdjz(div,cssname,offset){
+            var a,b,c,d;
+
+            d=$(div).offset().top;
+            console.log(d)
+            a=eval(d + offset);
+            b=$(window).scrollTop();
+            c=$(window).height();
+            if(b+c>a){
+                $((div)).addClass((cssname));
+            }
+        }
+
+            $(window).scroll(function(){
+                    // baby动画
+                    gdjz(".model",'baby_move',0);
+                    // baby动画完
+
+                    // park动画
+                    gdjz(".park_a",'baby_move',0);
+                    // park动画完
+
+                    // create_con动画
+                    gdjz(".createA",'baby_move',0);
+                    // create_con动画完
+
+                    // create_con图片动画
+                    gdjz(".create_con img:nth-of-type(1)",'baby_move',0);
+                    gdjz(".create_con img:nth-of-type(2)",'baby_move',0);
+                    gdjz(".create_con img:nth-of-type(3)",'baby_move',-20);
+                    // create_con图片动画完
+
+                    // footer动画
+                    gdjz(".footerIn",'moveFooter',300);
+                    // footer动画完
+                }
+            );
+
+    }
     componentDidMount(){
+        if (window.addEventListener) {
+            document.addEventListener('scroll', this.bodyScroll,false);
+        } else {
+            document.attachEvent('onscroll', this.bodyScroll);
+        }
         $.ajax({
             url:'http://192.168.43.5:8005/model',
             type:'get',
@@ -84,8 +129,8 @@ class Baby extends Component{
                 <div className="baby">
                     <div className="box">
                         <div className="model">
-                            {this.state.model.map(function (con) {
-                                return <p key={con.id}>{con.txt}</p>
+                            {this.state.model.map(function (con,i) {
+                                return <p key={i}>{con.txt}</p>
                             })}
                             <Link to="/forward"><input type="button" value={this.state.btn.btn}/></Link>
                         </div>
@@ -96,8 +141,8 @@ class Baby extends Component{
                 <div className="park">
                     <img src={this.state.parkBg} alt="" className="bannerD"/>
                     <div className="park_a">
-                        {this.state.park.map(function (con) {
-                            return <p>{con.txt}</p>
+                        {this.state.park.map(function (con,i) {
+                            return <p key={i}>{con.txt}</p>
                         })}
                         <Link to="/forward"><input type="button" value={this.state.btn.btn}/></Link>
                     </div>
@@ -107,11 +152,11 @@ class Baby extends Component{
                 <div className="create">
                     <div className="box">
                         <div className="create_con">
-                            {this.state.create_con.map(function (con) {
-                                return <p>{con.txt}</p>
+                            {this.state.create_con.map(function (con,i) {
+                                return <p className="createA" key={i}>{con.txt}</p>
                             })}
-                            {this.state.create_img.map(function (img) {
-                                return <img src={img.src} alt=""/>
+                            {this.state.create_img.map(function (img,i) {
+                                return <img src={img.src} alt="" key={i}/>
                             })}
                         </div>
                     </div>
