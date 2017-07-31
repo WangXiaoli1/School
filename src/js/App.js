@@ -66,7 +66,8 @@ class App extends Component {
         // var ev=e||window.event;
         // var tops=document.body.scrollTop;
         // console.log(tops);
-        if(window.location.href=="http://localhost:3001/"){
+
+        if(window.location.href=="http://localhost:3000/"){
             function gdjz(div,cssname,offset){
                 var a,b,c,d;
                 d=$(div).offset().top;
@@ -78,146 +79,287 @@ class App extends Component {
                 }
             }
             //Main 动画
+console.log(1)
 
-            // 圆盘动画
             $(document).ready(function(e) {
                 $(window).scroll(function(){
+                    // 圆盘动画
                         gdjz(".con",'moveConLi',0);
+                    // 圆盘动画完
+
+                    // 圆盘上的字动画
+                    gdjz(".txt",'moveConLiTxt',0);
+                    // 圆盘上的字动画完
+
+                    //小女孩背景动画
+                    gdjz(".special",'moveSpecial',100);
+                    //小女孩背景动画完
+
+                    //小女孩字动画
+                    gdjz(".course",'moveCourse',100);
+                    //小女孩字动画完
+
+                    //小女孩按钮动画
+                    gdjz(".btn",'moveCourseBtn',-200);
+                    //小女孩按钮动画完
+
+                    //彩绘课程动画
+                    gdjz(".one",'moveOne',-50);
+                    //彩绘课程动画完
+
+                    //彩绘课程文字动画
+                    gdjz(".oneTxt",'moveOneTxt',-50);
+                    //彩绘课程文字动画完
+
+                    //彩绘课程下动画
+                    gdjz(".two",'moveOne',-250);
+                    //彩绘课程下动画完
+
+
+                    //品德教育1动画
+                    gdjz(".side_r_one",'moveEduOne',-50);
+                    //品德教育1动画完
+
+                    //品德教育2动画
+                    gdjz(".side_r_two",'moveEduTwo',-250);
+                    //品德教育2动画完
+
+                    //xhr动画
+                    gdjz(".side_r_three",'moveEduThree',-300);
+                    //xhr动画完
+
+                    //品德教育动画
+                    gdjz(".edu",'moveEdu',-300);
+                    //品德教育动画完
+
+                    //品德教育文字动画
+                    gdjz(".eduTxt",'moveEduTxt',-300);
+                    //品德教育文字动画完
+
+                    //学校环境动画
+                    gdjz(".school",'moveSchool',-50);
+                    //学校环境动画完
+
+                    //xhr2动画
+                    gdjz(".xhrtwo",'moveXhrTwo',-150);
+                    //xhr2动画完
+
+                    //Main 动画完
+
+
+                    // footer动画
+                    gdjz(".footerIn",'moveFooter',300);
+                    // footer动画完
+
                     }
                 );
             });
-            // 圆盘动画完
-            // 圆盘上的字动画
-            $(document).ready(function(e) {
+
+        }else if(window.location.href=="http://localhost:3000/ConB"){
+            function gdjz(div,cssname,offset){
+                var a,b,c,d;
+                d=$(div).offset().top;
+                a=eval(d + offset);
+                b=$(window).scrollTop();
+                c=$(window).height();
+                if(b+c>a){
+                    $((div)).addClass((cssname));
+                }
+            }
+            console.log(2)
+            $(document).ready(function() {
                 $(window).scroll(function(){
-                        gdjz(".txt",'moveConLiTxt',0);
+                    // 学校环境动画
+                        gdjz(".environment",'moveEnvironment',100);
+                    // 学校环境动画完
+
+                    //照片墙动画
+                    gdjz("#picture div:nth-of-type(1)",'movePicture',-80);
+                    //             gdjz("#picture div:nth-of-type(2)",'movePictureB',-80);
+                    gdjz("#picture div:nth-of-type(3)",'movePicture',-80);
+                    //             gdjz("#picture div:nth-of-type(4)",'movePictureB',-80);
+                    // 照片墙动画完
+
+                    // 教育介绍
+                    gdjz(".introduce",'moveIntroduce',-20);
+                    gdjz(".introduceA",'moveIntroduce',-20);
+                    gdjz(".introduceB",'moveIntroduce',-20);
+                    gdjz(".introduceC",'moveIntroduce',-20);
+                    gdjz(".introduceD",'moveIntroduce',-20);
+                    gdjz(".introduceE",'moveIntroduce',-20);
+                    gdjz(".introduceF",'moveIntroduce',-20);
+                    gdjz(".introduceG",'moveIntroduce',-20);
+                    gdjz(".introduceH",'moveIntroduce',-20);
+                    gdjz(".introduceI",'moveIntroduce',-20);
+
+                    // 教育介绍完
+
+                    // footer动画
+                    gdjz(".footerIn",'moveFooter',300);
+                    // footer动画完
                     }
                 );
             });
-            // 圆盘上的字动画完
 
-            //小女孩背景动画
-            $(document).ready(function(e) {
+        }else if(window.location.href=="http://localhost:3000/Education"){
+            function gdjz(div,cssname,offset){
+                var a,b,c,d;
+                d=$(div).offset().top;
+                a=eval(d + offset);
+                b=$(window).scrollTop();
+                c=$(window).height();
+                if(b+c>a){
+                    $((div)).addClass((cssname));
+                }
+            }
+            console.log(3)
+            $(document).ready(function() {
                 $(window).scroll(function(){
-                        gdjz(".special",'moveSpecial',100);
+                    // class 动画
+                        gdjz(".class>p:nth-of-type(1)",'Edu_moveClass',-100);
+                    gdjz(".class>p:nth-of-type(2)",'Edu_moveClass',-100);
+                    gdjz(".class>p:nth-of-type(3)",'Edu_moveClass',-100);
+                    gdjz(".class>p:nth-of-type(4)",'Edu_moveClass',-100);
+                    // class动画完
+
+                    // myclass动画
+                    gdjz(".myClassA",'Edu_myClassBg',-100);
+                    gdjz(".myClassCon",'Edu_myClassTxt',-100);
+                    gdjz(".myClassB",'Edu_myClassImg',-100);
+                    // myclass动画完
+
+                    // 绿色小黄人动画
+                    gdjz(".xhr",'Edu_moveXhr',-50);
+                    gdjz(".xhrGreen-right",'Edu_xhrGreenRight',-50);
+                    // 绿色小黄人动画完
+
+                    // 图片动画
+                    gdjz(".pictureC-left div:nth-of-type(1)",'Edu_pictureCLeft',-50);
+                    gdjz(".pictureC-left div:nth-of-type(2)",'Edu_pictureCLeftA',-50);
+                    gdjz(".pictureC-left div:nth-of-type(3)",'Edu_pictureCLeft',-50);
+                    gdjz(".pictureC-left div:nth-of-type(4)",'Edu_pictureCLeftA',-50);
+                    gdjz(".pictureC-right",'Edu_pictureCRight',-50);
+                    // 图片动画完
+
+                    // footer动画
+                    gdjz(".footerIn",'moveFooter',300);
+                    // footer动画完
                     }
                 );
             });
-            //小女孩背景动画完
 
-            //小女孩字动画
-            $(document).ready(function(e) {
+        }else if(window.location.href=="http://localhost:3000/Baby"){
+            function gdjz(div,cssname,offset){
+                var a,b,c,d;
+                d=$(div).offset().top;
+                a=eval(d + offset);
+                b=$(window).scrollTop();
+                c=$(window).height();
+                if(b+c>a){
+                    $((div)).addClass((cssname));
+                }
+            }
+            console.log(4)
+            $(document).ready(function() {
                 $(window).scroll(function(){
-                        gdjz(".course",'moveCourse',100);
+                    // baby动画
+                        gdjz(".model",'baby_move',0);
+                    // baby动画完
+
+                    // park动画
+                    gdjz(".park_a",'baby_move',0);
+                    // park动画完
+
+                    // create_con动画
+                    gdjz(".createA",'baby_move',0);
+                    // create_con动画完
+
+                    // create_con图片动画
+                    gdjz(".create_con img:nth-of-type(1)",'baby_move',0);
+                    gdjz(".create_con img:nth-of-type(2)",'baby_move',0);
+                    gdjz(".create_con img:nth-of-type(3)",'baby_move',-20);
+                    // create_con图片动画完
+
+                    // footer动画
+                    gdjz(".footerIn",'moveFooter',300);
+                    // footer动画完
                     }
                 );
             });
-            //小女孩字动画完
 
-            //小女孩按钮动画
-            $(document).ready(function(e) {
+        }else if(window.location.href=="http://localhost:3000/Teach"){
+            function gdjz(div,cssname,offset){
+                var a,b,c,d;
+                d=$(div).offset().top;
+                a=eval(d + offset);
+                b=$(window).scrollTop();
+                c=$(window).height();
+                if(b+c>a){
+                    $((div)).addClass((cssname));
+                }
+            }
+
+            $(document).ready(function() {
                 $(window).scroll(function(){
-                        gdjz(".btn",'moveCourseBtn',-200);
+                    // brand字动画
+                        gdjz(".brand",'teach_move',300);
+                    // brand字动画完
+
+                    // leader_one动画
+                    // 框
+                    gdjz(".leader_one_l",'teach_move',300);
+                    // 框完
+                    // 图
+                    gdjz(".leader_one_l img",'teach_move',300);
+                    // 图完
+                    // 字
+                    gdjz(".leader_one_r",'teach_move',300);
+                    // 字完
+                    // leader_one动画完
+
+                    // leader_two动画
+                    // 框
+                    gdjz(".leader_two_r",'teach_move',300);
+                    // 框完
+                    // 图
+                    gdjz(".leader_two_r img",'teach_move',300);
+                    // 图完
+                    // 字
+                    gdjz(".leader_two_l",'teach_move',300);
+                    // 字完
+                    // leader_two动画完
+
+                    // leader_three动画
+                    // 框
+                    gdjz(".leader_three_l",'teach_move',300);
+                    // 框完
+                    // 图
+                    gdjz(".leader_three_l img",'teach_move',300);
+                    // 图完
+                    // 字
+                    gdjz(".leader_three_r",'teach_move',300);
+                    // 字完
+                    // leader_three动画完
+
+
+                    // footer动画
+                    gdjz(".footerIn",'moveFooter',300);
+                    // footer动画完
                     }
                 );
             });
-            //小女孩按钮动画完
 
-            //彩绘课程动画
-            $(document).ready(function(e) {
-                $(window).scroll(function(){
-                        gdjz(".one",'moveOne',-50);
-                    }
-                );
-            });
-            //彩绘课程动画完
-
-            //彩绘课程文字动画
-            $(document).ready(function(e) {
-                $(window).scroll(function(){
-                        gdjz(".oneTxt",'moveOneTxt',-50);
-                    }
-                );
-            });
-            //彩绘课程文字动画完
-
-            //彩绘课程下动画
-            $(document).ready(function(e) {
-                $(window).scroll(function(){
-                        gdjz(".two",'moveOne',-250);
-                    }
-                );
-            });
-            //彩绘课程下动画完
-
-
-            //品德教育1动画
-            $(document).ready(function(e) {
-                $(window).scroll(function(){
-                        gdjz(".side_r_one",'moveEduOne',-50);
-                    }
-                );
-            });
-            //品德教育1动画完
-
-            //品德教育2动画
-            $(document).ready(function(e) {
-                $(window).scroll(function(){
-                        gdjz(".side_r_two",'moveEduTwo',-250);
-                    }
-                );
-            });
-            //品德教育2动画完
-
-            //xhr动画
-            $(document).ready(function(e) {
-                $(window).scroll(function(){
-                        gdjz(".side_r_three",'moveEduThree',-300);
-                    }
-                );
-            });
-            //xhr动画完
-
-            //品德教育动画
-            $(document).ready(function(e) {
-                $(window).scroll(function(){
-                        gdjz(".edu",'moveEdu',-300);
-                    }
-                );
-            });
-            //品德教育动画完
-
-            //品德教育文字动画
-            $(document).ready(function(e) {
-                $(window).scroll(function(){
-                        gdjz(".eduTxt",'moveEduTxt',-300);
-                    }
-                );
-            });
-            //品德教育文字动画完
-
-            //学校环境动画
-            $(document).ready(function(e) {
-                $(window).scroll(function(){
-                        gdjz(".school",'moveSchool',0);
-                    }
-                );
-            });
-            //学校环境动画完
-
-            //xhr2动画
-            $(document).ready(function(e) {
-                $(window).scroll(function(){
-                        gdjz(".xhrtwo",'moveXhrTwo',-150);
-                    }
-                );
-            });
-            //xhr2动画完
-
-
-
-            //Main 动画完
-
+        }else if(window.location.href=="http://localhost:3000/forward"){
+            function gdjz(div,cssname,offset){
+                var a,b,c,d;
+                d=$(div).offset().top;
+                a=eval(d + offset);
+                b=$(window).scrollTop();
+                c=$(window).height();
+                if(b+c>a){
+                    $((div)).addClass((cssname));
+                }
+            }
 
             // footer动画
             $(document).ready(function() {
@@ -227,16 +369,15 @@ class App extends Component {
                 );
             });
             // footer动画完
-
         }
     }
     componentDidMount() {
         // 滚轮事件
         /* 添加滑轮事件*/
         if (window.addEventListener) {
-            document.addEventListener('scroll', this.bodyScroll.bind(this),false);
+            document.addEventListener('scroll', this.bodyScroll,false);
         } else {
-            document.attachEvent('onscroll', this.bodyScroll.bind(this));
+            document.attachEvent('onscroll', this.bodyScroll);
         }
         // 滚轮事件完
         $.ajax({
@@ -249,7 +390,7 @@ class App extends Component {
                 var navLi=nav.getElementsByTagName('li');
 
                 var index=0;
-                var index2=0
+                var index2=0;
                 navLi[0].style.color='#4bb344';
                 navLi[0].classList.add('navColor');
                 for(var i=0;i<navLi.length;i++){
@@ -272,22 +413,6 @@ class App extends Component {
         // footer背景
         var footer = document.getElementById("App-footer");
         footer.style.backgroundImage = `url("${this.state.foot.bg}")`;
-        // // footer动画效果
-        // function moveX(id,t) {
-        //     var obj=document.getElementById(id);
-        //     var timer='';
-        //     var screenW=document.documentElement.offsetWidth;
-        //     obj.parentNode.style.overflow='hidden';
-        //     var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-        //     if(scrollTop=obj.offsetTop){
-        //         timer=setInterval(function () {
-        //             obj.style.transition=t+"s";
-        //             obj.style.transform="translateX("+0+")";
-        //         },500)
-        //     }
-        // }
-        // moveX('footerIn',0.6);
-
     };
     render(){
         return (

@@ -84,8 +84,8 @@ class Baby extends Component{
                 <div className="baby">
                     <div className="box">
                         <div className="model">
-                            {this.state.model.map(function (con) {
-                                return <p key={con.id}>{con.txt}</p>
+                            {this.state.model.map(function (con,i) {
+                                return <p key={i}>{con.txt}</p>
                             })}
                             <Link to="/forward"><input type="button" value={this.state.btn.btn}/></Link>
                         </div>
@@ -96,8 +96,8 @@ class Baby extends Component{
                 <div className="park">
                     <img src={this.state.parkBg} alt="" className="bannerD"/>
                     <div className="park_a">
-                        {this.state.park.map(function (con) {
-                            return <p>{con.txt}</p>
+                        {this.state.park.map(function (con,i) {
+                            return <p key={i}>{con.txt}</p>
                         })}
                         <Link to="/forward"><input type="button" value={this.state.btn.btn}/></Link>
                     </div>
@@ -107,11 +107,11 @@ class Baby extends Component{
                 <div className="create">
                     <div className="box">
                         <div className="create_con">
-                            {this.state.create_con.map(function (con) {
-                                return <p>{con.txt}</p>
+                            {this.state.create_con.map(function (con,i) {
+                                return <p className="createA" key={i}>{con.txt}</p>
                             })}
-                            {this.state.create_img.map(function (img) {
-                                return <img src={img.src} alt=""/>
+                            {this.state.create_img.map(function (img,i) {
+                                return <img src={img.src} alt="" key={i}/>
                             })}
                         </div>
                     </div>

@@ -83,7 +83,21 @@ input[type="submit"],input[type="reset"],input[type="button"],button {
     *zoom:1;
 }
 /*重置代码完*/
-
+/*动画*/
+.teach_move{
+    animation:teach_move 1.2s;
+    animation-fill-mode:forwards;
+    animation-direction:alternate;
+}
+@keyframes teach_move{
+    from {
+        transform:translateY(600px);
+    }
+    to{
+        transform:translateY(0px);
+    }
+}
+/*动画完*/
 .wrapE{
     height:100%;
 }

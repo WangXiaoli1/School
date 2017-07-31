@@ -114,7 +114,7 @@ class Main extends Component {
                         {/*课程列表 start*/}
                         <ul className="con">
                             {this.state.main_con.map(function (e, i) {
-                                return <li key={e.id} className="conLi">
+                                return <li key={i} className="conLi">
                                     <img src={e.src} alt=""/>
                                     <div className="txt" ref="txt">
                                         <h2>{e.txt}</h2>
@@ -189,14 +189,14 @@ class Main extends Component {
                             {this.state.school.map(function (e,i) {
                                 return <div className="school_l" key={i}>
                                     <h1>{e.title}</h1>
-                                    <h4>{e.txt}</h4>
-                                    <p>{e.con}</p>
-                                    <p>{e.intro}</p>
-                                    <img src={e.src1} alt="" className="xhrtwo"/>
+                                <h4>{e.txt}</h4>
+                                <p>{e.con}</p>
+                                <p>{e.intro}</p>
+                                <img src={e.src1} alt="" className="xhrtwo"/>
                                 </div>
                             })}
-                            {this.state.school.map(function (e) {
-                                return <img src={e.src2} alt="" className=""/>
+                            {this.state.school.map(function (e,k) {
+                                return <img src={e.src2} alt="" className="" key={k}/>
                             })}
                         </div>
                         <div className="clear"></div>

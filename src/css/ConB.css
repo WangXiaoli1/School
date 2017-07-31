@@ -108,17 +108,22 @@ input[type="submit"],input[type="reset"],input[type="button"],button {
 }
 /*environment*/
 
-/*@keyframes environmentMove {*/
-    /*0%{*/
-        /*transform: translateX(100%);*/
-    /*}*/
-    /*100%{*/
-        /*transform: translateX(0);*/
-    /*}*/
-/*}*/
-/*.environment:hover{*/
-    /*animation: 0.8s linear footerMove 1;*/
-/*}*/
+/*// 学校环境动画*/
+.moveEnvironment{
+    animation:moveEnvironment 1.2s;
+    animation-fill-mode:forwards;
+    animation-direction:alternate;
+}
+
+@keyframes moveEnvironment{
+    from {
+        transform:translateX(1200px);
+    }
+    to{
+        transform:translateX(0px);
+    }
+}
+/*// 学校环境动画完*/
 .environmentWrap{
     width: 1000px;
     height: 845px;
@@ -179,12 +184,37 @@ input[type="submit"],input[type="reset"],input[type="button"],button {
 }
 
 /*picture*/
-/*.pictureWrap{*/
-    /*width: 1000px;*/
-    /*height: 560px;*/
-    /*margin:0 auto;*/
-    /*margin-top: 68px;*/
-/*}*/
+
+/*// 照片墙动画*/
+.movePicture{
+    animation:movePicture 1.5s;
+    animation-fill-mode:forwards;
+    animation-direction:alternate;
+}
+
+@keyframes movePicture{
+    from {
+        transform:translateX(1900px);
+    }
+    to{
+        transform:translateX(0px);
+    }
+}
+.movePictureB{
+    animation:movePictureB 1.2s;
+    animation-fill-mode:forwards;
+    animation-direction:alternate;
+}
+
+@keyframes movePictureB{
+    from {
+        transform:translateX(1900px);
+    }
+    to{
+        transform:translateX(0px);
+    }
+}
+/*// 照片墙动画完*/
 .picture{
     width: 1000px;
     height: 560px;
@@ -197,11 +227,8 @@ input[type="submit"],input[type="reset"],input[type="button"],button {
     background-size: 100% 100%;
     position: relative;
     overflow: hidden;
-    /*transform: translateX(1000px);*/
 }
-/*#picture div:nth-of-type(1){*/
 
-/*}*/
 #picture div:nth-of-type(1){
       width: 428px;
       height: 280px;
@@ -235,6 +262,22 @@ input[type="submit"],input[type="reset"],input[type="button"],button {
     background-color:rgba(10,10,10,0.7);
 }
 /*introduce*/
+/*介绍动画*/
+.moveIntroduce{
+    animation:moveIntroduce 1.2s;
+    animation-fill-mode:forwards;
+    animation-direction:alternate;
+}
+
+@keyframes moveIntroduce{
+    from {
+        transform:translateX(1900px);
+    }
+    to{
+        transform:translateX(0px);
+    }
+}
+/*介绍动画完*/
 .introduce{
     width: 1000px;
     height: 950px;
@@ -246,7 +289,6 @@ input[type="submit"],input[type="reset"],input[type="button"],button {
     height: 237px;
     margin-left: 390px;
     margin-top: 138px;
-    /*transform: translateX(1000px);*/
 }
 .introduce>h2{
     width: 100%;
@@ -257,7 +299,6 @@ input[type="submit"],input[type="reset"],input[type="button"],button {
    color: rgb(84, 194, 68);
     text-align: center;
     cursor: move;
-    /*transform: translateX(1000px);*/
 }
 .introduce>h3{
     width: 100%;
@@ -267,7 +308,6 @@ input[type="submit"],input[type="reset"],input[type="button"],button {
     color: #666666;
     text-align: center;
     cursor: move;
-    /*transform: translateX(1000px);*/
 }
 .introduce>h3:nth-of-type(1){
     margin-top: 5px;
@@ -284,7 +324,6 @@ input[type="submit"],input[type="reset"],input[type="button"],button {
     border:1px solid transparent;
     margin: 0 auto;
     margin-top: 32px;
-    /*transform: translateX(1000px);*/
 }
 .introduce p{
     width: 100%;
@@ -294,7 +333,6 @@ input[type="submit"],input[type="reset"],input[type="button"],button {
     font-family: "微软雅黑";
     cursor: move;
     line-height: 35px;
-    /*transform: translateX(1000px);*/
 }
 .introduce p:nth-of-type(1){
     margin-top: 32px;
@@ -313,5 +351,4 @@ input[type="submit"],input[type="reset"],input[type="button"],button {
     outline: none;
     margin-top: 78px;
     margin-left: 392px;
-    /*transform: translateX(1000px);*/
 }

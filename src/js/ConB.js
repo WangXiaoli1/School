@@ -155,7 +155,7 @@ class ConB extends Component {
                     <div className="pictureWrap">
                         <div className="picture" id="picture">
                             {this.state.picture.map(function (e,i) {
-                                return <div><img src={e.src} alt=""/><span></span></div>
+                                return <div className="movePicture" key={i}><img src={e.src} alt=""/><span></span></div>
                             })}
                         </div>
                     </div>
@@ -164,15 +164,15 @@ class ConB extends Component {
                         <div className="introduce" id="introduce">
                             {this.state.introduce.map(function (e,i) {
                                 return <div className="introduce" id="introduce" key={i}>
-                                    <img src={e.src} alt="" id="introduceA"/>
-                                    <h2 id="introduceB">{e.title}</h2>
-                                    <h3 id="introduceC">{e.enTitleA}</h3>
-                                    <h3 id="introduceD">{e.enTitleB}</h3>
-                                    <b id="introduceE"></b>
-                                    <p id="introduceF">{e.conA}</p>
-                                    <p id="introduceG">{e.conB}</p>
-                                    <p id="introduceH">{e.conC}</p>
-                                    <Link to="/forward"><button id="introduceI">{e.btn}</button></Link>
+                                    <img src={e.src} alt="" className="introduceA"/>
+                                    <h2 className="introduceB">{e.title}</h2>
+                                    <h3 className="introduceC">{e.enTitleA}</h3>
+                                    <h3 className="introduceD">{e.enTitleB}</h3>
+                                    <b className="introduceE"></b>
+                                    <p className="introduceF">{e.conA}</p>
+                                    <p className="introduceG">{e.conB}</p>
+                                    <p className="introduceH">{e.conC}</p>
+                                    <Link to="/forward"><button className="introduceI">{e.btn}</button></Link>
                                 </div>
                             })}
                         </div>

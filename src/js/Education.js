@@ -117,12 +117,12 @@ class Education extends Component{
                 <div className="super-class">
                     <div className="class">
                         {this.state.class.map(function (v,i) {
-                            return <p key={i}>{v.text}</p>
+                            return <p key={i} className="classIn">{v.text}</p>
                         })}
                         <div className="myClass">
                             {this.state.myClass.map(function (v,i) {
                                 return <div key={i}>
-                                    <span><img src={v.src} alt=""/></span>
+                                    <span className="myClassA"><img src={v.src} alt="" className="myClassB"/></span>
                                     <div className="myClassCon">
                                         <h3>{v.title}</h3>
                                         <h4>{v.enTitle}</h4>
