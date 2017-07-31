@@ -90,36 +90,12 @@ input[type="submit"],input[type="reset"],input[type="button"],button {-webkit-ap
 .content{
     width: 100%;
     height: 2596px;
-    /*background-image:url("../img/bgA.jpg");*/
-    background-repeat:no-repeat;
-    background-size: 100%;
 }
-.move{
-    animation:translate 2s;
-    animation-fill-mode:forwards;
-    animation-direction:alternate;
-}
-@keyframes translate{
-    from {
-        transform:translateY(120px);
-      }
-    to{
-        transform:translateY(0);
-    }}
 .con{
     width: 1000px;
     height: 336px;
     position: relative;
-    /*animation: 0.5s linear move;*/
 }
-/*@keyframes move {*/
-    /*0%{*/
-        /*transform: translateY(120px);*/
-    /*}*/
-    /*100%{*/
-        /*transform: translateY(0px);*/
-    /*}*/
-/*}*/
 .con li{
     float: left;
     margin-top:96px;
@@ -127,8 +103,6 @@ input[type="submit"],input[type="reset"],input[type="button"],button {-webkit-ap
     height: 240px;
     margin-right:85px;
     position: relative;
-    /*top:120px;*/
-    /*transform: translateY(120px);*/
 }
 .con li:nth-of-type(4){
     margin-right: 0;
@@ -168,19 +142,7 @@ input[type="submit"],input[type="reset"],input[type="button"],button {-webkit-ap
     position: relative;
     background-image:url("../img/girl.png");
     background-repeat:no-repeat;
-    background-size: 100%;
-    animation: 0.7s  linear move2;
-}
-@keyframes move2 {
-    0%{
-        transform: translateY(120px);
-    }
-    50%{
-        transform: translateY(120px);
-    }
-    100%{
-        transform: translateY(0px);
-    }
+    background-size: 100% 100%;
 }
 .course{
     width:578px;
@@ -375,4 +337,3 @@ input[type="submit"],input[type="reset"],input[type="button"],button {-webkit-ap
     margin: 0 auto;
 }
 /*学校环境 end*/
-

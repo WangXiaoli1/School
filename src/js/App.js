@@ -71,7 +71,7 @@ class App extends Component {
             }
             $(document).ready(function(e) {
                 $(window).scroll(function(){
-                        gdjz(".footerIn",'moveFooter',500);
+                        gdjz(".footer",'moveFooter',1200);
                     }
                 );
             });

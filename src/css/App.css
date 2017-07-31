@@ -218,12 +218,12 @@ input[type="submit"],input[type="reset"],input[type="button"],button {-webkit-ap
 }
 
 .moveFooter{
-    animation:footer 2s;
+    animation:moveFooter 2s;
     animation-fill-mode:forwards;
     animation-direction:alternate;
 }
 
-@keyframes footer{
+@keyframes moveFooter{
     from {
         transform:translateX(1200px);
     }

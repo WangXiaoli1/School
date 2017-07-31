@@ -64,25 +64,14 @@ class Main extends Component {
         });
 
 
-        $.ajax({
-            type: "get",
-            url: "http://192.168.43.5:8005/photo/get",
-            async: true,
-            success: function (e) {
-                console.log(e)
-                for (var i = 0; i < e.length; i++) {
-                    console.log(e[i].src)
-                    $('.photo').append('<img src="' + e[i].src + '">');
 
-                }
-            }
-        });
 
         $.ajax({
             type: "get",
             url: "http://192.168.43.5:8005/banner/banner",
             success: function (e) {
-                this.setState({banner: [e[0].src, e[1].src]});
+                this.setState({banner:e});
+                console.log(this.state.banner)
             }.bind(this)
         });
 
@@ -123,10 +112,17 @@ class Main extends Component {
             <div className="wrap">
                 {/*轮播  start*/}
                 <div className="banner">
-                    <Carousel id="car" autoplay dots="false" arrows="true">
-                        <div><img src={this.state.banner[0]} alt=""/></div>
-                        <div><img src={this.state.banner[1]} alt=""/></div>
+
+                    <Carousel autoplay>
+                       <div>
+                            {this.state.banner.map(function (v,i) {
+                                return    <div><img src={v.scr}/></div>
+
+                            })}
+                       </div>
+
                     </Carousel>
+
                 </div>
                 <div className="arrow-r">&gt;</div>
                 <div className="arrow-l">&lt;</div>
