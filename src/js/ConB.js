@@ -9,35 +9,66 @@ class ConB extends Component {
         super();
         this.state = {
             environment:[],
-
             picture:[],
-
-            // "picture":[
-            //     {"img":"../img/student-a.jpg"},
-            //     {"img":"../img/pic-e.jpg"},
-            //     {"img":"../img/pic-f.jpg"},
-            //     {"img":"../img/student-b.jpg"}
-            // ],
-            //
-
             introduce:[],
         }
     }
-    componentDidMount=function () {
-        // picture部分的悬浮黑条出现效果
-        var picture=document.getElementById('picture');
-        var picDiv=picture.getElementsByTagName('div');
-        var picSpan=picture.getElementsByTagName('span');
+    bodyScroll(){
+        function gdjz(div,cssname,offset){
+            var a,b,c,d;
 
-        for (var i=0;i<picDiv.length;i++){
-            picDiv[i].onmouseover=function () {
-                this.children[1].style.bottom='0px'
-            }
-            picDiv[i].onmouseout=function () {
-                this.children[1].style.bottom='-5px'
+            d=$(div).offset().top;
+            console.log(d)
+            a=eval(d + offset);
+            b=$(window).scrollTop();
+            c=$(window).height();
+            if(b+c>a){
+                $((div)).addClass((cssname));
             }
         }
-        // picture部分效果完
+
+
+                    // 学校环境动画
+                    gdjz(".environment",'moveEnvironment',100);
+                    // 学校环境动画完
+
+                    //照片墙动画
+                    gdjz("#picture div:nth-of-type(1)",'movePicture',-80);
+                    //             gdjz("#picture div:nth-of-type(2)",'movePictureB',-80);
+                    gdjz("#picture div:nth-of-type(3)",'movePicture',-80);
+                    //             gdjz("#picture div:nth-of-type(4)",'movePictureB',-80);
+                    // 照片墙动画完
+
+                    // 教育介绍
+                    gdjz(".introduce",'moveIntroduce',-20);
+                    gdjz(".introduceA",'moveIntroduce',-20);
+                    gdjz(".introduceB",'moveIntroduce',-20);
+                    gdjz(".introduceC",'moveIntroduce',-20);
+                    gdjz(".introduceD",'moveIntroduce',-20);
+                    gdjz(".introduceE",'moveIntroduce',-20);
+                    gdjz(".introduceF",'moveIntroduce',-20);
+                    gdjz(".introduceG",'moveIntroduce',-20);
+                    gdjz(".introduceH",'moveIntroduce',-20);
+                    gdjz(".introduceI",'moveIntroduce',-20);
+
+                    // 教育介绍完
+
+                    // footer动画
+                    gdjz(".footerIn",'moveFooter',300);
+                    // footer动画完
+
+
+    }
+    componentWillUnmount(){
+        alert()
+        window.removeEventListener('scroll', this.bodyScroll);
+    }
+    componentDidMount=function () {
+        if (window.addEventListener) {
+            document.addEventListener('scroll', this.bodyScroll,false);
+        } else {
+            document.attachEvent('onscroll', this.bodyScroll);
+        }
         // 动画效果
         $.ajax({
             url:'http://192.168.43.5:8005/conBenvir',
@@ -57,50 +88,6 @@ class ConB extends Component {
         });
 
 
-
-
-        // function moveX(id,t) {
-        //     var obj=document.getElementById(id);
-        //     var timer='';
-        //     var screenW=document.documentElement.offsetWidth;
-        //     // obj.parentNode.style.overflow='hidden';
-        //     var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-        //     timer=setInterval(function () {
-        //         obj.style.transition=t+"s";
-        //         obj.style.transform="translateX("+0+")";
-        //     },500)
-        // }
-        // // environment部分动画
-        // var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-        // moveX('environment',0.5);
-        //
-        // // picture部分动画
-        // function pictureMoveX(id,t) {
-        //     var obj=document.getElementById(id);
-        //     var timer='';
-        //     var screenW=document.documentElement.offsetWidth;
-        //     // obj.parentNode.style.overflow='hidden';
-        //     var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-        //     timer=setInterval(function () {
-        //         obj.style.transition=t+"s";
-        //         obj.style.transform="translateX("+0+")";
-        //     },500)
-        // }
-        // pictureMoveX('pictureA',0.5);
-        // pictureMoveX('pictureB',0.6);
-        // pictureMoveX('pictureC',0.5);
-        // pictureMoveX('pictureD',0.8);
-        //
-        // // introduce部分动画
-        // moveX('introduceA',0.5);
-        // moveX('introduceB',0.4);
-        // moveX('introduceC',0.4);
-        // moveX('introduceD',0.4);
-        // moveX('introduceE',0.5);
-        // moveX('introduceF',0.4);
-        // moveX('introduceG',0.4);
-        // moveX('introduceI',0.5);
-
         // 图片
 
         //banner
@@ -111,13 +98,30 @@ class ConB extends Component {
                 this.setState({banner2:[e[0].src]});
             }.bind(this)
         });
+        // 照片墙
         $.ajax({
             type: "get",
             url: "http://192.168.43.5:8005/conB_picture/get",
             success: function (e) {
                 this.setState({picture:e});
+                // picture部分的悬浮黑条出现效果
+                var picture=document.getElementById('picture');
+                var picDiv=picture.getElementsByTagName('div');
+                var picSpan=picture.getElementsByTagName('span');
+
+                for (var i=0;i<picDiv.length;i++){
+                    picDiv[i].onmouseover=function () {
+                        this.children[1].style.bottom='0px'
+                    }
+                    picDiv[i].onmouseout=function () {
+                        this.children[1].style.bottom='-5px'
+                    }
+                }
+                // picture的悬浮黑条出现部分效果完
             }.bind(this)
         });
+        // 照片墙完
+        //介绍
         $.ajax({
             type: "get",
             url: "http://192.168.43.5:8005/intro/intro",
@@ -126,6 +130,7 @@ class ConB extends Component {
 
             }.bind(this)
         });
+        // 介绍完
     };
     render() {
         return (

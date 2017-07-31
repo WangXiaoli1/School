@@ -387,66 +387,38 @@ input[type="submit"],input[type="reset"],input[type="button"],button {
     height: 517px;
     float: left;
 }
+.pictureC-left div{
+    overflow: hidden;
+}
+.pictureC-left div img{
+    width: 120%;
+    height:100%;
+    margin-left: -20px;
+}
 .pictureC-left div:nth-of-type(1){
     width: 391px;
     height: 251px;
     float: left;
     margin-bottom: 15px;
-    /*background-image: url("../img/pic-a.jpg");*/
-    background-position: center center;
-    background-size: 415px 251px;
-    background-repeat: no-repeat;
     margin-right:15px;
     overflow: hidden;
-}
-.pictureC-left div:nth-of-type(1):hover{
-    background-position: -19px center;
-    transition: 0.2s;
-}
-.pictureC-left div:nth-of-type(2):hover{
-    background-position: -19px center;
-    transition: 0.2s;
-}
-.pictureC-left div:nth-of-type(3):hover{
-    background-position: -19px center;
-    transition: 0.2s;
-}
-.pictureC-left div:nth-of-type(4):hover{
-    background-position: -19px center;
-    transition: 0.2s;
-}
-.pictureC-right:hover{
-    background-position: -19px center;
-    transition: 0.2s;
 }
 .pictureC-left div:nth-of-type(2){
     width: 288px;
     height: 251px;
     float: left;
     margin-bottom: 15px;
-    /*background-image: url("../img/pic-b.jpg");*/
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: 306px 251px;
 }
 .pictureC-left div:nth-of-type(3){
     width: 249px;
     height: 253px;
     float: left;
-    /*background-image: url("../img/pic-d.jpg");*/
-    background-position: center center;
-    background-size: 272px 253px;
-    background-repeat: no-repeat;
     margin-right: 15px;
 }
 .pictureC-left div:nth-of-type(4){
     width: 433px;
     height: 251px;
     float: left;
-    /*background-image: url("../img/pic-e.jpg");*/
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: 453px 253px;
 }
 
 .pictureC-right{
@@ -454,8 +426,10 @@ input[type="submit"],input[type="reset"],input[type="button"],button {
     height: 517px;
     float: left;
     margin-left: 10px;
-    /*background-image: url("../img/pic-c.jpg");*/
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: 309px 517px;
+    overflow: hidden;
+}
+.pictureC-right img{
+    width: 320px;
+    height:100%;
+    margin-left: -20px;
 }

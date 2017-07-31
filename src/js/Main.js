@@ -19,8 +19,101 @@ class Main extends Component {
             school: [],
         }
     }
+    bodyScroll1(){
+        function gdjz(div,cssname,offset){
+            var a,b,c,d;
 
+            d=$(div).offset().top;
+            console.log(d)
+            a=eval(d + offset);
+            b=$(window).scrollTop();
+            c=$(window).height();
+            if(b+c>a){
+                $((div)).addClass((cssname));
+            }
+        }
+
+
+                    // 圆盘动画
+                    gdjz(".con",'moveConLi',0);
+                    // 圆盘动画完
+
+                    // 圆盘上的字动画
+                    //gdjz(".txt",'moveConLiTxt',0);
+                    // 圆盘上的字动画完
+
+                    //小女孩背景动画
+                    gdjz(".special",'moveSpecial',100);
+                    //小女孩背景动画完
+
+                    //小女孩字动画
+                    gdjz(".course",'moveCourse',100);
+                    //小女孩字动画完
+
+                    //小女孩按钮动画
+                    gdjz(".btn",'moveCourseBtn',-200);
+                    //小女孩按钮动画完
+
+                    //彩绘课程动画
+                    gdjz(".one",'moveOne',-50);
+                    //彩绘课程动画完
+
+                    //彩绘课程文字动画
+                   // gdjz(".oneTxt",'moveOneTxt',-50);
+                    //彩绘课程文字动画完
+
+                    //彩绘课程下动画
+                    gdjz(".two",'moveOne',-250);
+                    //彩绘课程下动画完
+
+
+                    //品德教育1动画
+                   // gdjz(".side_r_one",'moveEduOne',-50);
+                    //品德教育1动画完
+
+                    //品德教育2动画
+                   // gdjz(".side_r_two",'moveEduTwo',-250);
+                    //品德教育2动画完
+
+                    //xhr动画
+                   // gdjz(".side_r_three",'moveEduThree',-300);
+                    //xhr动画完
+
+                    //品德教育动画
+                   // gdjz(".edu",'moveEdu',-300);
+                    //品德教育动画完
+
+                    //品德教育文字动画
+                   //    gdjz(".eduTxt",'moveEduTxt',-300);
+                    //品德教育文字动画完
+
+                    //学校环境动画
+                    gdjz(".school",'moveSchool',-50);
+                    //学校环境动画完
+
+                    //xhr2动画
+                   // gdjz(".xhrtwo",'moveXhrTwo',-150);
+                    //xhr2动画完
+
+                    //Main 动画完
+
+
+                    // footer动画
+                    gdjz(".footerIn",'moveFooter',300);
+                    // footer动画完
+
+
+
+    }
+    componentWillUnMount(){
+        window.removeEventListener('scroll', this.bodyScroll1);
+    }
     componentDidMount() {
+        if (window.addEventListener) {
+            document.addEventListener('scroll', this.bodyScroll1,false);
+        } else {
+            document.attachEvent('onscroll', this.bodyScroll1);
+        }
         $.ajax({
             url: 'http://192.168.43.5:8005/main',
             type: 'get',
