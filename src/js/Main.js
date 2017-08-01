@@ -57,7 +57,7 @@ class Main extends Component {
         //彩绘课程动画完
 
         //彩绘课程文字动画
-        gdjz(".oneTxt",'moveOneTxt',-50);
+       gdjz(".oneTxt",'moveOneTxt',-50);
         //彩绘课程文字动画完
 
         //彩绘课程下动画
@@ -107,14 +107,7 @@ class Main extends Component {
     //
     //     document.removeEventListener('scroll', this.bodyScroll1);
     // }
-    componentDidUpdate(){
-        if (document.addEventListener) {
 
-            document.addEventListener('scroll', this.bodyScroll1,false);
-        } else {
-            document.attachEvent('onscroll', this.bodyScroll1);
-        }
-    }
     componentDidMount() {
 
         $.ajax({
@@ -195,7 +188,14 @@ class Main extends Component {
             }
         });
     }
+    componentDidUpdate(){
+        if (document.addEventListener) {
 
+            document.addEventListener('scroll', this.bodyScroll1,false);
+        } else {
+            document.attachEvent('onscroll', this.bodyScroll1);
+        }
+    }
     render() {
         return (
             <div>
