@@ -4,6 +4,7 @@ import $ from 'jquery';
 
 
 
+
 import '../css/App.css';
 import '../css/Main.css';
 import '../css/ConB.css';
@@ -136,6 +137,7 @@ class App extends Component {
         return (
             <Router>
             <div>
+
 
                <div className="wrap">
                <div className="box">
@@ -278,6 +280,8 @@ class App extends Component {
 
             </div>
             </Router>
+
+
 
         );
     }
