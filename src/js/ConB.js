@@ -16,9 +16,8 @@ class ConB extends Component {
     bodyScroll(){
         function gdjz(div,cssname,offset){
             var a,b,c,d;
-
             d=$(div).offset().top;
-            console.log(d)
+            console.log(1);
             a=eval(d + offset);
             b=$(window).scrollTop();
             c=$(window).height();
@@ -59,16 +58,19 @@ class ConB extends Component {
 
 
     }
-    componentWillUnmount(){
-        alert()
-        window.removeEventListener('scroll', this.bodyScroll);
+    // componentWillUnmount(){
+    //
+    //     document.removeEventListener('scroll', this.bodyScroll);
+    // }
+    componentDidUpdate(){
+        if (document.addEventListener) {
+
+            document.addEventListener('scroll', this.bodyScroll1,false);
+        } else {
+            document.attachEvent('onscroll', this.bodyScroll1);
+        }
     }
     componentDidMount=function () {
-        if (window.addEventListener) {
-            document.addEventListener('scroll', this.bodyScroll,false);
-        } else {
-            document.attachEvent('onscroll', this.bodyScroll);
-        }
         // 动画效果
         $.ajax({
             url:'http://192.168.43.5:8005/conBenvir',
@@ -135,6 +137,8 @@ class ConB extends Component {
     render() {
         return (
             // 园所概况
+            <div>
+                {/*PC端*/}
             <div className="wrapB">
                 <img src={this.state.banner2} alt="" className="bannerB"/>
                 <div className="super-conB">
@@ -183,6 +187,32 @@ class ConB extends Component {
                         </div>
                     </div>
                 </div>
+                {/*PC端完*/}
+                {/*移动端*/}
+                <div className="gardenWrap">
+                    {/*学校环境 start*/}
+                    <h2 className="schoolH">学校环境</h2>
+                    {/*学校环境 end*/}
+                    {/*studentP  start*/}
+                    <div className="studentP">
+                        <img src="../img/student-a.jpg" alt=""/>
+                        作为中外知名的双语学前教育机构，引进一流的教育管理模式、融合国内外先进的教研成果、秉承最适合儿童成长的教育理念，同时，吸纳了经过百年验证的蒙台梭利教育精髓，拥有国际一流的教育专家团队和具有国际资格认证的中外教师队伍。
+                    </div>
+                    {/*studentP  end*/}
+                    {/*gardenT  start*/}
+                    <div className="gardenT">
+                        <p>每个校园都是按照国际纯正蒙台梭利校园的特点和标准精心设计的，充满着温馨关爱的教育氛，打造了最适合孩子健康成长的校园环境。经过十年的积累与沉淀，目前伊顿已经发展成为引领中国幼教国际化发展的旗舰。
+                        </p>
+                        <p>同时，吸纳了经过百年验证的蒙台梭利教育精髓，拥有国际一流的教育专家团队和具有国际资格认证的中外教师队伍。充满着温馨关爱的教育氛，打造了最适合孩子健康成长的校园环境。
+                        </p>
+                    </div>
+                    {/*gardenT  end*/}
+                </div>
+                {/*移动端完*/}
+
+
+            </div>
+
         );
     }
 }
