@@ -53,22 +53,20 @@ class ConB extends Component {
                     // 教育介绍完
 
                     // footer动画
-                    gdjz(".footerIn",'moveFooter',300);
+                    // gdjz(".footerIn",'moveFooter',300);
                     // footer动画完
 
 
     }
-    // componentWillUnmount(){
-    //
-    //     document.removeEventListener('scroll', this.bodyScroll);
-    // }
-    componentDidUpdate(){
-        if (document.addEventListener) {
 
-            document.addEventListener('scroll', this.bodyScroll1,false);
-        } else {
-            document.attachEvent('onscroll', this.bodyScroll1);
-        }
+    componentDidUpdate(){
+        setInterval(function () {
+            if (document.addEventListener) {
+                document.addEventListener('scroll', this.bodyScroll1,false);
+            } else {
+                document.attachEvent('onscroll', this.bodyScroll1);
+            }
+        },1000)
     }
     componentDidMount=function () {
         // 动画效果

@@ -65,12 +65,13 @@ class Education extends Component{
         });
     }
     componentDidUpdate(){
-        if (document.addEventListener) {
-
-            document.addEventListener('scroll', this.bodyScroll1,false);
-        } else {
-            document.attachEvent('onscroll', this.bodyScroll1);
-        }
+        setInterval(function () {
+            if (document.addEventListener) {
+                document.addEventListener('scroll', this.bodyScroll1,false);
+            } else {
+                document.attachEvent('onscroll', this.bodyScroll1);
+            }
+        },1000)
     }
     componentDidMount(){
 

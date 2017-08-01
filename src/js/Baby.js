@@ -51,21 +51,32 @@ class Baby extends Component{
                     // create_con图片动画完
 
                     // footer动画
-                    gdjz(".footerIn",'moveFooter',300);
+                    // gdjz(".footerIn",'moveFooter',300);
                     // footer动画完
                 }
             );
 
     }
     componentDidUpdate(){
-        if (document.addEventListener) {
-
-            document.addEventListener('scroll', this.bodyScroll1,false);
-        } else {
-            document.attachEvent('onscroll', this.bodyScroll1);
-        }
+        setInterval(function () {
+            if (document.addEventListener) {
+                document.addEventListener('scroll', this.bodyScroll1,false);
+            } else {
+                document.attachEvent('onscroll', this.bodyScroll1);
+            }
+        },1000)
     }
     componentDidMount(){
+        // if(window.location.host=='http://localhost:3000/Baby'){
+        //     var nav=document.getElementById('nav');
+        //     var navLi=nav.getElementsByTagName('li');
+        //     for (var i=0;i<navLi.length;i++){
+        //         navLi[i].style.color='';
+        //         navLi[i].classList.remove('navColor');
+        //     }
+        //     navLi[3].style.color='#4bb344';
+        //     navLi[3].classList.add('navColor');
+        // }
         $.ajax({
             url:'http://192.168.43.5:8005/model',
             type:'get',

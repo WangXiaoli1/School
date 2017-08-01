@@ -59,9 +59,6 @@ class App extends Component {
         };
     }
     bodyScroll=function(e){
-        // var ev=e||window.event;
-        // var tops=document.body.scrollTop;
-        // console.log(tops);
         if(window.location.href=="http://localhost:3000/"){
             function gdjz(div,cssname,offset){
                 var a,b,c,d;
@@ -80,20 +77,6 @@ class App extends Component {
                 );
             });
 
-
-
-
-            // if(tops<=500){
-            //     $(".scrveconimg").css("top",tops/3+"px")
-            // }
-            // if(tops>=200&&tops<=1200){
-            //     var ww=tops-560
-            //     $(".scrvecon2img").css("transform", "translateY("+ww/3+"px)")
-            // }
-            // if(tops>=1800&&tops<=2300){
-            //     var ww=tops-1800
-            //     $(".scrvecon4img").css("marginLeft", ww/5+"px")
-            // }
         }
     }
     componentDidMount() {
@@ -101,7 +84,6 @@ class App extends Component {
             url:'http://192.168.43.5:8005/text',
             type:'get',
             success:function(a){
-                console.log(a);
                 this.setState({nav:a});
                 var nav=document.getElementById('nav');
                 var navLi=nav.getElementsByTagName('li');
@@ -123,6 +105,7 @@ class App extends Component {
                     };
 
                 }
+
             }.bind(this)
         });
         // footer背景

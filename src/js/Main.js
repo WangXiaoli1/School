@@ -7,7 +7,7 @@ class Main extends Component {
     constructor() {
         super();
         this.state = {
-            banner: [],
+            banner: [{"id":'',"src":""}],
             "content": {
                 "bg": "img/bgA.jpg"
             },
@@ -74,7 +74,7 @@ class Main extends Component {
         //品德教育2动画完
 
         //xhr动画
-        gdjz(".side_r_three",'moveEduThree',-300);
+        gdjz(".side_r_xhr",'moveEduThree',-300);
         //xhr动画完
 
         //品德教育动画
@@ -187,16 +187,22 @@ class Main extends Component {
 
             }
         });
+        // 移动端轮播
+
+        // 移动端轮播完
+
     }
     componentDidUpdate(){
-        if (document.addEventListener) {
-
-            document.addEventListener('scroll', this.bodyScroll1,false);
-        } else {
-            document.attachEvent('onscroll', this.bodyScroll1);
-        }
+        setInterval(function () {
+            if (document.addEventListener) {
+                document.addEventListener('scroll', this.bodyScroll1,false);
+            } else {
+                document.attachEvent('onscroll', this.bodyScroll1);
+            }
+        },1000)
     }
     render() {
+
         return (
             <div>
                 {/*pc端*/}
@@ -206,7 +212,7 @@ class Main extends Component {
                     <Carousel autoplay>
                         <div>
                             {this.state.banner.map(function (v,i) {
-                                return    <div><img src={v.scr}/></div>
+                                return <div key={i}><img src={v.src}/></div>
                             })}
                         </div>
 
@@ -221,7 +227,7 @@ class Main extends Component {
                         {/*课程列表 start*/}
                         <ul className="con">
                             {this.state.main_con.map(function (e, i) {
-                                return <li key={e.id} className="conLi">
+                                return <li key={i} className="conLi">
                                     <img src={e.src} alt=""/>
                                     <div className="txt" ref="txt">
                                         <h2>{e.txt}</h2>
@@ -236,8 +242,8 @@ class Main extends Component {
                         {/*特色课程  start*/}
                         <div className="special" id="girl">
                             <div className="course">
-                                {this.state.special.map(function (e) {
-                                    return <div>
+                                {this.state.special.map(function (e,i) {
+                                    return <div key={i}>
                                         <h1>{e.course}</h1>
                                         <b>{e.txt}</b>
                                         <p>{e.con}</p>
@@ -252,8 +258,8 @@ class Main extends Component {
                             <div className="side_l">
                                 <div className="one" id="one">
 
-                                    {this.state.side_l.map(function (e) {
-                                        return <div>
+                                    {this.state.side_l.map(function (e,i) {
+                                        return <div className="oneTxt" key={i}>
                                             <h1>{e.course}</h1>
                                             <h4>{e.txt}</h4>
                                             <p>{e.con}</p>
@@ -262,8 +268,8 @@ class Main extends Component {
                                     })}
                                 </div>
                                 <div className="two" id="two">
-                                    {this.state.side_l.map(function (e) {
-                                        return <div>
+                                    {this.state.side_l.map(function (e,i) {
+                                        return <div key={i}>
                                             <img src={e.src2} alt=""/>
                                         </div>
                                     })}
@@ -271,19 +277,19 @@ class Main extends Component {
                             </div>
 
                             {/*<div >*/}
-                            {this.state.side_r.map(function (e) {
-                                return <div className="side_r">
-                                    <img src={e.src1}/>
-                                    <img src={e.src2}/>
-                                    <img src={e.src4}/>
-                                    <div className="edu">
-                                        <h1>{e.course}</h1>
-                                        <h4>{e.txt}</h4>
-                                        <p>{e.con}</p>
+                            {this.state.side_r.map(function (e,i) {
+                                return <div className="side_r" key={i}>
+                                    <img src={e.src1} className="side_r_one"/>
+                                    <img src={e.src2} className="side_r_two"/>
+                                    <img src={e.src4} className="side_r_xhr"/>
+                                    <div className="edu side_r_three">
+                                        <h1 className="eduTxt">{e.course}</h1>
+                                        <h4 className="eduTxt">{e.txt}</h4>
+                                        <p className="eduTxt">{e.con}</p>
                                     </div>
                                 </div>
                             })}
-                            <div id="xhr"></div>
+                            {/*<div id="xhr"></div>*/}
                             {/*</div>*/}
                             <div className="clear"></div>
                         </div>
@@ -291,17 +297,17 @@ class Main extends Component {
                         {/*学校环境 start*/}
                         <div className="school">
 
-                            {this.state.school.map(function (e) {
-                                return <div className="school_l">
+                            {this.state.school.map(function (e,i) {
+                                return <div className="school_l"key={i}>
                                     <h1>{e.title}</h1>
                                     <h4>{e.txt}</h4>
                                     <p>{e.con}</p>
                                     <p>{e.intro}</p>
-                                    <img src={e.src1} alt="" className=""/>
+                                    <img src={e.src1} alt="" className="xhrtwo"/>
                                 </div>
                             })}
-                            {this.state.school.map(function (e) {
-                                return <img src={e.src2} alt="" className=""/>
+                            {this.state.school.map(function (e,i) {
+                                return <img src={e.src2} alt="" key={i}/>
                             })}
                         </div>
                         <div className="clear"></div>
@@ -314,11 +320,13 @@ class Main extends Component {
                 {/*移动端*/}
                 <div className="phoneA">
                     {/*banner  start*/}
-                    <div className="bannerP">
-                        <img src="../img/bC.jpg" alt=""/>
-                        <img src="../img/bD.jpg" alt=""/>
-                    </div>
+                    <Carousel effect="fade" autoplay speed="5">
+                        {this.state.banner.map(function (v,i) {
+                            return <div key={i}><img src={v.src} key={i}/></div>
+                        })}
+                    </Carousel>
                     {/*banner  end*/}
+
                     {/*specialP  start*/}
                     <div className="specialP">
                         <div>特色活动</div>

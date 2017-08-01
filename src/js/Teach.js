@@ -72,19 +72,20 @@ class Teach extends Component{
 
 
                     // footer动画
-                    gdjz(".footerIn",'moveFooter',300);
+                    // gdjz(".footerIn",'moveFooter',300);
                     // footer动画完
                 }
             );
         });
     }
     componentDidUpdate(){
-        if (document.addEventListener) {
-
-            document.addEventListener('scroll', this.bodyScroll1,false);
-        } else {
-            document.attachEvent('onscroll', this.bodyScroll1);
-        }
+        setInterval(function () {
+            if (document.addEventListener) {
+                document.addEventListener('scroll', this.bodyScroll1,false);
+            } else {
+                document.attachEvent('onscroll', this.bodyScroll1);
+            }
+        },1000)
     }
     componentDidMount(){
         $.ajax({
