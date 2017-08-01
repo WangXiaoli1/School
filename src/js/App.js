@@ -4,6 +4,7 @@ import $ from 'jquery';
 
 
 
+
 import '../css/App.css';
 import '../css/Main.css';
 import '../css/ConB.css';
@@ -154,6 +155,7 @@ class App extends Component {
             <Router>
             <div>
 
+
                <div className="wrap">
                <div className="box">
                {/*pc头部 start*/}
@@ -295,6 +297,8 @@ class App extends Component {
 
             </div>
             </Router>
+
+
 
         );
     }

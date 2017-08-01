@@ -7,7 +7,7 @@ class Main extends Component {
     constructor() {
         super();
         this.state = {
-            banner: [],
+            banner: [{src:"",id:""}],
             "content": {
                 "bg": "img/bgA.jpg"
             },
@@ -203,13 +203,10 @@ class Main extends Component {
             <div className="wrap">
                 {/*轮播  start*/}
                 <div className="banner">
-                    <Carousel autoplay>
-                        <div>
+                    <Carousel autoplay arrows="true" dot="none">
                             {this.state.banner.map(function (v,i) {
-                                return    <div><img src={v.scr}/></div>
+                                return  <div key={i}><img src={v.src}/></div>
                             })}
-                        </div>
-
                     </Carousel>
 
                 </div>
