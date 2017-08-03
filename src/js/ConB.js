@@ -59,17 +59,16 @@ class ConB extends Component {
 
     }
 
-    componentDidUpdate(){
-        setInterval(function () {
-            if (document.addEventListener) {
-                document.addEventListener('scroll', this.bodyScroll1,false);
-            } else {
-                document.attachEvent('onscroll', this.bodyScroll1);
-            }
-        },1000)
-    }
+    // componentDidUpdate(){
+    //     setInterval(function () {
+    //         if (document.addEventListener) {
+    //             document.addEventListener('scroll', this.bodyScroll1,false);
+    //         } else {
+    //             document.attachEvent('onscroll', this.bodyScroll1);
+    //         }
+    //     }.bind(this),1000)
+    // }
     componentDidMount=function () {
-        // 动画效果
         $.ajax({
             url:'http://192.168.43.5:8005/conBenvir',
             type:'get',

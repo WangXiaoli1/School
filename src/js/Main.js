@@ -192,15 +192,15 @@ class Main extends Component {
         // 移动端轮播完
 
     }
-    componentDidUpdate(){
-        setInterval(function () {
-            if (document.addEventListener) {
-                document.addEventListener('scroll', this.bodyScroll1,false);
-            } else {
-                document.attachEvent('onscroll', this.bodyScroll1);
-            }
-        },1000)
-    }
+    // componentDidUpdate(){
+    //     setInterval(function () {
+    //         if (document.addEventListener) {
+    //             document.addEventListener('scroll', this.bodyScroll1,false);
+    //         } else {
+    //             document.attachEvent('onscroll', this.bodyScroll1);
+    //         }
+    //     }.bind(this),3000)
+    // }
     render() {
 
         return (

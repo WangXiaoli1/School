@@ -27,7 +27,7 @@ import Education from './Education';
 import Baby from './Baby';
 import Teach from './Teach';
 import Forward from './Forward';
-// 移动端
+// 移动端完
 
 import rem from './rem'
 
