@@ -19,7 +19,35 @@ router.get("/",function(req,res){
         if (err) throw err;
         res.send(rows)
     });
-})
+});
+
+
+// router.post('/delSpecial',function(req,res){
+//     res.header("Access-Control-Allow-Origin", "*");
+//     var id=req.body["id"];
+//     console.log(id);
+//     pool.query(`DELETE from main_special set  where id=${id}`,function(err,rows){
+//         pool.query(`SELECT * from banner`,function(err,rows){
+//             if(err) throw err;
+//             res.send(rows);
+//         })
+//     });
+//
+// });
+
+
+router.post('/upMain_special',function(req,res){
+    var id=req.body["id"];
+    var course=req.body["course"];
+    var txt=req.body["txt"];
+    var con=req.body["con"];
+    res.header("Access-Control-Allow-Origin", "*");
+    pool.query(`update main_special set course='${course}',txt='${txt}', con='${con}' where id=${id}`, function(err, rows, fields) {
+        if (err) throw err;
+        res.send("修改成功")
+    });
+});
+
 
 
 module.exports=router;
