@@ -228,7 +228,7 @@ class App extends Component {
 
 
                 {/*/!*移动端*!/*/}
-                <div className="phone">
+                <div className="phoneWrap">
                     {/*移动端头部  start*/}
                     <div className="headerP">
                         <img src="img/topLeft.png" alt="" id="sideBtn"/>

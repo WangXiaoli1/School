@@ -209,7 +209,7 @@ class Main extends Component {
             <div className="wrap">
                 {/*轮播  start*/}
                 <div className="banner">
-                    <Carousel autoplay arrows="true" dot="none">
+                    <Carousel autoplay arrows="true" dot="false">
                             {this.state.banner.map(function (v,i) {
                                 return <div key={i}><img src={v.src}/></div>
 
@@ -315,6 +315,8 @@ class Main extends Component {
                 <div className="blank"></div>
             </div>
                 {/*pc端完*/}
+
+
                 {/*移动端*/}
                 <div className="phoneA">
                     {/*banner  start*/}
