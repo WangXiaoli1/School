@@ -152,11 +152,12 @@ class App extends Component {
                        {/*logo end*/}
                        {/*报名 start*/}
                    <div className="phone">
-                        <p>报名热线</p>
-                        <p>{this.state.tel.tel}</p>
+                       <p>报名热线</p>
+                       <p>{this.state.tel.tel}</p>
                    </div>
                    <div className="tel">
                          <img src="img/phone.png"/>
+
                    </div>
                    <div className="clear"></div>
                    {/*报名 end*/}
@@ -260,8 +261,6 @@ class App extends Component {
                     {/*路由完*/}
 
 
-
-
                     {/*footerTop  start*/}
                     <div className="footerTop">
                         <a href="#">Top</a>
@@ -280,9 +279,6 @@ class App extends Component {
 
             </div>
             </Router>
-
-
-
         );
     }
 }

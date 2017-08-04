@@ -322,9 +322,7 @@ input[type="submit"],input[type="reset"],input[type="button"],button {
     }
     /*PC端完*/
     /*移动端*/
-    .phone{
-        display: none;
-    }
+
 }
 
 
@@ -334,7 +332,11 @@ input[type="submit"],input[type="reset"],input[type="button"],button {
 /*移动端*/
 @media screen and (max-width:414px){
     /*PC端*/
+
     .wrap{
+        display: none;
+    }
+    .phone{
         display: none;
     }
     /*移动端*/
