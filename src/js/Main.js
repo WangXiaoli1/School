@@ -182,7 +182,7 @@ class Main extends Component {
 
         $.ajax({
             type: "get",
-            url: "http://192.168.43.5:8005/main_school/school",
+            url: "http://192.168.43.5:8005/main_school",
             success: function (e) {
 
             }
