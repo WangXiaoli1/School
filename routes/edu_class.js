@@ -19,7 +19,18 @@ router.get("/",function(req,res){
         if (err) throw err;
         res.send(rows)
     });
-})
+});
+
+router.post('/upClass',function(req,res){
+    var id=req.body["id"];
+    var text=req.body["text"];
+    console.log(id);
+    res.header("Access-Control-Allow-Origin", "*");
+    pool.query(`update edu_class set text='${text}' where id=${id}`, function(err, rows, fields) {
+        if (err) throw err;
+        res.send("修改成功")
+    });
+});
 
 
 module.exports=router;

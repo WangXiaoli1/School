@@ -36,7 +36,7 @@ router.post('/banner',function(req,res){
             }
             var newPath='public/img/'+fName;  //要返回的图片的路径
             fs.renameSync(file.path,newPath);
-            res.send(newPath)
+            //res.send(newPath)
         }
         pool.query(`insert into banner(src) values('http://192.168.43.5:8005/img/${fName}')`,function(err,rows){
             if (err) throw err;

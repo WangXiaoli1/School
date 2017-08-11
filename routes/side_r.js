@@ -22,7 +22,7 @@ router.get("/",function(req,res){
         if (err) throw err;
         res.send(rows)
     });
-})
+});
 
 router.post('/upMain_side_r',function(req,res){
     var id=req.body["id"];
@@ -35,6 +35,31 @@ router.post('/upMain_side_r',function(req,res){
         res.send("修改成功")
     });
 });
+
+router.post('/upSrc1',function(req,res){
+    res.header("Access-Control-Allow-Origin", "*");
+    pool.query(`update main_side_r set  src1="${imgs}"`, function(err, rows, fields) {
+        if (err) throw err;
+        res.send("修改成功")
+    });
+})
+
+router.post('/upSrc2',function(req,res){
+    res.header("Access-Control-Allow-Origin", "*");
+    pool.query(`update main_side_r set  src2="${imgs}"`, function(err, rows, fields) {
+        if (err) throw err;
+        res.send("修改成功")
+    });
+})
+
+router.post('/upSrc4',function(req,res){
+    res.header("Access-Control-Allow-Origin", "*");
+    pool.query(`update main_side_r set  src4="${imgs}"`, function(err, rows, fields) {
+        if (err) throw err;
+        res.send("修改成功")
+    });
+})
+
 
 
 router.post('/side_r_img',function(req,res){

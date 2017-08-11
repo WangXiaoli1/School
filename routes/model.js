@@ -1,7 +1,3 @@
-/**
- * Created by Administrator on 2017/7/25 0025.
- */
-
 var express = require('express');
 var mysql=require('mysql');
 var router=express.Router();
@@ -22,7 +18,23 @@ router.get("/",function(req,res){
     });
 })
 
+// 介绍文字修改
+router.post('/babyModel',function(req,res){
+    var id=req.body["id"];
+    var txt=req.body["txt"];
+
+    res.header("Access-Control-Allow-Origin", "*");
+
+    pool.query(`update baby_model set txt='${txt}' where id=${id}`, function(err, rows, fields) {
+
+        if (err) throw err;
+        res.send("修改成功")
+    });
+});
+// 介绍文字修改完
+
 
 module.exports=router;
+
 
 
