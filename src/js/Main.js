@@ -19,6 +19,8 @@ class Main extends Component {
             school: [],
         }
     }
+
+
     bodyScroll1(){
         function gdjz(div,cssname,offset){
             var a,b,c,d;
@@ -103,10 +105,7 @@ class Main extends Component {
 
 
     }
-    // componentWillUnmount(){
-    //
-    //     document.removeEventListener('scroll', this.bodyScroll1);
-    // }
+
 
     componentDidMount() {
 
@@ -193,14 +192,23 @@ class Main extends Component {
 
     }
     // componentDidUpdate(){
-    //     setInterval(function () {
+    //     // setInterval(function () {
     //         if (document.addEventListener) {
     //             document.addEventListener('scroll', this.bodyScroll1,false);
     //         } else {
     //             document.attachEvent('onscroll', this.bodyScroll1);
     //         }
-    //     }.bind(this),3000)
+    //     // }.bind(this),3000)
     // }
+    // componentWillUnmount(){
+    //     if (document.addEventListener) {
+    //         document.removeEventListener('scroll', this.bodyScroll1=null,false);
+    //     } else {
+    //         document.detachEvent('onscroll', this.bodyScroll=null);
+    //     }
+    // }
+
+
     render() {
 
         return (
@@ -209,7 +217,7 @@ class Main extends Component {
             <div className="wrap">
                 {/*轮播  start*/}
                 <div className="banner">
-                    <Carousel autoplay arrows="true" dot="none">
+                    <Carousel autoplay arrows="true" dot="false">
                             {this.state.banner.map(function (v,i) {
                                 return <div key={i}><img src={v.src}/></div>
 
@@ -315,6 +323,8 @@ class Main extends Component {
                 <div className="blank"></div>
             </div>
                 {/*pc端完*/}
+
+
                 {/*移动端*/}
                 <div className="phoneA">
                     {/*banner  start*/}

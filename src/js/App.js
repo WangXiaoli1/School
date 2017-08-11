@@ -60,7 +60,7 @@ class App extends Component {
         };
     }
     bodyScroll=function(e){
-        if(window.location.href=="http://localhost:3000/"){
+        // if(window.location.href=="http://localhost:3000/"){
             function gdjz(div,cssname,offset){
                 var a,b,c,d;
                 d=$(div).offset().top;
@@ -78,9 +78,9 @@ class App extends Component {
                 );
             });
 
-        }
+        // }
     }
-    componentDidMount() {
+    componentDidMount(){
         $.ajax({
             url:'http://192.168.43.5:8005/text',
             type:'get',
@@ -229,7 +229,7 @@ class App extends Component {
 
 
                 {/*/!*移动端*!/*/}
-                <div className="phone">
+                <div className="phoneWrap">
                     {/*移动端头部  start*/}
                     <div className="headerP">
                         <img src="img/topLeft.png" alt="" id="sideBtn"/>

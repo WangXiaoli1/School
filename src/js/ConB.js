@@ -60,15 +60,33 @@ class ConB extends Component {
     }
 
     // componentDidUpdate(){
-    //     setInterval(function () {
+    //     // setInterval(function () {
     //         if (document.addEventListener) {
     //             document.addEventListener('scroll', this.bodyScroll1,false);
     //         } else {
     //             document.attachEvent('onscroll', this.bodyScroll1);
     //         }
-    //     }.bind(this),1000)
+    //     // }.bind(this),4000)
+    // }
+   // componentWillUnmount(){
+   //     if (document.addEventListener) {
+   //         document.removeEventListener('scroll', this.bodyScroll1=null,false);
+   //     } else {
+   //         document.detachEvent('onscroll', this.bodyScroll=null);
+   //     }
+   // }
+
+    // componentWillReceiveProps(nextProps){
+    //     const skuId = nextProps.match.params.skuId  .substring(1);
+    //     this.setState({
+    //         skuId
+    //     },()=>{
+    //         this.fetchGoodsInfo();
+    //     });
     // }
     componentDidMount=function () {
+
+
         $.ajax({
             url:'http://192.168.43.5:8005/conBenvir',
             type:'get',
@@ -85,7 +103,6 @@ class ConB extends Component {
                 this.setState({introduce:a});
             }.bind(this)
         });
-
 
         // 图片
 

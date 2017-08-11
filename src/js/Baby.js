@@ -85,7 +85,7 @@ class Baby extends Component{
                 this.setState({model:b});
             }.bind(this)
         });
-
+       // 亲子主题乐园
         $.ajax({
             url:'http://192.168.43.5:8005/baby_park',
             type:'get',
