@@ -1,6 +1,3 @@
-/**
- * Created by Administrator on 2017/7/25.
- */
 var express = require('express');
 var mysql=require('mysql');
 var router=express.Router();
