@@ -1,0 +1,440 @@
+/*重置代码*/
+@charset "UTF-8";
+/*css reset*/
+html{color:#000;background:#FFF;font-family:Microsoft YaHei,sans-serif,Arial,'宋体';}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td,strong{
+    padding:0;margin:0;
+}
+table{
+    border-collapse:collapse;
+    border-spacing:0;
+}
+fieldset,img{
+    border:0;
+}
+a{
+    text-decoration:none;
+    outline:none;
+}
+var,em,i{
+    font-style:normal;
+}
+address,caption,cite,code,dfn,em,th,var,optgroup{
+    font-style:inherit;
+    font-weight:inherit;
+}
+del,ins{
+    text-decoration:none;
+}
+li{
+    list-style:none;
+}
+caption,th{
+    text-align:left;
+}
+h1,h2,h3,h4,h5,h6{
+    font-size:100%;
+    font-weight:normal;
+}
+q:before,q:after{
+    content:'';
+}
+abbr,acronym{
+    border:0;
+    font-variant:normal;
+}
+sup{
+    vertical-align:baseline;
+}
+sub{
+    vertical-align:baseline;
+}
+legend{
+    color:#000;
+}
+input,button,textarea,select,optgroup,option{
+    font-family:inherit;
+    font-size:inherit;
+    font-style:inherit;
+    font-weight:inherit;
+}
+input,button,textarea,select{
+    *font-size:100%;
+}
+.clear{
+    clear:both;
+    height:0px;
+    overflow:hidden;
+}
+.clearfix:after{
+    clear:both;
+    display: block;
+    content: "...";
+    visibility: hidden;
+    height: 0;
+    font-size: 0;
+}
+input[type="submit"],input[type="reset"],input[type="button"],button {
+    -webkit-appearance: none;
+    outline:none;
+    cursor:pointer;
+}
+.clearfix{
+    *zoom:1;
+}
+/*重置代码完*/
+
+
+/*PC端*/
+@media screen and (min-width:1000px){
+    .wrapB{
+        width: 100%;
+        height: auto;
+    }
+    .conB{
+        width: 1000px;
+        height: 200px;
+        margin: 0 auto;
+        background-color: red;
+    }
+    .bannerB{
+        width: 100%;
+        height: 450px;
+    }
+    .super-conB{
+        width: 100%;
+        height:2424px ;
+        background-image: url("../img/bgB.jpg");
+        background-size: 2024px 2924px;
+        background-position: center top;
+        background-repeat: no-repeat;
+    }
+    /*environment*/
+
+    /*// 学校环境动画*/
+    .moveEnvironment{
+        animation:moveEnvironment 1.2s;
+        animation-fill-mode:forwards;
+        animation-direction:alternate;
+    }
+
+    @keyframes moveEnvironment{
+        from {
+            transform:translateX(1200px);
+        }
+        to{
+            transform:translateX(0px);
+        }
+    }
+    /*// 学校环境动画完*/
+    .environmentWrap{
+        width: 1000px;
+        height: 845px;
+        margin: 0 auto;
+        overflow: hidden;
+    }
+    .environment{
+        width: 1000px;
+        height: 845px;
+        margin: 0 auto;
+        /*transform: translateX(1000px);*/
+    }
+    .environment h2{
+        width: 100%;
+        font-size: 25px;
+        display: inline-block;
+        color: #3a3a3a;
+        margin-top: 132px;
+        font-family: "微软雅黑";
+        font-weight: bold;
+    }
+    .environment h3{
+        width: 100%;
+        font-size: 16px;
+        color: rgb(146, 146, 146);
+        margin-top: 9px;
+        font-family: "微软雅黑";
+    }
+    .environment-left{
+        width:508px;
+        height: 440px;
+        float: left;
+    }
+    .environment-left p{
+        width: 100%;
+        margin-top: 55px;
+        font-size: 14px;
+        word-wrap: break-word;
+        word-break: break-all;
+        font-family: "微软雅黑";
+        color: rgb(146, 146, 146);
+        line-height: 30px;
+    }
+    .environment-left p:nth-of-type(1){
+        margin-top: 80px;
+    }
+    .environment-right{
+        float: right;
+        width: 436px;
+        margin-left: 55px;
+        margin-top: 82px;
+        font-size: 14px;
+        word-wrap: break-word;
+        word-break: break-all;
+        font-family: "微软雅黑";
+        color: rgb(146, 146, 146);
+        line-height: 30px;
+    }
+
+    /*picture*/
+
+    /*// 照片墙动画*/
+    .movePicture{
+        animation:movePicture 1.5s;
+        animation-fill-mode:forwards;
+        animation-direction:alternate;
+    }
+
+    @keyframes movePicture{
+        from {
+            transform:translateX(1900px);
+        }
+        to{
+            transform:translateX(0px);
+        }
+    }
+    .movePictureB{
+        animation:movePictureB 1.2s;
+        animation-fill-mode:forwards;
+        animation-direction:alternate;
+    }
+
+    @keyframes movePictureB{
+        from {
+            transform:translateX(1900px);
+        }
+        to{
+            transform:translateX(0px);
+        }
+    }
+    /*// 照片墙动画完*/
+    .picture{
+        width: 1000px;
+        height: 560px;
+        margin:0 auto;
+        margin-top: 68px;
+        overflow: hidden;
+    }
+    .picture div{
+        float: left;
+        background-size: 100% 100%;
+        position: relative;
+        overflow: hidden;
+    }
+
+    #picture div:nth-of-type(1){
+        width: 428px;
+        height: 280px;
+    }
+    #picture div:nth-of-type(2){
+        width: 570px;
+        height: 280px;
+    }
+
+    #picture div:nth-of-type(3){
+        width: 265px;
+        height: 278px;
+    }
+    #picture div:nth-of-type(4){
+        width: 733px;
+        height: 278px;
+    }
+    #picture div img{
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+    }
+    #picture div span{
+        width: 100%;
+        height: 5px;
+        position: absolute;
+        bottom:-5px;
+        left: 0px;
+        transition: 0.4s linear;
+        z-index: 99;
+        background-color:rgba(10,10,10,0.7);
+    }
+    /*introduce*/
+    /*介绍动画*/
+    .moveIntroduce{
+        animation:moveIntroduce 1.2s;
+        animation-fill-mode:forwards;
+        animation-direction:alternate;
+    }
+
+    @keyframes moveIntroduce{
+        from {
+            transform:translateX(1900px);
+        }
+        to{
+            transform:translateX(0px);
+        }
+    }
+    /*介绍动画完*/
+    .introduce{
+        width: 1000px;
+        height: 950px;
+        margin: 0 auto;
+        overflow: hidden;
+    }
+    .introduce> img{
+        width: 237px;
+        height: 237px;
+        margin-left: 390px;
+        margin-top: 138px;
+    }
+    .introduce>h2{
+        width: 100%;
+        margin-top: 27px;
+        font-size: 24px;
+        font-family: "微软雅黑";
+        line-height: 35px;
+        color: rgb(84, 194, 68);
+        text-align: center;
+        cursor: move;
+    }
+    .introduce>h3{
+        width: 100%;
+        font-size:17px;
+        font-family: "微软雅黑";
+        line-height: 35px;
+        color: #666666;
+        text-align: center;
+        cursor: move;
+    }
+    .introduce>h3:nth-of-type(1){
+        margin-top: 5px;
+    }
+    .introduce>b{
+        width: 31px;
+        height: 1px;
+        display:block;
+        background-color: rgb(84, 194, 68);
+        border-left-color: #cfcc44;
+        border-right-color: #54c5b0;
+        border-top-color:rgb(84, 194, 68);
+        border-bottom-color: rgb(84, 194, 68);
+        border:1px solid transparent;
+        margin: 0 auto;
+        margin-top: 32px;
+    }
+    .introduce p{
+        width: 100%;
+        text-align: center;
+        color: rgb(118, 118, 118);
+        font-size: 15px;
+        font-family: "微软雅黑";
+        cursor: move;
+        line-height: 35px;
+    }
+    .introduce p:nth-of-type(1){
+        margin-top: 32px;
+    }
+    .introduce button{
+        height: 45px;
+        width: 224px;
+        color: #fff;
+        text-overflow: ellipsis;
+        cursor: pointer;
+        font-size: 17px;
+        font-family: 微软雅黑;
+        background: #54c245;
+        line-height: 45px;
+        border: none;
+        outline: none;
+        margin-top: 78px;
+        margin-left: 392px;
+    }
+    .gardenWrap{
+        display: none;
+    }
+
+
+}
+/*PC端完*/
+/*移动端*/
+@media screen and (max-width:414px){
+
+    /*PC*/
+    .wrapB{
+        display: none;
+    }
+    /*PC完*/
+    /*移动端*/
+    /*公共部分*/
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .gardenWrap{
+        width: 100%;
+        background-color: #fff;
+    }
+    .gardenWrap h2{
+        text-indent: 0.48rem;
+    }
+    /*schoolH  start*/
+    .schoolH{
+        text-indent:0.48rem;
+        font-size: 0.78rem;
+        height: 1.03rem;
+        border-left: 0.18rem solid #2BC965;
+        color: #2BC965;
+        margin-top: 0.72rem;
+    }
+    /*schoolH  end*/
+    /*studentP  start*/
+    .studentP{
+        margin-top:1.21rem;
+        width: 14.5rem;
+        height: 10.84rem;
+        font-size: 0.659rem;
+        font-family: 微软雅黑;
+        margin-left: 0.64rem;
+        line-height: 1.2rem;
+    }
+    .studentP img{
+        width: 7.9rem;
+        height:5.16rem;
+        margin-left: 0.07rem;
+        float: left;
+        margin-right: 0.65rem;
+        line-height: 1.2rem;
+    }
+    /*studentP  end*/
+    /*gardenT  start*/
+    .gardenT{
+        margin-left: 0.64rem;
+    }
+    .gardenT p:nth-of-type(1){
+        width:14.5rem;
+        height: 5.6rem;
+        font-size: 0.7rem;
+        font-family: 微软雅黑;
+        padding-left:0.24rem;
+        margin-top: 1.69rem;
+        line-height: 1.2rem;
+    }
+    .gardenT p:nth-of-type(2){
+        width:14.5rem;
+        height: 5.51rem;
+        font-size: 0.7rem;
+        font-family: 微软雅黑;
+        line-height: 1.2rem;
+        padding-left: 0.24rem;
+        margin-top: 1.81rem;
+    }
+    /*gardenT  end*/
+
+    /*移动端完*/
+}

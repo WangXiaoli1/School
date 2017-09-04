@@ -2,10 +2,43 @@
  * Created by Administrator on 2017/7/20.
  */
 import React, { Component } from 'react';
-
+import $ from 'jquery';
+import config from './config'
 
 class Forward extends Component{
+    bodyScroll(){
+        function gdjz(div,cssname,offset){
+            var a,b,c,d;
+            d=$(div).offset().top;
+            console.log(d)
+            a=eval(d + offset);
+            b=$(window).scrollTop();
+            c=$(window).height();
+            if(b+c>a){
+                $((div)).addClass((cssname));
+            }
+        }
+        // footer动画
+        $(document).ready(function() {
+            $(window).scroll(function(){
+                    gdjz(".footerIn",'moveFooter',300);
+                }
+            );
+        });
+        // footer动画完
+    }
+    componentDidUpdate(){
+        setInterval(function () {
+            if (document.addEventListener) {
+                document.addEventListener('scroll', this.bodyScroll1,false);
+            } else {
+                document.attachEvent('onscroll', this.bodyScroll1);
+            }
+        },1000)
+    }
     componentDidMount=function () {
+
+
         var name=document.getElementById('name');
         var phone=document.getElementById('phone');
         var Email=document.getElementById('Email');

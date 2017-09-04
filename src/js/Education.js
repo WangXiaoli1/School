@@ -2,74 +2,190 @@
  * Created by Administrator on 2017/7/18.
  */
 import React,{Component} from 'react';
+import  $ from 'jquery';
+import config from './config';
 class Education extends Component{
     constructor(){
         super();
-        this.data = {
-            "banner":"img/banner-a.jpg",
-            "class":[
-                {"text":"引进一流的教育管理模式"},
-                {"text":"EDUCATIONAL MANAGEMENT MODEL"},
-                {"text":"专注于激发孩子们学习兴趣、食品认知能力、动手能力、我们坚信，伊顿的孩子会拥有这样的核心价值——多元文"},
-                {"text":"化的情商和胸怀化的情商和胸怀、优良的品格和超凡的创造力！"}
-            ],
-            "myClass":[
-                {"img":"img/icon-e.png","title":"国际班级","enTitle":"LEARNING INTEREST","con":"拥有国际一流的教育专家团队和具有国际资格认证的中外教师队伍，每个校园都是按照国际纯正蒙台梭利校园的特点和标准精心设计的，目前伊顿已经发展成为引领中国幼教国际化发展的旗舰。"},
-                {"img":"img/icon-f.png","title":"科普班级","enTitle":"LEARNING INTEREST","con":"拥有国际一流的教育专家团队和具有国际资格认证的中外教师队伍，每个校园都是按照国际纯正蒙台梭利校园的特点和标准精心设计的，目前伊顿已经发展成为引领中国幼教国际化发展的旗舰。"},
-                {"img":"img/icon-g.png","title":"手绘班级","enTitle":"LEARNING INTEREST","con":"拥有国际一流的教育专家团队和具有国际资格认证的中外教师队伍，每个校园都是按照国际纯正蒙台梭利校园的特点和标准精心设计的，目前伊顿已经发展成为引领中国幼教国际化发展的旗舰。"},
-                {"img":"img/icon-h.png","title":"品德班级","enTitle":"LEARNING INTEREST","con":"拥有国际一流的教育专家团队和具有国际资格认证的中外教师队伍，每个校园都是按照国际纯正蒙台梭利校园的特点和标准精心设计的，目前伊顿已经发展成为引领中国幼教国际化发展的旗舰。"}
-            ],
-            "xhrGreen":{"img":"img/xhr-b.png","text":"我要报名>>"},
-            "xhrGreenRight":[
-                {"text":"特色教学"},
-                {"text":"LEARNING INTEREST"},
-                {"text":"为他们发展更好的逻辑思维能力打下基础。伊顿专业的老师和教育专家们将富有创造力的教学主体和教学环境建立在丰富的蒙台梭利材料之上，每个月变换不同的主题，全年不间断。"}
-            ],
-            "pictureCLeft":[
-                {"img":"../img/pic-a.jpg"},
-                {"img":"../img/pic-b.jpg"},
-                {"img":"../img/pic-d.jpg"},
-                {"img":"../img/pic-e.jpg"}
-            ],
-            "pictureCRight":{"img":"../img/pic-c.jpg"}
-
-
+        this.state = {
+            class:[],
+            myClass:[],
+            xhrGreenR:[],
+            xhrGreen:[],
+            xhrGreenRight:[],
+            pictureCLeft:[],
+            pictureCRight:[],
     }
     }
-    componentDidMount(){
-        var pictureCLeft=document.getElementById('pictureCLeft');
-        var pictureCRight=document.getElementById('pictureCRight');
-        for(var i=0;i<pictureCLeft.children.length;i++){
-            pictureCLeft.children[i].style.backgroundImage=`url("${this.data.pictureCLeft[i].img}")`
+    bodyScroll(){
+        function gdjz(div,cssname,offset){
+            var a,b,c,d;
+
+            d=$(div).offset().top;
+            console.log(d)
+            a=eval(d + offset);
+            b=$(window).scrollTop();
+            c=$(window).height();
+            if(b+c>a){
+                $((div)).addClass((cssname));
+            }
         }
-        pictureCRight.style.backgroundImage=`url("${this.data.pictureCRight.img}")`;
+        $(document).ready(function() {
+            $(window).scroll(function(){
+                    // class 动画
+                    gdjz(".class>p:nth-of-type(1)",'Edu_moveClass',-100);
+                    gdjz(".class>p:nth-of-type(2)",'Edu_moveClass',-100);
+                    gdjz(".class>p:nth-of-type(3)",'Edu_moveClass',-100);
+                    gdjz(".class>p:nth-of-type(4)",'Edu_moveClass',-100);
+                    // class动画完
 
-        // function moveY(id,t) {
-        //     var obj=document.getElementById(id);
-        //     var timer='';
-        //     var screenW=document.documentElement.offsetWidth;
-        //     obj.parentNode.style.overflow='hidden';
-        //     var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-        //     timer=setInterval(function () {
-        //         obj.style.transition=t+"s";
-        //         obj.style.transform="translateY("+0+")";
-        //     },500)
-        // }
-        // moveY(id,t)
+                    // myclass动画
+                    gdjz(".myClassA",'Edu_myClassBg',-100);
+                    gdjz(".myClassCon",'Edu_myClassTxt',-100);
+                    gdjz(".myClassB",'Edu_myClassImg',-100);
+                    // myclass动画完
+
+                    // 绿色小黄人动画
+                    gdjz(".xhr",'Edu_moveXhr',-50);
+                    gdjz(".xhrGreen-right",'Edu_xhrGreenRight',-50);
+                    // 绿色小黄人动画完
+
+                    // 图片动画
+                    gdjz(".pictureC-left div:nth-of-type(1)",'Edu_pictureCLeft',-50);
+                    gdjz(".pictureC-left div:nth-of-type(2)",'Edu_pictureCLeftA',-50);
+                    gdjz(".pictureC-left div:nth-of-type(3)",'Edu_pictureCLeft',-50);
+                    gdjz(".pictureC-left div:nth-of-type(4)",'Edu_pictureCLeftA',-50);
+                    gdjz(".pictureC-right",'Edu_pictureCRight',-50);
+                    // 图片动画完
+
+                    // footer动画
+                    gdjz(".footerIn",'moveFooter',300);
+                    // footer动画完
+                }
+            );
+        });
+    }
+    // componentDidUpdate(){
+    //     setInterval(function () {
+    //         if (document.addEventListener) {
+    //             document.addEventListener('scroll', this.bodyScroll1,false);
+    //         } else {
+    //             document.attachEvent('onscroll', this.bodyScroll1);
+    //         }
+    //     }.bind(this),1000)
+    // }
+    componentDidMount(){
+
+        $.ajax({
+            url:config.url+'/edu_class',
+            type:'get',
+            success:function(a){
+                console.log(a);
+                this.setState({class:a});
+            }.bind(this)
+        });
+        $.ajax({
+            url:config.url+'/edu_myClass',
+            type:'get',
+            success:function(a){
+                console.log(a);
+                this.setState({myClass:a});
+            }.bind(this)
+        });
+        $.ajax({
+            url:config.url+'/edu_xhrGreen',
+            type:'get',
+            success:function(a){
+                console.log(a);
+                this.setState({xhrGreenR:a});
+            }.bind(this)
+        });
+        $.ajax({
+            url:config.url+'/edu_xhrGreenRight',
+            type:'get',
+            success:function(a){
+                console.log(a);
+                this.setState({xhrGreenRight:a});
+            }.bind(this)
+        });
+
+// 获取图片
+//         banner
+        $.ajax({
+            type: "get",
+            url: config.url+"/banner3/banner3",
+            success: function (e) {
+                this.setState({banner3:[e[0].src]});
+            }.bind(this)
+        });
+        // myClass
+        $.ajax({
+            type: "get",
+            url: config.url+"/e_myclass/e_myclass",
+            success: function (e) {
+                console.log(e)
+                this.setState({myClass:e});
+            }.bind(this)
+        });
+        // xhrGreen
+        $.ajax({
+            type: "get",
+            url: config.url+"/e_xhr/e_xhr",
+            success: function (e) {
+                this.setState({xhrGreen:e});
+            }.bind(this)
+        });
+        $.ajax({
+            type: "get",
+            url: config.url+"/edu_pic/edu_pic",
+            success: function (e) {
+                this.setState({pictureCLeft:e});
+                var pictureCLeft=document.getElementById('pictureCLeft');
+                var pictureCLeftDiv=pictureCLeft.getElementsByTagName('div');
+                for(var i=0;i<pictureCLeftDiv.length;i++){
+                    pictureCLeftDiv[i].onmouseover=function () {
+                        this.children[0].style.marginLeft='0px';
+                        this.children[0].style.transition='0.5s';
+                    }
+                    pictureCLeftDiv[i].onmouseout=function () {
+                        this.children[0].style.marginLeft='-20px';
+                        this.children[0].style.transition='0.5s';
+                    }
+                }
+            }.bind(this)
+        });
+        $.ajax({
+            type: "get",
+            url: config.url+"/edu_pic1/edu_pic1",
+            success: function (e) {
+                this.setState({pictureCRight:[e[0].src]});
+                var pictureCRight=document.getElementById('pictureCRight');
+                pictureCRight.onmouseover=function () {
+                    this.children[0].style.marginLeft='0px';
+                    this.children[0].style.transition='0.5s';
+                }
+                pictureCRight.onmouseout=function () {
+                    this.children[0].style.marginLeft='-20px';
+                    this.children[0].style.transition='0.5s';
+                }
+            }.bind(this)
+        });
     }
     render(){
         return(
+            <div>
+                {/*PC*/}
             <div className="wrapC">
-                <img src={this.data.banner} alt="" className="bannerC"/>
+                <img src={this.state.banner3} alt="" className="bannerC"/>
                 <div className="super-class">
                     <div className="class">
-                        {this.data.class.map(function (v) {
-                            return <p>{v.text}</p>
+                        {this.state.class.map(function (v,i) {
+                            return <p key={i} className="classIn">{v.text}</p>
                         })}
                         <div className="myClass">
-                            {this.data.myClass.map(function (v,i) {
+                            {this.state.myClass.map(function (v,i) {
                                 return <div key={i}>
-                                    <span><img src={v.img} alt=""/></span>
+                                    <span className="myClassA"><img src={v.src} alt="" className="myClassB"/></span>
                                     <div className="myClassCon">
                                         <h3>{v.title}</h3>
                                         <h4>{v.enTitle}</h4>
@@ -82,26 +198,56 @@ class Education extends Component{
                     {/*xhrGreen*/}
                     <div className="super-xhrGreen">
                         <div className="xhrGreen">
-                            <img src={this.data.xhrGreen.img} alt="" className="xhr"/>
+                            {this.state.xhrGreenR.map(function (v,i) {
+                                return <img src={v.src} alt="" className="xhr" key={i}/>
+                            })}
                             <div className="xhrGreen-right">
-                                {this.data.xhrGreenRight.map(function (v) {
-                                    return <p>{v.text}</p>
+                                {this.state.xhrGreenRight.map(function (v,i) {
+                                    return <p key={i}>{v.text}</p>
                                 })}
-                                <a>{this.data.xhrGreen.text}</a>
+                                {this.state.xhrGreen.map(function (v,i) {
+                                    return <a key={i}>{v.text}</a>
+                                })}
                             </div>
                         </div>
                     </div>
                     <div className="pictureC">
                         <div className="pictureC-left" id="pictureCLeft">
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
+                            {this.state.pictureCLeft.map(function (v,i) {
+                                return <div key={i}><img src={v.src} alt=""/></div>
+                            }
+                            )}
                         </div>
-                        <div className="pictureC-right" id="pictureCRight"></div>
+                        <div className="pictureC-right" id="pictureCRight">
+                            <img src={this.state.pictureCRight} alt=""/>
+                        </div>
                     </div>
                 </div>
              </div>
+                {/*PC端完*/}
+                {/*移动端*/}
+                <div className="eduWrap">
+                    {/*国际班级 start*/}
+                    <div className="classP">
+                        <h2>国际班级</h2>
+                        <img src="../img/pic-a.jpg" alt=""/>
+                        <p>拥有国际一流的教育专家团队和具有国际资格认证的中外教师队伍，每个校园都是按照国际纯正蒙台梭利校园的特点和标准精心设计的，目前伊顿已经发展成为引领中国幼教国际化发展的旗舰。</p>
+                        <div className="lineP"></div>
+                    </div>
+                    {/*国际班级  end*/}
+                    {/*科普班级 start*/}
+                    <div className="classP">
+                        <h2>科普班级</h2>
+                        <img src="../img/pic-b.jpg" alt=""/>
+                        <p>拥有国际一流的教育专家团队和具有国际资格认证的中外教师队伍，每个校园都是按照国际纯正蒙台梭利校园的特点和标准精心设计的，目前伊顿已经发展成为引领中国幼教国际化发展的旗舰。</p>
+                        <div className="lineP"></div>
+                    </div>
+                    {/*科普班级 end*/}
+                </div>
+
+                {/*移动端完*/}
+
+            </div>
         )
     }
 }
