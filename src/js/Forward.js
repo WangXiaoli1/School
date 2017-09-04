@@ -3,6 +3,7 @@
  */
 import React, { Component } from 'react';
 import $ from 'jquery';
+import config from './config'
 
 class Forward extends Component{
     bodyScroll(){

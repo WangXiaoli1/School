@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {BrowserRouter as Router,Route,Link} from 'react-router-dom';
 import { Carousel } from 'antd';
 import $ from 'jquery';
+import config from './config'
 
 class Main extends Component {
     constructor() {
@@ -110,7 +111,7 @@ class Main extends Component {
     componentDidMount() {
 
         $.ajax({
-            url: 'http://192.168.43.5:8005/main',
+            url: config.url+'/main',
             type: 'get',
             success: function (b) {
                 this.setState({main_con: b});
@@ -119,7 +120,7 @@ class Main extends Component {
 
 
         $.ajax({
-            url: 'http://192.168.43.5:8005/special',
+            url: config.url+'/special',
             type: 'get',
             success: function (b) {
                 this.setState({special: b});
@@ -127,7 +128,7 @@ class Main extends Component {
         });
 
         $.ajax({
-            url: 'http://192.168.43.5:8005/side_l',
+            url: config.url+'/side_l',
             type: 'get',
             success: function (b) {
                 this.setState({side_l: b});
@@ -135,7 +136,7 @@ class Main extends Component {
         });
 
         $.ajax({
-            url: 'http://192.168.43.5:8005/side_r',
+            url: config.url+'/side_r',
             type: 'get',
             success: function (b) {
                 this.setState({side_r: b});
@@ -144,7 +145,7 @@ class Main extends Component {
 
 
         $.ajax({
-            url: 'http://192.168.43.5:8005/school',
+            url: config.url+'/school',
             type: 'get',
             success: function (b) {
                 this.setState({school: b});
@@ -156,7 +157,7 @@ class Main extends Component {
 
         $.ajax({
             type: "get",
-            url: "http://192.168.43.5:8005/banner/banner",
+            url: config.url+"/banner/banner",
             success: function (e) {
                 this.setState({banner:e});
                 console.log(this.state.banner)
@@ -165,7 +166,7 @@ class Main extends Component {
 
         $.ajax({
             type: "get",
-            url: "http://192.168.43.5:8005/main_side_l/sides",
+            url: config.url+"/main_side_l/sides",
             success: function (e) {
 
             }
@@ -173,7 +174,7 @@ class Main extends Component {
 
         $.ajax({
             type: "get",
-            url: "http://192.168.43.5:8005/main_side_r/sides_r",
+            url: config.url+"/main_side_r/sides_r",
             success: function (e) {
 
             }
@@ -181,7 +182,7 @@ class Main extends Component {
 
         $.ajax({
             type: "get",
-            url: "http://192.168.43.5:8005/main_school",
+            url: config.url+"/main_school",
             success: function (e) {
 
             }

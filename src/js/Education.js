@@ -3,6 +3,7 @@
  */
 import React,{Component} from 'react';
 import  $ from 'jquery';
+import config from './config';
 class Education extends Component{
     constructor(){
         super();
@@ -76,7 +77,7 @@ class Education extends Component{
     componentDidMount(){
 
         $.ajax({
-            url:'http://192.168.43.5:8005/edu_class',
+            url:config.url+'/edu_class',
             type:'get',
             success:function(a){
                 console.log(a);
@@ -84,7 +85,7 @@ class Education extends Component{
             }.bind(this)
         });
         $.ajax({
-            url:'http://192.168.43.5:8005/edu_myClass',
+            url:config.url+'/edu_myClass',
             type:'get',
             success:function(a){
                 console.log(a);
@@ -92,7 +93,7 @@ class Education extends Component{
             }.bind(this)
         });
         $.ajax({
-            url:'http://192.168.43.5:8005/edu_xhrGreen',
+            url:config.url+'/edu_xhrGreen',
             type:'get',
             success:function(a){
                 console.log(a);
@@ -100,7 +101,7 @@ class Education extends Component{
             }.bind(this)
         });
         $.ajax({
-            url:'http://192.168.43.5:8005/edu_xhrGreenRight',
+            url:config.url+'/edu_xhrGreenRight',
             type:'get',
             success:function(a){
                 console.log(a);
@@ -112,7 +113,7 @@ class Education extends Component{
 //         banner
         $.ajax({
             type: "get",
-            url: "http://192.168.43.5:8005/banner3/banner3",
+            url: config.url+"/banner3/banner3",
             success: function (e) {
                 this.setState({banner3:[e[0].src]});
             }.bind(this)
@@ -120,7 +121,7 @@ class Education extends Component{
         // myClass
         $.ajax({
             type: "get",
-            url: "http://192.168.43.5:8005/e_myclass/e_myclass",
+            url: config.url+"/e_myclass/e_myclass",
             success: function (e) {
                 console.log(e)
                 this.setState({myClass:e});
@@ -129,14 +130,14 @@ class Education extends Component{
         // xhrGreen
         $.ajax({
             type: "get",
-            url: "http://192.168.43.5:8005/e_xhr/e_xhr",
+            url: config.url+"/e_xhr/e_xhr",
             success: function (e) {
                 this.setState({xhrGreen:e});
             }.bind(this)
         });
         $.ajax({
             type: "get",
-            url: "http://192.168.43.5:8005/edu_pic/edu_pic",
+            url: config.url+"/edu_pic/edu_pic",
             success: function (e) {
                 this.setState({pictureCLeft:e});
                 var pictureCLeft=document.getElementById('pictureCLeft');
@@ -155,7 +156,7 @@ class Education extends Component{
         });
         $.ajax({
             type: "get",
-            url: "http://192.168.43.5:8005/edu_pic1/edu_pic1",
+            url: config.url+"/edu_pic1/edu_pic1",
             success: function (e) {
                 this.setState({pictureCRight:[e[0].src]});
                 var pictureCRight=document.getElementById('pictureCRight');

@@ -1,6 +1,7 @@
 
 import React,{Component} from 'react';
 import $ from 'jquery';
+import config from './config'
 class Teach extends Component{
     constructor(){
         super();
@@ -89,7 +90,7 @@ class Teach extends Component{
     // }
     componentDidMount(){
         $.ajax({
-            url: 'http://192.168.43.5:8005/teach_brand',
+            url: config.url+'/teach_brand',
             type: 'get',
             success: function (a) {
                 console.log(a);
@@ -98,7 +99,7 @@ class Teach extends Component{
         });
 
         $.ajax({
-            url: 'http://192.168.43.5:8005/teach_leaderOne',
+            url: config.url+'/teach_leaderOne',
             type: 'get',
             success: function (a) {
                 console.log(a);
@@ -106,7 +107,7 @@ class Teach extends Component{
             }.bind(this)
         });
         $.ajax({
-            url: 'http://192.168.43.5:8005/teach_leaderTwo',
+            url: config.url+'/teach_leaderTwo',
             type: 'get',
             success: function (a) {
                 console.log(a);
@@ -114,7 +115,7 @@ class Teach extends Component{
             }.bind(this)
         });
         $.ajax({
-            url: 'http://192.168.43.5:8005/teach_leaderThree',
+            url: config.url+'/teach_leaderThree',
             type: 'get',
             success: function (a) {
                 console.log(a);
@@ -126,7 +127,7 @@ class Teach extends Component{
         //调取图片
         $.ajax({
             type: "get",
-            url: "http://192.168.43.5:8005/banner5/banner5",
+            url: config.url+"/banner5/banner5",
             success: function (e) {
                 this.setState({banner5:[e[0].src]});
             }.bind(this)
@@ -136,7 +137,7 @@ class Teach extends Component{
 
         $.ajax({
             type: "get",
-            url: "http://192.168.43.5:8005/tea_leaderOne/tea_leaderOne",
+            url: config.url+"/tea_leaderOne/tea_leaderOne",
             success: function (e) {
                 this.setState({leader_one_l:[e[0].src]});
             }.bind(this)
@@ -145,7 +146,7 @@ class Teach extends Component{
 
         $.ajax({
             type: "get",
-            url: "http://192.168.43.5:8005/tea_leaderTwo/tea_leaderTwo",
+            url: config.url+"/tea_leaderTwo/tea_leaderTwo",
             success: function (e) {
                 this.setState({leader_two_r:[e[0].src]});
             }.bind(this)
@@ -153,7 +154,7 @@ class Teach extends Component{
 
         $.ajax({
             type: "get",
-            url: "http://192.168.43.5:8005/tea_leaderThree/tea_leaderThree",
+            url: config.url+"/tea_leaderThree/tea_leaderThree",
             success: function (e) {
                 this.setState({leader_three_l:[e[0].src]});
             }.bind(this)

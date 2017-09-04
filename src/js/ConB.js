@@ -4,6 +4,7 @@
 import React, { Component } from 'react';
 import {BrowserRouter as Router,Route,Link} from 'react-router-dom';
 import $ from 'jquery';
+import config from './config'
 class ConB extends Component {
     constructor () {
         super();
@@ -88,7 +89,7 @@ class ConB extends Component {
 
 
         $.ajax({
-            url:'http://192.168.43.5:8005/conBenvir',
+            url:config.url+'/conBenvir',
             type:'get',
             success:function(a){
                 console.log(a);
@@ -96,7 +97,7 @@ class ConB extends Component {
             }.bind(this)
         });
         $.ajax({
-            url:'http://192.168.43.5:8005/conB_introduce',
+            url:config.url+'/conB_introduce',
             type:'get',
             success:function(a){
                 console.log(a);
@@ -109,7 +110,7 @@ class ConB extends Component {
         //banner
         $.ajax({
             type: "get",
-            url: "http://192.168.43.5:8005/banner2/banner2",
+            url: config.url+"/banner2/banner2",
             success: function (e) {
                 this.setState({banner2:[e[0].src]});
             }.bind(this)
@@ -117,7 +118,7 @@ class ConB extends Component {
         // 照片墙
         $.ajax({
             type: "get",
-            url: "http://192.168.43.5:8005/conB_picture/get",
+            url: config.url+"/conB_picture/get",
             success: function (e) {
                 this.setState({picture:e});
                 // picture部分的悬浮黑条出现效果
@@ -140,7 +141,7 @@ class ConB extends Component {
         //介绍
         $.ajax({
             type: "get",
-            url: "http://192.168.43.5:8005/intro/intro",
+            url: config.url+"/intro/intro",
             success: function (e) {
                 console.log(e)
 

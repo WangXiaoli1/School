@@ -3,6 +3,7 @@
  */
 import React,{Component} from 'react';
 import {BrowserRouter as Router,Route,Link} from 'react-router-dom';
+import config from './config'
 import $ from 'jquery';
 class Baby extends Component{
     constructor(){
@@ -78,7 +79,7 @@ class Baby extends Component{
         //     navLi[3].classList.add('navColor');
         // }
         $.ajax({
-            url:'http://192.168.43.5:8005/model',
+            url:config.url+'/model',
             type:'get',
             success:function(b){
                 console.log(b);
@@ -87,7 +88,7 @@ class Baby extends Component{
         });
        // 亲子主题乐园
         $.ajax({
-            url:'http://192.168.43.5:8005/baby_park',
+            url:config.url+'/baby_park',
             type:'get',
             success:function(b){
                 console.log(b);
@@ -97,7 +98,7 @@ class Baby extends Component{
 
 
         $.ajax({
-            url:'http://192.168.43.5:8005/baby_create',
+            url:config.url+'/baby_create',
             type:'get',
             success:function(b){
                 console.log(b);
@@ -108,7 +109,7 @@ class Baby extends Component{
         //banner
         $.ajax({
             type: "get",
-            url: "http://192.168.43.5:8005/banner4/banner4",
+            url: config.url+"/banner4/banner4",
             success: function (e) {
                 console.log(e)
                 this.setState({banner:[e[0].src]});
@@ -116,7 +117,7 @@ class Baby extends Component{
         });
         $.ajax({
             type: "get",
-            url: "http://192.168.43.5:8005/baby_img/baby_img",
+            url: config.url+"/baby_img/baby_img",
             success: function (e) {
                 console.log(e)
                 this.setState({create_img:e});
@@ -125,7 +126,7 @@ class Baby extends Component{
         // park背景
         $.ajax({
             type: "get",
-            url: "http://192.168.43.5:8005/parkBg/parkBg",
+            url: config.url+"/parkBg/parkBg",
             success: function (e) {
                 console.log(e)
                 this.setState({parkBg:[e[0].src]});
